@@ -16,3 +16,5 @@
   - ProjectHeaderComponent
   - ProjectVideoComponent
   - ProjectStatusComponent
+  - ProjectDescriptionComponent
+  - ProjectRewardsComponent
