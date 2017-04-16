@@ -23,4 +23,13 @@
 | total_amount_raised | integer   | not null              |
 | description         | text      | not null              |
 
-## rewards - tied to projects
+## rewards
+
+| column name   | data type | details               |
+|---------------|-----------|-----------------------|
+| id            | integer   | not null, primary key |
+| title         | string    | not null              |
+| pledge_amount | integer   | not null              |
+| description   | string    | not null              |
+| delivery_date | date      | not null              |
+| max_backers   | integer   | default of 0          |
