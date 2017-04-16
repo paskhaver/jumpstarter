@@ -2,7 +2,7 @@
 
 [Heroku Link](#)
 
-[Kickstarter Link](http://www.kickstarter.com)
+[Trello Link](https://trello.com/b/BY6229t7/jumpstarter)
 
 ## Minimum Viable Product (MVP)
 
@@ -16,12 +16,14 @@ is built in React / Redux.
 - Projects
   - Users can create, read, and edit projects
 - Backing projects & rewards
-  - Users can invest in projects with monetary investments
-  - Investments connect the user to a series of rewards
+  - Users can pledge to a project by choosing a reward
+  - The reward is tied to a pledge amount
+  - The aggregate of pledge amounts across a project is its funding total
 - Search
-  - A search bar on main menu to dynamically load projects
+  - A search bar on the main nav dynamically loads 4 projects at  atime
 - Categories / Discover feature
-  - A categories page that lists top projects (by funding) for each category
+  - A main nav offers consistent access to an **Explore** page with all categories
+  - A single categories page includes top projects in that category, sorted by amount raised
 - **Bonus**: Likes
 - **Bonus**: Credit card payments
 
@@ -42,3 +44,12 @@ is built in React / Redux.
 ## Phase 1: Backend Setup and Front End User Authentication (2 days)
 **Objective:** Rails backend for creating / logging in user
 with session-token and front-end signup from
+
+## Phase 2: Create Project Page
+
+## Phase 3: User Backing Projects
+
+## Phase 4: Categories
+
+## Phase 5: Search / Discover (1 day)
+**Objective:** 

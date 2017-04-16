@@ -60,17 +60,24 @@ FOREIGN KEY **project-id** related to PRIMARY KEY **id** in projects table
 
 ## pledges
 
-| column name | data type | details               |
-|-------------|-----------|-----------------------|
-| id          | integer   | not null, primary key |
-| user_id     | integer   | not null, FOREIGN KEY |
-| reward_id   | integer   | not null, FOREIGN KEY |
+| column name | data type | details                           |
+|-------------|-----------|-----------------------------------|
+| id          | integer   | not null, primary key             |
+| user_id     | integer   | not null, not unique, FOREIGN KEY |
+| reward_id   | integer   | not null, not unique, FOREIGN KEY |
 
 JOIN table connecting users and the projects they pledged to
 
 FOREIGN KEY **user-id** related to PRIMARY KEY **id** in users table
 
 FOREIGN KEY **reward-id** related to PRIMARY KEY **id** in rewards table
+
+The foreign keys are not unique.
+- The same user can pledge more than once to acquire different rewards.
+- The same user can pledge more than once for the same reward.
+- A reward can have more than one user.
+
+### Logic
 
 - To pledge to a specific project, a user makes a donation in exchange for a reward. - The **reward** is tied to a monetary amount.
 - In my opinion, we do not need to store a connection between the user and the project
