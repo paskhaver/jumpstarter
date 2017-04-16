@@ -11,6 +11,11 @@
 - `POST /api/users`       <!-- UsersController#create -- Create new user -->
 - `PATCH /api/users/:id`  <!-- UsersController#update -- Update user details -->
 
+| Route                | Action                                        |
+|----------------------|-----------------------------------------------|
+| POST /api/users      | UsersController#create -- Create new user     |
+| PATCH /api/users/:id | UsersController#update -- Update user details |
+
 ### Session
 - `POST /api/session`    <!-- SessionsController#create -- Create new session(login) -->
 - `DELETE /api/session`  <!-- SessionsController#create -- Delete session(logout) -->
