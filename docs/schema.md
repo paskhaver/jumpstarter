@@ -15,6 +15,7 @@
 | column name         | data type | details               |
 |---------------------|-----------|-----------------------|
 | id                  | integer   | not null, primary key |
+| creator_id          | integer   | not null, FOREIGN KEY |
 | title               | string    | not null              |
 | blurb               | string    | not null              |
 | category            | string    | not null              |
@@ -22,6 +23,8 @@
 | funding_goal        | integer   | not null              |
 | total_amount_raised | integer   | not null              |
 | description         | text      | not null              |
+
+FOREIGN KEY **creator-id** related to PRIMARY KEY **id** in users table
 
 ## rewards
 
@@ -33,3 +36,5 @@
 | description   | string    | not null              |
 | delivery_date | date      | not null              |
 | max_backers   | integer   | default of 0          |
+
+## pledges
