@@ -67,7 +67,9 @@ FOREIGN KEY **project-id** related to PRIMARY KEY **id** in projects table
 | reward_id   | integer   | not null, FOREIGN KEY |
 
 JOIN table connecting users and the projects they pledged to
+
 FOREIGN KEY **user-id** related to PRIMARY KEY **id** in users table
+
 FOREIGN KEY **reward-id** related to PRIMARY KEY **id** in rewards table
 
 To contribute to a specific project, a user makes a donation
