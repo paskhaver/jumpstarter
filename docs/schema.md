@@ -24,13 +24,12 @@
 | total_amount_raised | integer   | not null              |
 | description         | text      | not null              |
 
-FOREIGN KEY **creator-id** related to PRIMARY KEY **id** in users table
+FOREIGN KEY **creator_id** connects to PRIMARY KEY **id** in users table
 
-In theory, the *total_amount_raised* column is not needed.
-The project has a connection to the **rewards** table,
-which has a connection to the **pledges** table. The
-*total_amount_raised* can be calculated with data from
-separate tables; duplication exists.
+- In theory, the *total_amount_raised* column is not needed.
+- The project uses a `has_many` connection with the **rewards** table
+- The **rewards** table uses a `has_many` connection with the **pledges** table
+- The *total_amount_raised* can be calculated with this formula:
 
 number of pledges for a reward * pledge_amount = revenue brought in by reward
 aggregate of all revenue = total project revenue
@@ -48,15 +47,15 @@ Upon a user pledge, it seems simpler to
 
 | column name   | data type | details               |
 |---------------|-----------|-----------------------|
-| id            | integer   | not null, primary key |
-| project_id    | integer   | not null, FOREIGN key |
+| id            | integer   | not null, PRIMARY KEY |
+| project_id    | integer   | not null, FOREIGN KEY |
 | title         | string    | not null              |
 | pledge_amount | integer   | not null              |
 | description   | string    | not null              |
 | delivery_date | date      | not null              |
-| max_backers   | integer   | default of 0          |
+| max_backers   | integer   | optional              |
 
-FOREIGN KEY **project-id** related to PRIMARY KEY **id** in projects table
+FOREIGN KEY **project_id** related to PRIMARY KEY **id** in projects table
 
 ## pledges
 
@@ -68,9 +67,8 @@ FOREIGN KEY **project-id** related to PRIMARY KEY **id** in projects table
 
 JOIN table connecting users and the projects they pledged to
 
-FOREIGN KEY **user-id** related to PRIMARY KEY **id** in users table
-
-FOREIGN KEY **reward-id** related to PRIMARY KEY **id** in rewards table
+- FOREIGN KEY **user_id** related to PRIMARY KEY **id** in users table
+- FOREIGN KEY **reward_id** related to PRIMARY KEY **id** in rewards table
 
 The foreign keys are not unique.
 - The same user can pledge more than once to acquire different rewards.
