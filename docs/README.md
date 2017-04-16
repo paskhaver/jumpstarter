@@ -40,22 +40,22 @@ is built in React / Redux.
 
 # Implementation Timeline
 
-## Phase 1: Backend Setup and Front End User Authentication (2 days)
+### Phase 1: Backend Setup and Front End User Authentication (2 days)
 **Objective:** Functioning Rails backend for creating / logging in user
 as well as frontend signup form and login form
 
-## Phase 2: Projects(3 days)
+### Phase 2: Projects (3 days)
 **Objective:** Projects can be created, read, edited, and
 destroyed through the API.
 
-## Phase 3: Rewards (2 days)
+### Phase 3: Rewards (2 days)
 **Objective:** Users can pledge to projects to receive
 rewards. Rewards increment the project's raised amount
 
-## Phase 4: Categories (1 day)
+### Phase 4: Categories (1 day)
 **Objective:** Category pages display projects underneath
 them, sorted by highest-grossing
 
-## Phase 5: Search / Discover (1 day)
+### Phase 5: Search / Discover (1 day)
 **Objective:** Search bar on nav bar dynamically loads
 top 4 search results for user term
