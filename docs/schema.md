@@ -12,4 +12,15 @@
 
 ## projects
 
+| column name         | data type | details               |
+|---------------------|-----------|-----------------------|
+| id                  | integer   | not null, primary key |
+| title               | string    | not null              |
+| blurb               | string    | not null              |
+| category            | string    | not null              |
+| end_date            | date      | not null              |
+| funding_goal        | integer   | not null              |
+| total_amount_raised | integer   | not null              |
+| description         | text      | not null              |
+
 ## rewards - tied to projects
