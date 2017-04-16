@@ -28,7 +28,6 @@ is built in React / Redux.
 - **Bonus**: Credit card payments
 
 # Design Docs
-=============
 
 [API Endpoints](./api-endpoints.md)
 
@@ -39,7 +38,6 @@ is built in React / Redux.
 [Schema](./schema.md)
 
 # Implementation Timeline
-=========================
 
 ## Phase 1: Backend Setup and Front End User Authentication (2 days)
 **Objective:** Rails backend for creating / logging in user
@@ -52,4 +50,4 @@ with session-token and front-end signup from
 ## Phase 4: Categories
 
 ## Phase 5: Search / Discover (1 day)
-**Objective:** 
+**Objective:**

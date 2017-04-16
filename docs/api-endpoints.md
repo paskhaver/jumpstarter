@@ -1,8 +1,6 @@
 # HTML API
-==========
 
-# Root
+## Root
 - `GET /` - Loads React web app
 
 # JSON API
-==========
