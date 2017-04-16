@@ -25,6 +25,8 @@ is built in React / Redux.
 - **Bonus**: Likes
 - **Bonus**: Credit card payments
 
+# Design Docs
+=============
 
 [API Endpoints](./api-endpoints.md)
 
@@ -33,3 +35,10 @@ is built in React / Redux.
 [Sample State](./sample-state.md)
 
 [Schema](./schema.md)
+
+# Implementation Timeline
+=========================
+
+## Phase 1: Backend Setup and Front End User Authentication (2 days)
+**Objective:** Rails backend for creating / logging in user
+with session-token and front-end signup from
