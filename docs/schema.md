@@ -72,9 +72,8 @@ FOREIGN KEY **user-id** related to PRIMARY KEY **id** in users table
 
 FOREIGN KEY **reward-id** related to PRIMARY KEY **id** in rewards table
 
-To contribute to a specific project, a user makes a donation
-in exchange for a reward. The **reward** is tied to a monetary
-amount. In my opinion, we do not need to store a connection between the user
-and the project; it is automatically available through the reward.
+- To pledge to a specific project, a user makes a donation in exchange for a reward. - The **reward** is tied to a monetary amount.
+- In my opinion, we do not need to store a connection between the user and the project
+- The connection is automatically available through the reward's connection with the project.
 
 User ---->  Reward ----> Project
