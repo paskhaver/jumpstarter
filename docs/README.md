@@ -14,9 +14,14 @@ is built in React / Redux.
 - A production README
 - Hosting on Heroku
 - Projects
+  - Users can create, read, and edit projects
 - Backing projects & rewards
+  - Users can invest in projects with monetary investments
+  - Investments connect the user to a series of rewards
 - Search
+  - A search bar on main menu to dynamically load projects
 - Categories / Discover feature
+  - A categories page that lists top projects (by funding) for each category
 - **Bonus**: Likes
 - **Bonus**: Credit card payments
 
