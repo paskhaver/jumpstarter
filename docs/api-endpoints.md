@@ -30,7 +30,8 @@
 
 ### Rewards
   - A project's rewards will be included in the project show template
-  | Route                                          | Action                                                          |
+
+| Route                                          | Action                                                          |
 |------------------------------------------------|-----------------------------------------------------------------|
 | `GET /api/projects/:project_id/rewards`        | RewardsController#index -- Get all rewards for project          |
 | `POST /api/projects/:project_id/rewards`       | RewardsController#create -- Create new reward for project       |
