@@ -3,18 +3,23 @@
 **App**
 
 **SignupContainer**
+  - SignInForm Component
 
 **LoginContainer**
+  - LoginForm Component
 
-**Search**
-
-**NavBar**
-
-
+**NavBarContainer**
+  - SearchBar Component
 
 **ProjectContainer**
-  - ProjectHeaderComponent
-  - ProjectVideoComponent
-  - ProjectStatusComponent
-  - ProjectDescriptionComponent
-  - ProjectRewardsComponent
+  - ProjectHeader Component
+  - ProjectVideo Component
+  - ProjectStatus Component
+  - ProjectDescription Component
+  - ProjectRewards Component
+
+**Categories Container**
+  - Categories Component
+
+**CategoryProjectsContainer**
+  - CategoryProjectItem Component
