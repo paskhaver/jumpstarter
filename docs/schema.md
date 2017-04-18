@@ -10,10 +10,10 @@
 | password_digest | string    | not null                  |
 | session_token   | string    | not null, indexed, unique |
 
-- A User `has_many` projects (the ones they create)
-- A User `has_many` pledges (which connects them to rewards)
-- A User `has_many` rewards (association through pledges)
-- A User `has_many` supported_projects (association through rewards)
+- A User `has_many` **projects** (the ones they create)
+- A User `has_many` **pledges** (which connects them to rewards)
+- A User `has_many` **rewards** (association through pledges)
+- A User `has_many` **supported_projects** (association through rewards)
 
 ## projects
 
@@ -34,7 +34,7 @@ FOREIGN KEY **creator_id** connects to PRIMARY KEY **id** in users table
 - A Project `has_many` **rewards**
 - A Project `has_many` **pledges** (association through rewards)
 - A Project `has_many` **supporters** (association through pledges)
-- The **total_amount_raised** can be calculated with this formula:
+- The **project's revenue** can be calculated with this formula:
 
 number of pledges for a reward * pledge_amount = reward revenue
 aggregate of all reward revenue = total project revenue
@@ -53,8 +53,8 @@ aggregate of all reward revenue = total project revenue
 
 FOREIGN KEY **project_id** related to PRIMARY KEY **id** in projects table
 
-- A Reward `belongs_to` a Project
-- A Reward `has_many` Pledges
+- A Reward `belongs_to` a **project**
+- A Reward `has_many` **pledges**
 
 ## pledges
 
@@ -69,11 +69,11 @@ JOIN table connecting users and the projects they pledged to
 - FOREIGN KEY **user_id** related to PRIMARY KEY **id** in users table
 - FOREIGN KEY **reward_id** related to PRIMARY KEY **id** in rewards table
 
-- A Pledge `belongs_to` a User (the supporter)
-- A Pledge `belongs_to` a Reward
-- A Pledge `has_one` Project (association through Reward)
+- A Pledge `belongs_to` a **User** (the supporter)
+- A Pledge `belongs_to` a **Reward**
+- A Pledge `has_one` **Project** (association through Reward)
 
-Both of the foreign keys are not unique.
+Both the **user_id** and **reward_id** foreign keys are not unique.
 
 - The same user can pledge more than once to acquire different rewards.
 - The same user can pledge more than once for the same reward.
