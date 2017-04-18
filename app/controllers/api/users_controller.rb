@@ -1,11 +1,13 @@
 class Api::UsersController < ApplicationController
 
+  # VALIDATED
   def index
     @users = User.all
     render :index
   end
 
   # No NEW page --> rendered by React component
+  # VALIDATED
   def create
     @user = User.new(user_params)
     if @user.save
@@ -15,12 +17,14 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  # VALIDATED
   def show
     @user = User.find(params[:id])
     render :show
   end
 
   # No EDIT page --> rendered by React component
+  # VALIDATED -- but why can password be left blank?
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -30,6 +34,7 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  # VALIDATED
   def destroy
     @user = User.find(params[:id])
     @user.destroy
