@@ -1,5 +1,5 @@
 @users.each do |user|
   json.set! user.id do
-    json.extract! user, :name, :email
+    json.partial! "user", user: user
   end
 end
