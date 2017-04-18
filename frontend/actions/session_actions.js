@@ -21,12 +21,25 @@ export const receiveUserErrors = (errors) => {
 export const login = (user) => (dispatch) => {
   return SessionAPIUtil.login(user)
                        .then(
-                            user => {
-                              dispatch(receiveCurrentUser(user));
+                            currentUser => {
+                              dispatch(receiveCurrentUser(currentUser));
                             },
 
                             error => {
                              dispatch(receiveUserErrors(error.responseJSON));
                             }
                      );
+};
+
+export const logout = () => (dispatch) => {
+  return SessionAPIUtil.logout()
+                       .then(
+                         loggedOutUser => {
+                          dispatch(receiveCurrentUser(null));
+                         },
+
+                         errors => {
+                          dispatch(receiveUserErrors(error.responseJSON));
+                         }
+                       );
 };
