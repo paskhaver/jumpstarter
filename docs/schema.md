@@ -37,6 +37,7 @@ FOREIGN KEY **creator_id** connects to PRIMARY KEY **id** in users table
 - The **project's revenue** can be calculated with this formula:
 
 number of pledges for a reward * pledge_amount = reward revenue
+
 aggregate of all reward revenue = total project revenue
 
 ## rewards
@@ -65,9 +66,8 @@ FOREIGN KEY **project_id** related to PRIMARY KEY **id** in projects table
 | reward_id   | integer   | not null, not unique, FOREIGN KEY |
 
 JOIN table connecting users and the projects they pledged to
-
-- FOREIGN KEY **user_id** related to PRIMARY KEY **id** in users table
-- FOREIGN KEY **reward_id** related to PRIMARY KEY **id** in rewards table
+FOREIGN KEY **user_id** related to PRIMARY KEY **id** in users table
+FOREIGN KEY **reward_id** related to PRIMARY KEY **id** in rewards table
 
 - A Pledge `belongs_to` a **User** (the supporter)
 - A Pledge `belongs_to` a **Reward**
