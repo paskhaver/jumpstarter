@@ -44,7 +44,7 @@ is built in React / Redux.
 **Objective:** Functioning Rails backend for creating / logging in user
 as well as frontend signup form and login form
 
-### Phase 2: Projects (3 days)
+### Phase 2: Projects (2 days)
 **Objective:** Projects can be created, read, edited, and
 destroyed through a form that interacts with the API.
 
@@ -52,10 +52,10 @@ destroyed through a form that interacts with the API.
 **Objective:** Users can pledge to projects to receive
 rewards. Rewards increment the project's raised amount.
 
-### Phase 4: Categories (1 day)
+### Phase 4: Categories (1.5 day)
 **Objective:** Category pages display projects, sorted by
 total amount grossed.
 
-### Phase 5: Search / Discover (1 day)
+### Phase 5: Search / Discover (1.5 day)
 **Objective:** Search bar on nav bar dynamically loads
 top 4 search results for user term

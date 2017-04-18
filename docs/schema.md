@@ -4,44 +4,40 @@
 
 | column name     | data type | details                   |
 |-----------------|-----------|---------------------------|
-| id              | integer   | not null, primary key     |
+| id              | integer   | not null, PRIMARY KEY     |
 | name            | string    | not null                  |
 | email           | string    | not null, indexed, unique |
 | password_digest | string    | not null                  |
 | session_token   | string    | not null, indexed, unique |
 
+- A User `has_many` projects (the ones they create)
+- A User `has_many` pledges (which connects them to rewards)
+- A User `has_many` rewards (association through pledges)
+- A User `has_many` supported_projects (association through rewards)
+
 ## projects
 
 | column name         | data type | details               |
 |---------------------|-----------|-----------------------|
-| id                  | integer   | not null, primary key |
+| id                  | integer   | not null, PRIMARY KEY |
 | creator_id          | integer   | not null, FOREIGN KEY |
 | title               | string    | not null              |
 | blurb               | string    | not null              |
 | category            | string    | not null              |
 | end_date            | date      | not null              |
 | funding_goal        | integer   | not null              |
-| total_amount_raised | integer   | not null              |
 | description         | text      | not null              |
 
 FOREIGN KEY **creator_id** connects to PRIMARY KEY **id** in users table
 
-- In theory, the *total_amount_raised* column is not needed.
-- The project uses a `has_many` connection with the **rewards** table
-- The **rewards** table uses a `has_many` connection with the **pledges** table
-- The *total_amount_raised* can be calculated with this formula:
+- A Project `belongs_to` a User (the creator)
+- A Project `has_many` **rewards**
+- A Project `has_many` **pledges** (association through rewards)
+- A Project `has_many` **supporters** (association through pledges)
+- The **total_amount_raised** can be calculated with this formula:
 
-number of pledges for a reward * pledge_amount = revenue brought in by reward
-aggregate of all revenue = total project revenue
-
-At the same time, it seems intensive for the project to get ALL
-of its rewards, then multiply each reward's required pledge amount by
-the number of pledges for it, then aggregate that. This would occur
-EVERYTIME the page is accessed.
-
-Upon a user pledge, it seems simpler to
-1) manually update the *total_amount_raised* in **projects** table
-2) create a new row in the **pledges** table connecting user to their reward
+number of pledges for a reward * pledge_amount = reward revenue
+aggregate of all reward revenue = total project revenue
 
 ## rewards
 
@@ -57,6 +53,9 @@ Upon a user pledge, it seems simpler to
 
 FOREIGN KEY **project_id** related to PRIMARY KEY **id** in projects table
 
+- A Reward `belongs_to` a Project
+- A Reward `has_many` Pledges
+
 ## pledges
 
 | column name | data type | details                           |
@@ -70,15 +69,19 @@ JOIN table connecting users and the projects they pledged to
 - FOREIGN KEY **user_id** related to PRIMARY KEY **id** in users table
 - FOREIGN KEY **reward_id** related to PRIMARY KEY **id** in rewards table
 
-The foreign keys are not unique.
+- A Pledge `belongs_to` a User (the supporter)
+- A Pledge `belongs_to` a Reward
+- A Pledge `has_one` Project (association through Reward)
+
+Both of the foreign keys are not unique.
+
 - The same user can pledge more than once to acquire different rewards.
 - The same user can pledge more than once for the same reward.
 - A reward can have more than one user.
 
 ### Logic
 
-- To pledge to a specific project, a user makes a donation in exchange for a reward. - The **reward** is tied to a monetary amount.
-- In my opinion, we do not need to store a connection between the user and the project
-- The connection is automatically available through the reward's connection with the project.
+- To pledge to a specific project, a user makes a donation in exchange for a reward. The **reward** is tied to a monetary amount.
+- The connection between user and project is automatically available through the reward's connection with the project.
 
 User ---->  Reward ----> Project
