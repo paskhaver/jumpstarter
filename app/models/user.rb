@@ -6,7 +6,7 @@ class User < ApplicationRecord
     presence: true
 
   validates :password,
-    minimum: 6, allow_nil: true
+    length: { minimum: 6, allow_nil: true }
 
   after_initialize :ensure_session_token
 
