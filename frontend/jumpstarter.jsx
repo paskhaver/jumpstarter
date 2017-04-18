@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import LoginForm from "./components/users/login_form";
+import LoginFormContainer from "./components/users/login_form_container";
 import * as UserAPIUtil from "./util/user_api_util";
 import * as SessionAPIUtil from "./util/session_api_util";
 import * as SessionActions from "./actions/session_actions";
@@ -23,6 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.SessionActions = SessionActions;
 
   const rootDOMElement = document.getElementById("root");
-  const reactElement = <LoginForm store={store}/>;
+  const reactElement = <LoginFormContainer store={store}/>;
   ReactDOM.render(reactElement, rootDOMElement);
 });

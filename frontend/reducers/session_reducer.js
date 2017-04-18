@@ -9,7 +9,7 @@ const nullUser = {
 const SessionReducer = (oldState = nullUser, action) => {
   Object.freeze(oldState);
   let newState;
-
+  debugger
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
       newState = merge({}, oldState);

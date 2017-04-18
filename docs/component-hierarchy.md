@@ -5,7 +5,7 @@
 **SignupContainer**
   - SignInForm Component
 
-**LoginContainer**
+**LoginFormContainer**
   - LoginForm Component
 
 **NavBarContainer**
