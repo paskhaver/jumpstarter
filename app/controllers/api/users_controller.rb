@@ -15,13 +15,25 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    render :show
+  end
+
   # No EDIT page --> rendered by React component
   def update
-
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      render :show
+    else
+      render json: @user.errors.full_messages, status: 422
+    end
   end
 
   def destroy
-
+    @user = User.find(params[:id])
+    @user.destroy
+    render :show
   end
 
   private
