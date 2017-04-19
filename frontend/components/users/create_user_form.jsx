@@ -25,7 +25,7 @@ class CreateUserForm extends React.Component {
       const properUser = { name, email, password };
       this.props.createUser(properUser);
     } else {
-      console.log("Didn't match!")
+      console.log("Didn't match!");
     }
 
   }
@@ -49,7 +49,7 @@ class CreateUserForm extends React.Component {
             Have an account? Log in!
           </button>
 
-          <h2>Create User</h2>
+          <h2>Sign Up</h2>
 
           <form onSubmit={ this.handleSubmit }>
             <ol>
