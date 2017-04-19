@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import LoginFormContainer from "./components/users/login_form_container";
+import Root from "./components/root";
+import { Provider } from "react-redux";
+
 import * as UserAPIUtil from "./util/user_api_util";
 import * as SessionAPIUtil from "./util/session_api_util";
 import * as SessionActions from "./actions/session_actions";
@@ -23,6 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
   window.SessionActions = SessionActions;
 
   const rootDOMElement = document.getElementById("root");
-  const reactElement = <LoginFormContainer store={store}/>;
-  ReactDOM.render(reactElement, rootDOMElement);
+  const reactElement = <Root store={store}/>;
+  ReactDOM.render(
+    <Provider store={store}>
+      <Root />
+    </Provider>, rootDOMElement);
 });

@@ -6,6 +6,5 @@ import UsersReducer from "./users_reducer";
 // import RewardsReducer from "./rewards_reducer";
 
 export default combineReducers({
-  session: SessionReducer,
-  user: UsersReducer
+  session: SessionReducer
 });
