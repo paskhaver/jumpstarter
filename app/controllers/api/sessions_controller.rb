@@ -4,11 +4,13 @@ class Api::SessionsController < ApplicationController
     email    = params[:user][:email]
     password = params[:user][:password]
     @user = User.find_by_credentials(email, password)
-    if @user
+    if @user.is_a?(User)
       login(@user)
       render "api/users/show"
+    elsif @user == "Wrong password!"
+      render json: ["Wrong password"], status: 401
     else
-      render json: ["Invalid credentials. Check email and password!"], status: 401
+      render json: ["Wrong username", "Wrong password"], status: 401
     end
   end
 
