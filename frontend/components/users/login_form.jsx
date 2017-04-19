@@ -25,7 +25,6 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(event) {
-    debugger
     event.preventDefault();
     this.props.login(this.state);
   }
