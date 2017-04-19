@@ -3,6 +3,7 @@ import React from "react";
 class CreateUserForm extends React.Component {
 
   // this.props.createUser(user)
+  // this.props.currentUser
 
   constructor(props) {
     super(props);

@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "./navbar";
+import NavBar from "./nav/navbar";
 import LoginFormContainer from "./users/login_form_container";
 import CreateUserFormContainer from "./users/create_user_form_container";
 
