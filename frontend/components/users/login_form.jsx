@@ -30,11 +30,23 @@ class LoginForm extends React.Component {
   }
 
   render() {
+
+    const errorItems = this.props.errors.map((error, idx) => {
+      return <li key={idx}>{error}</li>;
+    });
+
     return (
 
       <div className="grey-container">
         <div className="log-in-box">
           <h2>Log in</h2>
+
+          <div className="log-in-errors">
+            <ul>
+              {errorItems}
+            </ul>
+          </div>
+
           <form onSubmit={ this.handleSubmit }>
             <ol>
               <li><input type="email"
