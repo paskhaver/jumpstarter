@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router';
 
 class NavBar extends React.Component {
 
@@ -11,6 +12,7 @@ class NavBar extends React.Component {
   render() {
 
     const logStatus = this.props.currentUser ? "Log out" : "Login";
+
     return (
       <nav>
           <div className="left-nav">
@@ -26,9 +28,8 @@ class NavBar extends React.Component {
 
           <div className="right-nav">
             <a><span>Search</span></a>
-
-            <a><span>{logStatus}</span></a>
-            <a><span>Sign Up</span></a>
+            <Link to="login"><span>{logStatus}</span></Link>
+            <Link to="signup"><span>Sign Up</span></Link>
           </div>
       </nav>
     );

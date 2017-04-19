@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Root from "./components/root";
 import { Provider } from "react-redux";
+import { Router, Route, hashHistory } from 'react-router';
+
+import Root from "./components/root";
+import LoginFormContainer from "./components/users/login_form_container";
+import CreateUserFormContainer from "./components/users/create_user_form_container";
 
 import * as UserAPIUtil from "./util/user_api_util";
 import * as SessionAPIUtil from "./util/session_api_util";
@@ -25,9 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
   window.SessionActions = SessionActions;
 
   const rootDOMElement = document.getElementById("root");
-  const reactElement = <Root store={store}/>;
+  // const reactElement = <Root store={store}/>;
   ReactDOM.render(
     <Provider store={store}>
-      <Root />
+      <Router history={hashHistory}>
+        <Route path="/" component={Root} >
+          <Route path="login"  component={LoginFormContainer} />
+          <Route path="signup" component={CreateUserFormContainer} />
+        </Route>
+      </Router>
     </Provider>, rootDOMElement);
 });
