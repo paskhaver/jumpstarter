@@ -1,15 +1,15 @@
 # Component Hierarchy
 
-**App**
+**Root*
+  **NavBarContainer**
+    - SearchBar Component
 
-**SignupContainer**
-  - SignInForm Component
+**CreaterUserFormContainer**
+  - CreateUserForm Component
 
 **LoginFormContainer**
   - LoginForm Component
 
-**NavBarContainer**
-  - SearchBar Component
 
 **ProjectContainer**
   - ProjectHeader Component

@@ -1,0 +1,31 @@
+nav {
+  height: 60px;
+  width: 100%;
+  background-color: orange;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+
+  div {
+    box-sizing: border-box;
+    margin-right: 20px;
+
+    a {
+      margin-left: 20px;
+    }
+  }
+
+  .left-nav {
+    color: pink;
+  }
+
+  .center-nav {
+
+  }
+
+  .right-nav {
+
+  }
+
+}

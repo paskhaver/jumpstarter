@@ -11,23 +11,18 @@ class CreateUserForm extends React.Component {
     this.handleEdit = this.handleEdit.bind(this);
   }
 
+  handleFormErrors() {
+
+  }
+
   handleSubmit(event) {
-    debugger
     event.preventDefault();
 
-    const name = this.state.name;
-    const email = this.state.email;
-    const secondEmail = this.state.secondEmail;
-    const password = this.state.password;
-    const secondPassword = this.state.secondPassword;
-
+    const { name, email, secondEmail, password, secondPassword } = this.state;
     if (email === secondEmail && password == secondPassword) {
       const properUser = { name, email, password };
       this.props.createUser(properUser);
-    } else {
-      console.log("Didn't match!");
     }
-
   }
 
   handleEdit(field) {
