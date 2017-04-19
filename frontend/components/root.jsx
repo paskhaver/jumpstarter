@@ -8,6 +8,9 @@ const Root = () => {
     <div>
       <NavBar />
       <CreateUserFormContainer />
+
+      <br /><br />
+      <LoginFormContainer />
     </div>
   );
 };

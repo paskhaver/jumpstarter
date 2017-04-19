@@ -35,25 +35,20 @@ class CreateUserForm extends React.Component {
 
   render() {
     return (
-
       <div className="grey-container">
-
         <div className="log-in-box">
-
-          <button className="sign-up-link">
+          <button className="alternate-link">
             Have an account? Log in!
           </button>
 
           <h2>Sign Up</h2>
-
           <form onSubmit={ this.handleSubmit }>
             <ol>
-
               <li>
                 <input type="text"
-                           placeholder="Name"
-                           className="input-text-padding"
-                           onChange={ this.handleEdit("name")} />
+                       placeholder="Name"
+                       className="input-text-padding"
+                       onChange={ this.handleEdit("name")} />
               </li>
 
               <li>
@@ -88,16 +83,12 @@ class CreateUserForm extends React.Component {
                 <input type="submit"
                        value="Create Account!"/>
               </li>
-
             </ol>
-            </form>
-
-
+          </form>
         </div>
       </div>
     );
   }
-
 }
 
 export default CreateUserForm;

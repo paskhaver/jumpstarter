@@ -1,19 +1,40 @@
 nav {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
   height: 60px;
   width: 100%;
-  background-color: orange;
+  background-color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
 
   div {
+    height: 60px;
     box-sizing: border-box;
-    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-    a {
-      margin-left: 20px;
+  a {
+    box-sizing: border-box;
+    margin-left: 24px;
+    margin-right: 24px;
+    cursor: pointer;
+    height: 60px;
+    line-height: 60px;
+
+    span {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgb(2, 6, 33);
     }
+  }
+
+  a:hover {
+    border-bottom: 3px solid #25CB68;
   }
 
   .left-nav {
@@ -21,7 +42,9 @@ nav {
   }
 
   .center-nav {
-
+    h2 {
+      font-size: 20px;
+    }
   }
 
   .right-nav {

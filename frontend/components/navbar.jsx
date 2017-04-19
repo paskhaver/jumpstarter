@@ -10,17 +10,20 @@ class NavBar extends React.Component {
     return (
       <nav>
           <div className="left-nav">
-              <a>Explore</a>
-              <a>Start A Project</a>
-              <a>About Us</a>
+              <a><span>Explore</span></a>
+              <a><span>Start A Project</span></a>
+              <a><span>About Us</span></a>
           </div>
 
-          <div className="middle-nav">
-            <i className="fa fa-motorcycle" aria-hidden="true"></i>
+          <div className="center-nav">
+            <i className="fa fa-motorcycle fa-3x" aria-hidden="true"></i>
+            <a><h2>Jumpstarter</h2></a>
           </div>
 
           <div className="right-nav">
-            Test
+            <a><span>Search</span></a>
+            <a><span>Login</span></a>
+            <a><span>Sign Up</span></a>
           </div>
       </nav>
     );

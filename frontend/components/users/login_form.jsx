@@ -71,7 +71,7 @@ class LoginForm extends React.Component {
             </ol>
             </form>
 
-            <button className="sign-up-link">
+            <button className="alternate-link">
               New to Jumpstarter? Sign up!
             </button>
         </div>
