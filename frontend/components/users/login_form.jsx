@@ -31,20 +31,40 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={ this.handleSubmit }>
-        <label>Email
-          <input type="text"
-                 onChange={ this.handleEdit("email")}/>
-        </label>
 
-        <label>Password
-          <input type="password"
-                 onChange={ this.handleEdit("password")} />
-        </label>
+      <div className="grey-container">
+        <div className="log-in-box">
 
-        <input type="submit" value="Log In"/>
+          <h2>Log in</h2>
 
-      </form>
+
+          <form onSubmit={ this.handleSubmit }>
+            <ol>
+              <li><input type="email"
+                         placeholder="Email"
+                         className="input-text-padding"
+                         onChange={ this.handleEdit("email")} />
+              </li>
+
+
+              <li>
+                <input type="password"
+                       placeholder="Password"
+                       className="input-text-padding"
+                       onChange={ this.handleEdit("password")} />
+              </li>
+
+              <li>
+                <input type="submit" 
+                       value="Log me in!"/>
+              </li>
+
+            </ol>
+
+            </form>
+
+        </div>
+      </div>
     );
   }
 

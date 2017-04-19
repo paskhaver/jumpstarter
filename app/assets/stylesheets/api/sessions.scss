@@ -1,3 +1,73 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.grey-container {
+  background-color: #F7F5F2;
+}
+
+.log-in-box {
+
+  display: flex;                  /* <div> will serve as flex container, all children will be flex items */
+  flex-direction: column;         /* Flex items should stack on top of each other */
+  justify-content: space-between; /* Flex items should be evenly distributed */
+
+  width: 50%;
+  padding: 20px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: aliceblue;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  form {
+    // background-color: #FFCBA4;
+  }
+
+  h2 {
+    font-size: 32px;
+    color: #353535;
+    line-height: 40px;
+  }
+
+  li {
+    list-style-type: none;
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+
+  input {
+    padding-left: 15px;
+    box-sizing: border-box;
+    line-height: 14px;
+    border: 1px solid #dad7d4;
+    border-radius: 6px;         /* Round corners */
+    width: 100%;                /* Fill parent container */
+    height: 45px;
+  }
+
+  input:focus {
+    outline: 1px solid #2752ff;
+  }
+
+  input[type=email] {
+    background-color: yellow;
+  }
+
+  input[type=password] {
+
+  }
+
+  input[type=submit] {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background-color: #25CB68;
+    padding: 10px 20px;
+    text-align: center;
+    line-height: normal;
+    font-size: 14px;
+    color: #FFFFFF;
+    width: 100%;
+  }
+}
