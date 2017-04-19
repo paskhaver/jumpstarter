@@ -1,3 +1,4 @@
+// VALIDATED
 // UsersController#index
 export const fetchUsers = () => {
   return $.ajax({
@@ -6,14 +7,16 @@ export const fetchUsers = () => {
   });
 };
 
+// VALIDATED
 // UsersController#show
 export const fetchUser = (userId) => {
   return $.ajax({
     method: "GET",
-    url: `/api/users/userId`
+    url: `/api/users/${userId}`
   });
 };
 
+// VALIDATED
 // UsersController#create
 export const createUser = (user) => {
   return $.ajax({
@@ -23,6 +26,7 @@ export const createUser = (user) => {
   });
 };
 
+// VALIDATED
 // UsersController#update
 export const updateUser = (user) => {
   return $.ajax({
@@ -32,6 +36,7 @@ export const updateUser = (user) => {
   });
 };
 
+// VALIDATED
 // UsersController#destroy
 export const deleteUser = (userId) => {
   return $.ajax({
