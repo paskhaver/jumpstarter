@@ -6,32 +6,74 @@ class CreateUserForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {};
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
-  handleSubmit() {
+  handleSubmit(event) {
+    debugger
+    event.preventDefault();
+
+    const name = this.state.name;
+    const email = this.state.email;
+    const secondEmail = this.state.secondEmail;
+    const password = this.state.password;
+    const secondPassword = this.state.secondPassword;
+
+    if (email === secondEmail && password == secondPassword) {
+      const properUser = { name, email, password };
+      this.props.createUser(properUser);
+    } else {
+      console.log("Didn't match!")
+    }
 
   }
 
-  handleEdit() {
-
+  handleEdit(field) {
+    return (event) => {
+      this.setState({
+        [field]: event.target.value
+      });
+    };
   }
 
   render() {
     return (
 
       <div className="grey-container">
+
         <div className="log-in-box">
+
+          <button className="sign-up-link">
+            Have an account? Log in!
+          </button>
+
           <h2>Create User</h2>
 
           <form onSubmit={ this.handleSubmit }>
             <ol>
-              <li><input type="email"
+
+              <li>
+                <input type="text"
+                           placeholder="Name"
+                           className="input-text-padding"
+                           onChange={ this.handleEdit("name")} />
+              </li>
+
+              <li>
+                <input type="email"
                          placeholder="Email"
                          className="input-text-padding"
                          onChange={ this.handleEdit("email")} />
               </li>
 
+              <li>
+                <input type="email"
+                         placeholder="Re-enter email"
+                         className="input-text-padding"
+                         onChange={ this.handleEdit("secondEmail")} />
+              </li>
 
               <li>
                 <input type="password"
@@ -41,16 +83,21 @@ class CreateUserForm extends React.Component {
               </li>
 
               <li>
+                <input type="password"
+                       placeholder="Re-enter password"
+                       className="input-text-padding"
+                       onChange={ this.handleEdit("secondPassword")} />
+              </li>
+
+              <li>
                 <input type="submit"
-                       value="Log me in!"/>
+                       value="Create Account!"/>
               </li>
 
             </ol>
             </form>
 
-            <button className="sign-up-link">
-              New to Jumpstarter? Sign up!
-            </button>
+
         </div>
       </div>
     );

@@ -1,8 +1,9 @@
-import * as UserAPIUtil from "../util/session_api_util";
+import * as UserAPIUtil from "../util/user_api_util";
 import { receiveCurrentUser } from "./session_actions";
 
 
 export const createUser = (user) => (dispatch) => {
+  debugger
   return UserAPIUtil.createUser(user)
                     .then(newUser => {
                       dispatch(receiveCurrentUser(newUser));
