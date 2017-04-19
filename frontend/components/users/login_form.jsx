@@ -60,7 +60,7 @@ class LoginForm extends React.Component {
             </form>
 
             <button className="sign-up-link">
-              New to Kickstarter? Sign up!
+              New to Jumpstarter? Sign up!
             </button>
         </div>
       </div>
