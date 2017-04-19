@@ -4,6 +4,8 @@
 
 .grey-container {
   background-color: #F7F5F2;
+  padding: 60px 18px;
+  width: 100%;
 }
 
 .log-in-box {
@@ -12,11 +14,11 @@
   flex-direction: column;         /* Flex items should stack on top of each other */
   justify-content: space-between; /* Flex items should be evenly distributed */
 
-  width: 50%;
+  width: 400px;
   padding: 20px;
   margin: 0 auto;
   box-sizing: border-box;
-  background-color: aliceblue;
+  background-color: #ffffff;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   form {
@@ -50,7 +52,7 @@
   }
 
   input[type=email] {
-    background-color: yellow;
+    // background-color: yellow;
   }
 
   input[type=password] {
@@ -70,4 +72,20 @@
     color: #FFFFFF;
     width: 100%;
   }
+
+  .sign-up-link {
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    line-height: 20px;
+    background-color: #5bc0de;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    width: 100%;
+    height: 45px;
+    font-size: 14px;
+    color: #FFFFFF;
+  }
+
+
 }

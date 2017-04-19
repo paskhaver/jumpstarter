@@ -34,10 +34,7 @@ class LoginForm extends React.Component {
 
       <div className="grey-container">
         <div className="log-in-box">
-
           <h2>Log in</h2>
-
-
           <form onSubmit={ this.handleSubmit }>
             <ol>
               <li><input type="email"
@@ -55,14 +52,16 @@ class LoginForm extends React.Component {
               </li>
 
               <li>
-                <input type="submit" 
+                <input type="submit"
                        value="Log me in!"/>
               </li>
 
             </ol>
-
             </form>
 
+            <button className="sign-up-link">
+              New to Kickstarter? Sign up!
+            </button>
         </div>
       </div>
     );
