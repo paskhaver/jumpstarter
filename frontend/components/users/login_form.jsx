@@ -29,7 +29,6 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(event) {
-    debugger
     event.preventDefault();
     this.props.clearErrors();
     let errors = false;
@@ -51,6 +50,7 @@ class LoginForm extends React.Component {
 
     if (!errors) {
         this.props.login(this.state);
+        hashHistory.push("/");
     }
   }
 

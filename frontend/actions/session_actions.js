@@ -11,13 +11,6 @@ export const receiveCurrentUser = (user) => {
   };
 };
 
-// export const receiveUserErrors = (errors) => {
-//   return {
-//     type: RECEIVE_USER_ERRORS,
-//     errors
-//   };
-// };
-
 export const login = (user) => (dispatch) => {
   return SessionAPIUtil.login(user)
                        .then(
