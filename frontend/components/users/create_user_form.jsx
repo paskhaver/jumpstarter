@@ -8,8 +8,10 @@ class CreateUserForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+    this.handleGuestButtonClick = this.handleGuestButtonClick.bind(this);
   }
 
   handleFormErrors() {
@@ -20,10 +22,17 @@ class CreateUserForm extends React.Component {
     event.preventDefault();
 
     const { name, email, secondEmail, password, secondPassword } = this.state;
-    if (email === secondEmail && password == secondPassword) {
+    if (email === secondEmail && password === secondPassword) {
       const properUser = { name, email, password };
       this.props.createUser(properUser);
     }
+  }
+
+  handleGuestButtonClick(event) {
+    event.preventDefault();
+    const guestUser = { email: "guest@example.com",
+                        password: "password" };
+    this.props.login(guestUser);
   }
 
   handleEdit(field) {
@@ -83,6 +92,11 @@ class CreateUserForm extends React.Component {
               <li>
                 <input type="submit"
                        value="Create Account!"/>
+              </li>
+
+              <li>
+                <button onClick={ this.handleGuestButtonClick }>
+                  Login as Guest User!</button>
               </li>
             </ol>
           </form>
