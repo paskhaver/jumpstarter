@@ -7,15 +7,11 @@
     }    
   },
 
-  errors: {
-
-  },
-
-  forms: {
-    signUp: { errors: [] },
-    logIn: { errors: [] },
-    createProject: { errors: [] }
-  },
+  errors:
+    [
+      "NAME cannot be blank!",
+      "PASSWORD cannot be blank!"
+    ],
 
   projects: {
     1: {
