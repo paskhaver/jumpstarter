@@ -1,4 +1,5 @@
 import React from "react";
+import YouTube from "react-youtube";
 
 class AboutUs extends React.Component {
 
@@ -7,11 +8,25 @@ class AboutUs extends React.Component {
   }
 
   render() {
-    return (
-      <video autoPlay loop className="about-us">
-        <source src="/assets/images/anchorman.mp4" type="video/mp4" />
-      </video>
-    );
+    const opts = {
+        height: '390',
+        width: '1080',
+        playerVars: { // https://developers.google.com/youtube/player_parameters
+          autoplay: 1
+        }
+      };
+
+      return (
+        <YouTube
+          videoId="8AIwaSD9Sco"
+          opts={opts}
+        />
+      );
+  }
+
+  _onReady(event) {
+    // access to player in all event handlers via event.target
+    event.target.pauseVideo();
   }
 }
 
