@@ -8,11 +8,12 @@
 
 ActiveRecord::Base.transaction do
 
+  pw = "password"
   User.destroy_all
 
-  User.create(name: "Guest", email: "guest@example.com". password: "password")
-  User.create(name: "Boris", email: "boris@example.com", password: "password")
-  User.create(name: "Wilson", email: "wilson@example.com", password: "password")
-  User.create(name: "Tassos", email: "tassos@example.com", password: "password")
+  User.create(name: "Guest", email: "guest@example.com", password: pw)
+  User.create(name: "Boris", email: "boris@example.com", password: pw)
+  User.create(name: "Wilson", email: "wilson@example.com", password: pw)
+  User.create(name: "Tassos", email: "tassos@example.com", password: pw)
 
 end
