@@ -10,7 +10,8 @@ class Footer extends React.Component {
   render() {
     return (
       <footer>
-        <div>About Us
+        <div>
+          <h3>About Us</h3>
           <ul>
             <li>What is Jumpstarter?</li>
             <li>Who we are</li>
@@ -26,7 +27,8 @@ class Footer extends React.Component {
           </ul>
         </div>
 
-        <div>Help
+        <div>
+          <h3>Help</h3>
 
           <ul>
             <li>FAQ</li>
@@ -42,7 +44,8 @@ class Footer extends React.Component {
           </ul>
         </div>
 
-        <div>Discover
+        <div>
+          <h3>Discover</h3>
           <ul>
             <li>Art</li>
             <li>Comics</li>
@@ -56,6 +59,7 @@ class Footer extends React.Component {
         </div>
 
         <div>
+          <h3></h3>
           <ul>
             <li>Games</li>
             <li>Journalism</li>
@@ -67,10 +71,11 @@ class Footer extends React.Component {
           </ul>
         </div>
 
-        <div>Hello
+        <div>
+          <h3>Hello</h3>
           <ul>
             <li>Happening</li>
-            <li>Company Blod</li>
+            <li>Company Blog</li>
             <li>Engineering Blog</li>
             <li>The Creative</li>
             <li>Independent</li>
