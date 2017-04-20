@@ -1,3 +1,4 @@
+// VALIDATED
 // ProjectsController#index
 export const fetchProjects = () => {
   return $.ajax({
@@ -6,6 +7,7 @@ export const fetchProjects = () => {
   });
 };
 
+// VALIDATED
 // ProjectsController#show
 export const fetchProject = (projectId) => {
   return $.ajax({
@@ -14,6 +16,7 @@ export const fetchProject = (projectId) => {
   });
 };
 
+// VALIDATED
 // ProjectsController#create
 export const createProject = (project) => {
   return $.ajax({
@@ -23,6 +26,7 @@ export const createProject = (project) => {
   });
 };
 
+// VALIDATED
 // ProjectsController#update
 export const updateProject = (project) => {
   return $.ajax({
@@ -32,6 +36,7 @@ export const updateProject = (project) => {
   });
 };
 
+// VALIDATED
 // ProjectsController#destroy
 export const deleteProject = (projectId) => {
   return $.ajax({

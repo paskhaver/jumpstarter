@@ -1,5 +1,6 @@
 class Api::ProjectsController < ApplicationController
 
+  # Validated
   def index
     @projects = Project.all
     render :index
@@ -14,9 +15,14 @@ class Api::ProjectsController < ApplicationController
     end
   end
 
+  # Validated
   def show
-    @project = Project.find(params[:id])
-    render :show
+    @project = Project.find_by(id: params[:id])
+    if @project
+      render :show
+    else
+      render json: ["Project with that ID does not exist!"]
+    end
   end
 
   def update
@@ -37,7 +43,7 @@ class Api::ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:creator_id, :title,
+    params.require(:project).permit(:creator_id, :title, :residence,
                                     :blurb, :category, :end_date,
                                     :funding_goal, :description)
   end
