@@ -1,3 +1,58 @@
 // Place all the styles related to the api/projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.create-project {
+
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 100%;
+  height: 740px;
+  box-sizing: border-box;
+  background-color: #FFF9FF;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  form {
+    margin: 60px auto;
+    // background-color: orange;
+    box-sizing: border-box;;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40%;
+
+    h2 {
+      color: #2752ff;
+      font-size: 60px;
+      font-weight: 200;
+      line-height: 60px;
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    p {
+      display: block;
+      font-size: 22px;
+      line-height: 30px;
+      margin-bottom: 12px;
+      color: #80809E;
+    }
+
+    input[type=submit], button {
+      cursor: pointer;
+      box-sizing: border-box;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      background-color: #25CB68;
+      padding: 10px 20px;
+      text-align: center;
+      line-height: normal;
+      font-size: 14px;
+      color: #FFFFFF;
+      width: 100%;
+    }
+
+  }
+
+}

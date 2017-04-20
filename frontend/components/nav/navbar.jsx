@@ -27,14 +27,14 @@ class NavBar extends React.Component {
 
   render() {
 
-    const logStatus = this.props.currentUser ? "Log out" : "Login";
+    const logStatus = this.props.currentUser ? "Log out" : "Log In";
     const action = this.props.currentUser ? this.handleLogout : this.handleLogin;
 
     return (
       <nav>
           <div className="left-nav">
               <a><span>Explore</span></a>
-              <a><span>Start A Project</span></a>
+              <Link to="start"><span>Start a Project</span></Link>
               <a><span>About Us</span></a>
           </div>
 
@@ -44,10 +44,9 @@ class NavBar extends React.Component {
           </div>
 
           <div className="right-nav">
-            <a><span>Search</span></a>
+            <i className="fa fa-search fa-1x" aria-hidden="true"></i>
             <a onClick={ action } ><span>{logStatus}</span></a>
-
-            <Link to="signup"><span>Sign Up</span></Link>
+            <Link to="signup"><span>Sign up</span></Link>
           </div>
       </nav>
     );
