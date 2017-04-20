@@ -23,3 +23,5 @@
 
 **CategoryProjectsContainer**
   - CategoryProjectItem Component
+
+**FooterComponent**

@@ -1,4 +1,5 @@
 import React from "react";
+import { hashHistory } from 'react-router';
 
 class LoginForm extends React.Component {
 
@@ -14,6 +15,7 @@ class LoginForm extends React.Component {
 
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFormRedirect = this.handleFormRedirect.bind(this);
   }
 
   handleEdit(field) {
@@ -27,6 +29,11 @@ class LoginForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.login(this.state);
+  }
+
+  handleFormRedirect(event) {
+    event.preventDefault();
+    hashHistory.push("/signup");
   }
 
   render() {
@@ -71,7 +78,8 @@ class LoginForm extends React.Component {
             </ol>
             </form>
 
-            <button className="alternate-link">
+            <button className="alternate-link"
+                    onClick = { this.handleFormRedirect }>
               New to Jumpstarter? Sign up!
             </button>
         </div>
