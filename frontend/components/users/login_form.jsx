@@ -13,6 +13,8 @@ class LoginForm extends React.Component {
       password: ""
     };
 
+    props.clearErrors();
+
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFormRedirect = this.handleFormRedirect.bind(this);
@@ -27,8 +29,29 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(event) {
+    debugger
     event.preventDefault();
-    this.props.login(this.state);
+    this.props.clearErrors();
+    let errors = false;
+
+    if (this.state.email === "") {
+      this.props.receiveErrors(["Email cannot be blank"]);
+      errors = true;
+    }
+
+    if (this.state.password === "") {
+      this.props.receiveErrors(["Password cannot be blank"]);
+      errors = true;
+    }
+
+    if (this.state.password.length < 6) {
+      this.props.receiveErrors(["Password must have at least 6 characters"]);
+      errors = true;
+    }
+
+    if (!errors) {
+        this.props.login(this.state);
+    }
   }
 
   handleFormRedirect(event) {
@@ -48,7 +71,7 @@ class LoginForm extends React.Component {
         <div className="log-in-box">
           <h2>Log in</h2>
 
-          <div className="log-in-errors">
+          <div className="user-auth-errors">
             <ul>
               {errorItems}
             </ul>

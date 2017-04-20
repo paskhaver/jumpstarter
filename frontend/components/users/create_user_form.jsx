@@ -10,7 +10,8 @@ class CreateUserForm extends React.Component {
     super(props);
     this.state = { name: "", email: "", password: "",
                    second_email:"", second_password: "" };
-    console.log(this.state);
+
+    props.clearErrors();
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
@@ -91,9 +92,11 @@ class CreateUserForm extends React.Component {
             Have an account? Log in!
           </button>
 
-          <ul>
-            { errorItems }
-          </ul>
+          <div className="user-auth-errors">
+            <ul>
+              { errorItems }
+            </ul>
+          </div>
 
           <h2>Sign Up</h2>
           <form onSubmit={ this.handleSubmit }>
