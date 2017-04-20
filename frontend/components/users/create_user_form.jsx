@@ -54,6 +54,7 @@ class CreateUserForm extends React.Component {
       this.props.clearErrors();
       const properUser = { name, email, password };
       this.props.createUser(properUser);
+      hashHistory.push("/");
     }
     console.log("Handled submit!");
   }
@@ -63,6 +64,7 @@ class CreateUserForm extends React.Component {
     const guestUser = { email: "guest@example.com",
                         password: "password" };
     this.props.login(guestUser);
+    hashHistory.push("/")
   }
 
   handleEdit(field) {
