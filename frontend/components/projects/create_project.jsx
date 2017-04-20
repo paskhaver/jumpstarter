@@ -7,8 +7,12 @@ class CreateProject extends React.Component {
     this.state = ({
       category: "",
       title: "",
-      residence: ""
+      residence: "",
+      categoryModalStatus: "none",
+      residencyModalStatus: "none"
     });
+
+    this.handleSpanClick = this.handleSpanClick.bind(this);
   }
 
   generate_categories_list() {
@@ -35,6 +39,19 @@ class CreateProject extends React.Component {
     });
   }
 
+  handleSpanClick(field) {
+    return (event) => {
+      event.preventDefault();
+      console.log("Span clicked!");
+
+      const nextDisplay = this.state[field] === "none" ? "block" : "none";
+
+      this.setState({
+        [field]: nextDisplay
+      });
+    };
+  }
+
   render() {
     return (
       <div className="create-project">
@@ -46,9 +63,11 @@ class CreateProject extends React.Component {
 
           <div className="row">
             <p>Choose a category:</p>
-            <span>Select a category</span>
+            <span onClick = {this.handleSpanClick("categoryModalStatus")}>
+              Select a category</span>
 
-              <div className="modal">
+              <div className="modal"
+                    style={{display: this.state.categoryModalStatus}}>
                 <ul>
                   {this.generate_categories_list() }
                 </ul>
@@ -62,7 +81,11 @@ class CreateProject extends React.Component {
 
           <div className="row">
             <p>Your permanent residence</p>
-            <div className="modal">
+              <span onClick = {this.handleSpanClick("residencyModalStatus")}>
+                Select your country</span>
+
+            <div className="modal"
+                  style={{display: this.state.residencyModalStatus}} >
               <ul>
                 { this.generate_residencies_list() }
               </ul>

@@ -43,8 +43,14 @@
     }
 
     span {
-      width: 100%;
-      border-bottom: 1px solid #020621;
+      box-sizing: border-box;
+      text-align: left;
+      padding: 10px 40px;
+      border: 1px solid #2BDE73;
+      border-radius: 6px;
+      font-size: 22px;
+      height: 50px;
+      width: 260px;
       padding-bottom: 6px;
     }
 
@@ -78,7 +84,8 @@
       align-items: center;
 
       ul {
-        padding-top: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
         padding-left: 20px;
         padding-right: 5px;
         box-sizing: border-box;
