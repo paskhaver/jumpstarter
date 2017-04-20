@@ -59,6 +59,10 @@
       border-bottom: 1px solid #020621;
     }
 
+    input[type=text]:focus {
+      outline: none;
+    }
+
     input[type=submit], button {
       cursor: pointer;
       box-sizing: border-box;
