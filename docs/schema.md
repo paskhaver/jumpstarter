@@ -22,11 +22,12 @@
 | id                  | integer   | not null, PRIMARY KEY |
 | creator_id          | integer   | not null, FOREIGN KEY |
 | title               | string    | not null              |
-| blurb               | string    | not null              |
 | category            | string    | not null              |
-| end_date            | date      | not null              |
-| funding_goal        | integer   | not null              |
-| description         | text      | not null              |
+| residence           | string    | not null              |
+| blurb               | string    | optional              |
+| end_date            | date      | optional              |
+| funding_goal        | integer   | optional              |
+| description         | text      | optional              |
 
 FOREIGN KEY **creator_id** connects to PRIMARY KEY **id** in users table
 
