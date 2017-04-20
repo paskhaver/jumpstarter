@@ -8,7 +8,9 @@ class CreateUserForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { name: "", email: "", password: "",
+                   second_email:"", second_password: "" };
+    console.log(this.state);
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
@@ -16,18 +18,43 @@ class CreateUserForm extends React.Component {
     this.handleFormRedirect = this.handleFormRedirect.bind(this);
   }
 
-  handleFormErrors() {
-
-  }
-
   handleSubmit(event) {
     event.preventDefault();
 
-    const { name, email, secondEmail, password, secondPassword } = this.state;
-    if (email === secondEmail && password === secondPassword) {
+    let errors = false;
+    this.props.clearErrors();
+
+    for (let formItem in this.state) {
+      const visualString = formItem.toUpperCase().split("_").join(" ");
+      if (this.state[formItem] === "") {
+        this.props.receiveErrors([`${visualString} cannot be blank!`]);
+        errors = true;
+      }
+    }
+
+    const { name, email, second_email, password, second_password } = this.state;
+
+    if (email !== second_email) {
+      this.props.receiveErrors(["Emails do not match"]);
+      errors = true;
+    }
+
+    if (password !== second_password) {
+      this.props.receiveErrors(["Passwords do not match"]);
+      errors = true;
+    }
+
+    if (password.length < 6) {
+      this.props.receiveErrors(["Password must have at least 6 characters"]);
+      errors = true;
+    }
+
+    if (!errors) {
+      this.props.clearErrors();
       const properUser = { name, email, password };
       this.props.createUser(properUser);
     }
+    console.log("Handled submit!");
   }
 
   handleGuestButtonClick(event) {
@@ -51,6 +78,11 @@ class CreateUserForm extends React.Component {
   }
 
   render() {
+
+    const errorItems = this.props.errors.map((error, idx) => {
+      return <li key={idx}>{error}</li>;
+    });
+
     return (
       <div className="grey-container">
         <div className="log-in-box">
@@ -58,6 +90,10 @@ class CreateUserForm extends React.Component {
                   onClick={ this.handleFormRedirect}>
             Have an account? Log in!
           </button>
+
+          <ul>
+            { errorItems }
+          </ul>
 
           <h2>Sign Up</h2>
           <form onSubmit={ this.handleSubmit }>
@@ -80,7 +116,7 @@ class CreateUserForm extends React.Component {
                 <input type="email"
                          placeholder="Re-enter email"
                          className="input-text-padding"
-                         onChange={ this.handleEdit("secondEmail")} />
+                         onChange={ this.handleEdit("second_email")} />
               </li>
 
               <li>
@@ -94,7 +130,7 @@ class CreateUserForm extends React.Component {
                 <input type="password"
                        placeholder="Re-enter password"
                        className="input-text-padding"
-                       onChange={ this.handleEdit("secondPassword")} />
+                       onChange={ this.handleEdit("second_password")} />
               </li>
 
               <li>
