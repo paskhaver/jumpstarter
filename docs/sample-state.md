@@ -1,8 +1,14 @@
 ```js
 {
-  currentUser: {
-    id: 5,
-    email: "boris.paskhaver@nyu.edu"
+  session: {
+    currentUser: {
+        email: "boris.paskhaver@nyu.edu",
+        name: "Boris Paskhaver"
+    }    
+  },
+
+  errors: {
+
   },
 
   forms: {
