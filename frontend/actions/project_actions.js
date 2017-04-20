@@ -6,14 +6,14 @@ export const RECEIVE_PROJECT = "RECEIVE_PROJECT";
 
 export const receiveProjects = (projects) => {
   return {
-    action: RECEIVE_PROJECTS,
+    type: RECEIVE_PROJECTS,
     projects
   };
 };
 
 export const receiveProject = (project) => {
   return {
-    action: RECEIVE_PROJECT,
+    type: RECEIVE_PROJECT,
     project
   };
 };
@@ -31,7 +31,7 @@ export const fetchProjects = () => (dispatch) => {
                        );
 };
 
-export const fetchProject = (projectId) => {
+export const fetchProject = (projectId) => (dispatch) => {
   return ProjectAPIUtil.fetchProject(projectId)
                        .then(
                          project => {
@@ -44,7 +44,7 @@ export const fetchProject = (projectId) => {
                        );
 };
 
-export const createProject = (project) => {
+export const createProject = (project) => (dispatch) => {
   return ProjectAPIUtil.createProject(project)
                        .then(
                          newProject => {
@@ -57,7 +57,7 @@ export const createProject = (project) => {
                        );
 };
 
-export const updateProject = (project) => {
+export const updateProject = (project) => (dispatch) => {
   return ProjectAPIUtil.updateProject(project)
                        .then(
                          updatedProject => {
@@ -70,7 +70,7 @@ export const updateProject = (project) => {
                        );
 };
 
-export const deleteProject = (projectId) => {
+export const deleteProject = (projectId) => (dispatch) => {
   return ProjectAPIUtil.deleteProject(projectId)
                        .then(
                          deletedProject => {
