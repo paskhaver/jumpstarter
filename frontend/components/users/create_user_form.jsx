@@ -1,4 +1,5 @@
 import React from "react";
+import { hashHistory } from 'react-router';
 
 class CreateUserForm extends React.Component {
 
@@ -12,6 +13,7 @@ class CreateUserForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleGuestButtonClick = this.handleGuestButtonClick.bind(this);
+    this.handleFormRedirect = this.handleFormRedirect.bind(this);
   }
 
   handleFormErrors() {
@@ -43,11 +45,17 @@ class CreateUserForm extends React.Component {
     };
   }
 
+  handleFormRedirect(event) {
+    event.preventDefault();
+    hashHistory.push("/login");
+  }
+
   render() {
     return (
       <div className="grey-container">
         <div className="log-in-box">
-          <button className="alternate-link">
+          <button className="alternate-link"
+                  onClick={ this.handleFormRedirect}>
             Have an account? Log in!
           </button>
 
