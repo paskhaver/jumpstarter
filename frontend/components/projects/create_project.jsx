@@ -11,33 +11,48 @@ class CreateProject extends React.Component {
     });
   }
 
+  generate_categories_list() {
+    const categories = ["Art", "Comics", "Crafts", "Dance", "Design", "Fashion",
+                        "Film & Video", "Food", "Games", "Journalism", "Music",
+                        "Photography", "Publishing", "Technology", "Theater"];
+
+    return categories.map(category => {
+      return <li key={category}>{category}</li>;
+    });
+  }
+
+  generate_residencies_list() {
+
+    const residencies = ["Australia", "Austria", "Belgium", "Canada",
+                         "Denmark", "France", "Germany", "Hong Kong",
+                         "Ireland", "Italy", "Luxembourg", "Mexico",
+                         "Netherlands", "New Zealand", "Norway", "Singapore",
+                         "Spain", "Sweden", "Switzerland", "United Kingdom",
+                         "United States"];
+
+    return residencies.map(residency => {
+      return <li key={residency}>{residency}</li>;
+    });
+  }
+
   render() {
     return (
       <div className="create-project">
         <form>
+
           <div className="row">
             <h2>Get started</h2>
           </div>
 
           <div className="row">
             <p>Choose a category:</p>
-            <select>
-              <option>Art</option>
-              <option>Comics</option>
-              <option>Crafts</option>
-              <option>Dance</option>
-              <option>Design</option>
-              <option>Fashion</option>
-              <option>Film & Video</option>
-              <option>Food</option>
-              <option>Games</option>
-              <option>Journalism</option>
-              <option>Music</option>
-              <option>Photography</option>
-              <option>Publishing</option>
-              <option>Technology</option>
-              <option>Theater</option>
-            </select>
+            <span>Select a category</span>
+
+              <div className="modal">
+                <ul>
+                  {this.generate_categories_list() }
+                </ul>
+              </div>
           </div>
 
           <div className="row">
@@ -47,29 +62,11 @@ class CreateProject extends React.Component {
 
           <div className="row">
             <p>Your permanent residence</p>
-            <select>
-              <option>Australia</option>
-              <option>Austria</option>
-              <option>Belgium</option>
-              <option>Canada</option>
-              <option>Denmark</option>
-              <option>France</option>
-              <option>Germany</option>
-              <option>Hong Kong</option>
-              <option>Ireland</option>
-              <option>Italy</option>
-              <option>Luxembourg</option>
-              <option>Mexico</option>
-              <option>Netherlands</option>
-              <option>New Zealand</option>
-              <option>Norway</option>
-              <option>Singapore</option>
-              <option>Spain</option>
-              <option>Sweden</option>
-              <option>Switzerland</option>
-              <option>United Kingdom</option>
-              <option>United States</option>
-            </select>
+            <div className="modal">
+              <ul>
+                { this.generate_residencies_list() }
+              </ul>
+            </div>
           </div>
 
           <div className="row">

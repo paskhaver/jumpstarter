@@ -6,9 +6,8 @@
 
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: 100%;
-  height: 740px;
   box-sizing: border-box;
-  background-color: #FFF9FF;
+  background-color: #FFFFFF;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -39,6 +38,21 @@
       color: #80809E;
     }
 
+    select {
+      width: 260px;
+    }
+
+    span {
+      width: 100%;
+      border-bottom: 1px solid #020621;
+      padding-bottom: 6px;
+    }
+
+    input[type=text] {
+      width: 100%;
+      border-bottom: 1px solid #020621;
+    }
+
     input[type=submit], button {
       cursor: pointer;
       box-sizing: border-box;
@@ -51,6 +65,40 @@
       font-size: 14px;
       color: #FFFFFF;
       width: 100%;
+    }
+
+    .modal {
+      margin: 0 auto;
+      width: 300px;
+      background-color: orange;
+      box-sizing: border-box;
+      border-radius: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      ul {
+        padding-top: 5px;
+        padding-left: 20px;
+        padding-right: 5px;
+        box-sizing: border-box;
+        -moz-column-count: 2;
+        -moz-column-gap: 0px;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 0px;
+        column-count: 2;
+        column-gap: 0px;
+      }
+
+      li {
+        display: list-item;
+        list-style-type: none;
+        width: 100px;
+        padding-right: 18px;
+        margin-bottom: 12px;
+        color: #3D3D66;
+        font-size: 14px;
+      }
     }
 
   }
