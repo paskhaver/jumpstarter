@@ -8,6 +8,11 @@ class User < ApplicationRecord
   validates :password,
     length: { minimum: 6, allow_nil: true }
 
+  has_many :projects,
+    class_name: "Project",
+    primary_key: :id,
+    foreign_key: :creator_id
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(email, password)
