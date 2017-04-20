@@ -5,14 +5,15 @@ class CreateProject extends React.Component {
   constructor(props) {
     super(props);
     this.state = ({
-      category: "",
+      category: "Select a category",
       title: "",
-      residence: "",
+      residence: "Select your country",
       categoryModalStatus: "none",
-      residencyModalStatus: "none"
+      residencyModalStatus: "none",
     });
 
     this.handleSpanClick = this.handleSpanClick.bind(this);
+    this.handleModalClick = this.handleModalClick.bind(this);
   }
 
   generate_categories_list() {
@@ -21,7 +22,8 @@ class CreateProject extends React.Component {
                         "Photography", "Publishing", "Technology", "Theater"];
 
     return categories.map(category => {
-      return <li key={category}>{category}</li>;
+      return <li key={category}
+                 onClick={ this.handleModalClick("category")}>{category}</li>;
     });
   }
 
@@ -34,16 +36,24 @@ class CreateProject extends React.Component {
                          "Spain", "Sweden", "Switzerland", "United Kingdom",
                          "United States"];
 
-    return residencies.map(residency => {
-      return <li key={residency}>{residency}</li>;
+    return residencies.map(residence => {
+      return <li key={residence}
+                 onClick = { this.handleModalClick("residence") }>{residence}</li>;
     });
+  }
+
+  handleModalClick(field) {
+     return (event) => {
+      event.preventDefault();
+      this.setState({
+        [field]: event.target.textContent
+      });
+    };
   }
 
   handleSpanClick(field) {
     return (event) => {
       event.preventDefault();
-      console.log("Span clicked!");
-
       const nextDisplay = this.state[field] === "none" ? "block" : "none";
 
       this.setState({
@@ -62,9 +72,10 @@ class CreateProject extends React.Component {
           </div>
 
           <div className="row">
-            <p>Choose a category:</p>
+            <p>Choose a category</p>
             <span onClick = {this.handleSpanClick("categoryModalStatus")}>
-              Select a category</span>
+              {this.state.category}
+            </span>
 
               <div className="modal"
                     style={{display: this.state.categoryModalStatus}}>
@@ -72,17 +83,19 @@ class CreateProject extends React.Component {
                   {this.generate_categories_list() }
                 </ul>
               </div>
+
           </div>
 
           <div className="row">
-            <p>Give your project a title</p>
-            <input type="text" />
+            <p>Give your project a title:</p>
+            <input type="text"
+                   placeholder="...title"/>
           </div>
 
           <div className="row">
             <p>Your permanent residence</p>
               <span onClick = {this.handleSpanClick("residencyModalStatus")}>
-                Select your country</span>
+                {this.state.residence}</span>
 
             <div className="modal"
                   style={{display: this.state.residencyModalStatus}} >
@@ -90,6 +103,7 @@ class CreateProject extends React.Component {
                 { this.generate_residencies_list() }
               </ul>
             </div>
+
           </div>
 
           <div className="row">
