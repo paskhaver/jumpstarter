@@ -10,8 +10,11 @@
 ### Users
 | Route                  | Action                                        |
 |------------------------|-----------------------------------------------|
+| `GET /api/users`       | UsersController#index  -- Get all user        |
 | `POST /api/users`      | UsersController#create -- Create new user     |
+| `GET /api/users/:id`   | UsersController#show   -- Get info for user   |
 | `PATCH /api/users/:id` | UsersController#update -- Update user details |
+| `DELETE /api/users/:id`| UsersController#destroy -- Delete user        |
 
 ### Session
 | Route                 | Action                                                 |

@@ -49,8 +49,7 @@ class LoginForm extends React.Component {
     }
 
     if (!errors) {
-        this.props.login(this.state);
-        hashHistory.push("/");
+        this.props.login(this.state);    
     }
   }
 

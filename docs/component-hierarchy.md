@@ -25,3 +25,5 @@
   - CategoryProjectItem Component
 
 **FooterComponent**
+
+# Routes
