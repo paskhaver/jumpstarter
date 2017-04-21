@@ -1,6 +1,9 @@
 import React from "react";
+import { hashHistory } from 'react-router';
 
 class CreateProject extends React.Component {
+
+  // this.props.currentUser
 
   // this.props.createProject
   // this.props.clearErrors
@@ -18,6 +21,7 @@ class CreateProject extends React.Component {
 
     this.handleSpanClick = this.handleSpanClick.bind(this);
     this.handleModalClick = this.handleModalClick.bind(this);
+    this.handleTitleEdit = this.handleTitleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -72,8 +76,19 @@ class CreateProject extends React.Component {
     };
   }
 
-  handleSubmit(event) {
+  handleTitleEdit(event) {
     event.preventDefault();
+    this.setState({
+      "title" : event.target.value
+    });
+  }
+
+  handleSubmit(event) {
+    debugger
+    event.preventDefault();
+
+    this.props.clearErrors();
+
     const { category, title, residence } = this.state;
     let errors = false;
 
@@ -93,15 +108,19 @@ class CreateProject extends React.Component {
     }
 
     if (!errors) {
-      this.props.createProject({ category, title, residence });
-      hashHistory.push("/");
+      if (currentUser) {
+        const creator_id = currentUser.id;
+        this.props.createProject({ creator_id, category, title, residence });
+      } else {
+        hashHistory.push(`/login?category=${category}&title=${title}&residence=${residence}`);
+      }
     }
   }
 
   render() {
     return (
       <div className="create-project">
-        <form onClick = { this.handleSubmit }>
+        <form onSubmit = { this.handleSubmit }>
 
           <div className="row">
             <h2>Get started</h2>
@@ -125,7 +144,8 @@ class CreateProject extends React.Component {
           <div className="row">
             <p>Give your project a title:</p>
             <input type="text"
-                   placeholder="...title"/>
+                   placeholder="...title"
+                   onChange={ this.handleTitleEdit }/>
           </div>
 
           <div className="row">

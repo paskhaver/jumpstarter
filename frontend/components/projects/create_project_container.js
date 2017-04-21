@@ -5,7 +5,7 @@ import { receiveErrors, clearErrors } from "../../actions/error_actions";
 
 const mapStateToProps = (state) => {
   return {
-
+    currentUser: state.session.currentUser
   };
 };
 
