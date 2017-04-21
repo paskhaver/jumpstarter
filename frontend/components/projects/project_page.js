@@ -1,6 +1,7 @@
 import React from "react";
 import { hashHistory } from 'react-router';
 import YouTube from "react-youtube";
+import RewardSidebar from "../rewards/reward_sidebar";
 
 class ProjectPage extends React.Component {
 
@@ -35,15 +36,6 @@ class ProjectPage extends React.Component {
       const { title, category, residence, blurb } = this.props.currentProject;
       this.setState({ title, category, residence, blurb });
     });
-
-              // .then(project => {
-              //   const { title, category, residence, blurb,
-              //   end_date, funding_goal, description } = project;
-              //
-              //   this.setState({title, category, residence, blurb,
-              //     end_date, funding_goal, description
-              //   });
-              // });
   }
 
   render() {
@@ -55,6 +47,13 @@ class ProjectPage extends React.Component {
           autoplay: 0
         }
       };
+
+    let rewards;
+    if (this.props.currentProject) {
+      rewards = this.props.currentProject.rewards;
+    } else {
+      rewards = [];
+    }
 
     return (
       <div className="project-page">
@@ -133,6 +132,8 @@ class ProjectPage extends React.Component {
 
           <div className="pledge-container">
             <h3>Support this Project</h3>
+
+          <RewardSidebar rewards={rewards}/>
           </div>
 
         </div>

@@ -84,11 +84,8 @@ class CreateProject extends React.Component {
   }
 
   handleSubmit(event) {
-    debugger
     event.preventDefault();
-
     this.props.clearErrors();
-
     const { category, title, residence } = this.state;
     let errors = false;
 
