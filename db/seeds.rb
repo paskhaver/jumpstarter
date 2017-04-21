@@ -11,6 +11,7 @@ ActiveRecord::Base.transaction do
   pw = "password"
   User.destroy_all
   Project.destroy_all
+  Reward.destroy_all
 
   user1 = User.create(name: "Guest", email: "guest@example.com", password: pw)
   user2 = User.create(name: "Boris", email: "boris@example.com", password: pw)
@@ -23,11 +24,30 @@ ActiveRecord::Base.transaction do
   project2 = Project.create(title: "Batman", category: "Comics",
                             creator: user1, residence: "Australia")
 
-  project3 = Project.create(title: "Spring Jeans Colllection", category: "Crafts",
+  project3 = Project.create(title: "Spring Jeans Collection", category: "Crafts",
                             creator: user4, residence: "Germany")
 
   project4 = Project.create(title: "Delicious Recipe Book", category: "Music",
                             creator: user2  , residence: "Singapore")
 
+  reward1 = Reward.create(project: project1, title: "Personal meet and greet",
+  pledge_amount: 100, description: "One on one time with the folk hero",
+  delivery_date: "2017/10/31", max_backers: 5)
+
+  reward2 = Reward.create(project: project1, title: "Private concert",
+  pledge_amount: 1000, description: "I'll play all your favorite Tassos hits",
+  delivery_date: "2018/12/31", max_backers: 3)
+
+  reward2 = Reward.create(project: project2, title: "Free comic book",
+  pledge_amount: 1, description: "A digital copy of the comic book",
+  delivery_date: "2017/10/01", max_backers: 500)
+
+  reward4 = Reward.create(project: project3, title: "Pair of jeans",
+  pledge_amount: 50, description: "First chance to shop our collection",
+  delivery_date: "2018/04/15", max_backers: 1000)
+
+  reward5 = Reward.create(project: project4, title: "Early access to book",
+  pledge_amount: 25, description: "Get the book before anyone else",
+  delivery_date: "2017/07/31", max_backers: 10000)
 
 end
