@@ -17,7 +17,7 @@ class Api::ProjectsController < ApplicationController
 
   # Validated
   def show
-    @project = Project.find_by(id: params[:id])
+    @project = Project.includes(:rewards).find_by(id: params[:id])
     if @project
       render :show
     else
