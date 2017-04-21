@@ -4,6 +4,10 @@
 
 .create-project {
 
+  .row {
+    width: 100%;
+  }
+
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: 100%;
   box-sizing: border-box;
@@ -27,7 +31,8 @@
       font-weight: 200;
       line-height: 60px;
       text-align: center;
-      padding-top: 20px;
+      margin: 10px auto;
+
     }
 
     p {
@@ -80,7 +85,7 @@
     .modal {
       margin: 0 auto;
       width: 300px;
-      background-color: orange;
+      background-color: #ffffff;
       box-sizing: border-box;
       border-radius: 6px;
       display: flex;

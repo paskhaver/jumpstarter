@@ -2,6 +2,10 @@ import React from "react";
 
 class CreateProject extends React.Component {
 
+  // this.props.createProject
+  // this.props.clearErrors
+  // this.props.receiveErrors
+
   constructor(props) {
     super(props);
     this.state = ({
@@ -14,6 +18,7 @@ class CreateProject extends React.Component {
 
     this.handleSpanClick = this.handleSpanClick.bind(this);
     this.handleModalClick = this.handleModalClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   generate_categories_list() {
@@ -44,9 +49,14 @@ class CreateProject extends React.Component {
 
   handleModalClick(field) {
      return (event) => {
+
+      let stateModal = (field === "residence") ? "residencyModalStatus" : "categoryModalStatus";
+      const nextDisplay = this.state[stateModal] === "none" ? "block" : "none";
+
       event.preventDefault();
       this.setState({
-        [field]: event.target.textContent
+        [field]: event.target.textContent,
+        [stateModal]: nextDisplay
       });
     };
   }
@@ -62,10 +72,36 @@ class CreateProject extends React.Component {
     };
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    const { category, title, residence } = this.state;
+    let errors = false;
+
+    if (category === "Select a category") {
+      this.props.receiveErrors(["Please select a valid category"]);
+      errors = true;
+    }
+
+    if (residence === "Select your country") {
+      this.props.receiveErrors(["Please select a valid country"]);
+      errors = true;
+    }
+
+    if (title === "") {
+      this.props.receiveErrors(["Please enter a valid title"]);
+      errors = true;
+    }
+
+    if (!errors) {
+      this.props.createProject({ category, title, residence });
+      hashHistory.push("/");
+    }
+  }
+
   render() {
     return (
       <div className="create-project">
-        <form>
+        <form onClick = { this.handleSubmit }>
 
           <div className="row">
             <h2>Get started</h2>
@@ -114,7 +150,6 @@ class CreateProject extends React.Component {
       </div>
     );
   }
-
 }
 
 export default CreateProject;

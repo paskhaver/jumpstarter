@@ -64,7 +64,7 @@ class CreateUserForm extends React.Component {
     const guestUser = { email: "guest@example.com",
                         password: "password" };
     this.props.login(guestUser);
-    hashHistory.push("/")
+    hashHistory.push("/");
   }
 
   handleEdit(field) {
