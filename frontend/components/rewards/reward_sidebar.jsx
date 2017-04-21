@@ -13,7 +13,7 @@ class RewardSidebar extends React.Component {
     });
 
     return (
-        <ul>
+        <ul className="reward-sidebar-list">
           {rewardSidebarItems}
         </ul>
     );

@@ -10,14 +10,16 @@ class RewardSidebarItem extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Pledge {this.props.reward.pledge_amount} or more</h2>
-        <h3>{this.props.reward.title}</h3>
+      <li className="reward-sidebar-list-item">
+        <div className="pledge-info">
+          <h2>Pledge ${this.props.reward.pledge_amount} or more</h2>
+          <h3>{this.props.reward.title}</h3>
 
-        <p>{this.props.reward.description}</p>
-        <p>{this.props.reward.delivery_date}</p>
-        <p>{this.props.reward.max_backers}</p>
-      </div>
+          <p>{this.props.reward.description}</p>
+          <p>{this.props.reward.delivery_date}</p>
+          <p>{this.props.reward.max_backers}</p>
+        </div>
+      </li>
     );
   }
 }

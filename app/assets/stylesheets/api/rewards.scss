@@ -1,0 +1,45 @@
+.reward-sidebar-list {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.reward-sidebar-list-item {
+  list-style-type: none;
+  margin-left: 0px;
+  padding-left: 0px;
+  width: 320px;
+  background-color: #F8F9FD;
+  border: 2px solid #ECEBF0;
+  border-radius: 6px;
+  margin-bottom: 20px;
+
+  .pledge-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h2 {
+      padding-top: 20px;
+      margin-left: 20px;
+      color: #586BE9;
+      font-size: 20px;
+      line-height: 25.2px;
+      height: 39px;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      color: #020621;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #80809E;
+      font-size: 14px;
+    }
+  }
+
+
+}
