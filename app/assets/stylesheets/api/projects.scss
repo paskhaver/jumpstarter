@@ -126,6 +126,10 @@
 
 
 
+
+
+
+
 .project-page {
 
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -144,7 +148,8 @@
     margin-top: 54px;
     width: 66.66%;
     height: 133px;
-    background-color: orange;
+    // background-color: orange;
+    background-color: transparent;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -181,15 +186,15 @@
     margin: 0 auto;
     width: 66.66%;
     height: 555px;
-    background: yellow;
+    // background-color: yellow;
+    background-color: transparent;
     display: flex;
     flex-direction: row;
 
-
-
     .project-page-video {
       width: 66.66%;
-      background-color: pink;
+      // background-color: pink;
+      background-color: transparent;
       padding-right: 18px;
     }
 
@@ -197,7 +202,8 @@
       border-top: 3px solid #2BDE73;
       padding-left: 18px;
       width: 33.33%;
-      background-color: lightblue;
+      // background-color: lightblue;
+      background-color: transparent;
 
       span {
         display: block;
@@ -207,7 +213,7 @@
         margin-top: 20px;
         margin-bottom: 3px;
         font-size: 24px;
-        color: #05AF3C;        
+        color: #05AF3C;
       }
 
       .statistic {
@@ -222,6 +228,56 @@
         font-size: 14px;
         line-height: 18px;
       }
+
+      button {
+        margin-top: 30px;
+        cursor: pointer;
+        box-sizing: border-box;
+        border-radius: 6px;
+        border: 2px solid transparent;
+        background-color: #25CB68;
+        padding: 10px 20px;
+        text-align: center;
+        line-height: normal;
+        font-size: 16px;
+        font-weight: 500;
+        color: #FFFFFF;
+        height: 48px;
+        width: 100%;
+      }
+
+      button:hover {
+        transition: background-color 0.5s ease;
+        background-color: #05AF3C;
+      }
+
+      .social-stuff {
+        margin-top: 18px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .social-button {
+        width: 48%;
+        height: 42px;
+        box-sizing: border-box;
+        border-radius: 6px;
+        font-weight: 500;
+        font-size: 14px;
+        color: #626369;
+        line-height: 42px;
+        background-color: #ffffff;
+        border: 1px solid #626369;
+        text-align: center;
+      }
+
+      p {
+        font-size: 12px;
+
+      }
+
     }
   }
 

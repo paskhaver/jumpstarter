@@ -88,6 +88,19 @@ class ProjectPage extends React.Component {
 
             <span className="statistic">36</span>
             <span className="statistic-category">days to go</span>
+
+            <button>Back this Project</button>
+
+            <div className="social-stuff">
+              <div className="social-button">Remind Me</div>
+              <div className="social-button">Share</div>
+            </div>
+
+            <p>
+              All or nothing. This project will only be funded if it
+              reaches its goal by Sun, May 28 2017 10:00 AM EDT.
+            </p>
+
           </div>
         </div>
 
