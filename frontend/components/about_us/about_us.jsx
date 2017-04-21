@@ -10,7 +10,7 @@ class AboutUs extends React.Component {
   render() {
     const opts = {
         height: '390',
-        width: '1080',
+        width: '100%',
         playerVars: { // https://developers.google.com/youtube/player_parameters
           autoplay: 1
         }
