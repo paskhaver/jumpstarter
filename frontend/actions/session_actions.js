@@ -3,7 +3,7 @@ import { receiveErrors, clearErrors } from "./error_actions";
 import { hashHistory } from 'react-router';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
-// export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
+
 
 export const receiveCurrentUser = (user) => {
   return {

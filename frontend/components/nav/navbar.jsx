@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from 'react-router';
 import { hashHistory } from 'react-router';
 
-// <Link to="login"><span>{logStatus}</span></Link>
-
 class NavBar extends React.Component {
 
   // this.props.currentUser
@@ -36,7 +34,7 @@ class NavBar extends React.Component {
               <a><span>Explore</span></a>
               <Link to="start"><span>Start a Project</span></Link>
               <Link to="about"><span>About Us</span></Link>
-              <Link to="projects/4"><span>Sample Project</span></Link>
+              <Link to="projects/1"><span>Sample Project</span></Link>
           </div>
 
           <div className="center-nav">
