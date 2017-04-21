@@ -136,19 +136,17 @@
   box-sizing: border-box;
   border-top: 3px solid black;
   width: 100%;
-  height: 800px;
   background-color: #FBFBFA;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-start;
 
   .header {
     margin: 0 auto;
-    margin-top: 54px;
+    margin-top: 36px;
     width: 66.66%;
     height: 133px;
-    // background-color: orange;
     background-color: transparent;
     display: flex;
     flex-direction: row;
@@ -156,7 +154,23 @@
 
     .creator-info {
       width: 20%;
-      //  background-color: green;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .creator-image {
+        border-radius: 30px;
+        height: 42px;
+        width: 42px;
+        margin-top: 20px;
+        background-color: yellow;
+      }
+
+      span {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #353535;
+      }
     }
 
     .project-title {
@@ -167,6 +181,7 @@
         padding-top: 20px;
         padding-left: 10px;
         font-size: 38px;
+        color: #353535;
         line-height: 42px;
         font-weight: 500;
       }
@@ -183,17 +198,14 @@
 
   .primary-info {
 
-    margin: 0 auto;
+    margin: 36px auto;
     width: 66.66%;
-    height: 555px;
-    // background-color: yellow;
     background-color: transparent;
     display: flex;
     flex-direction: row;
 
     .project-page-video {
       width: 66.66%;
-      // background-color: pink;
       background-color: transparent;
       padding-right: 18px;
     }
@@ -260,6 +272,7 @@
       }
 
       .social-button {
+        cursor: pointer;
         width: 48%;
         height: 42px;
         box-sizing: border-box;
@@ -281,17 +294,41 @@
     }
   }
 
-  .category-and-residency-info {
+  .below-the-fold {
 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 56%;
+    margin-top: 50px;
+    border-top: 1px solid black;
   }
 
-  .description-container {
+    h3 {
+      font-size: 22px;
+      margin-bottom: 42px;
+      line-height: 30px;
+      color: #353535;
+    }
 
-  }
+    p {
+      font-size: 14px;
+      color: #353535;
+    }
 
-  .pledge-container {
+    .description-container {
+      margin: 0 auto;
+      background-color: lightblue;
+      width: 66.66%;
+    }
 
-  }
+    .pledge-container {
+      background-color: yellow;
+      width: 33.33%;
+    }
 
 
 }
