@@ -38,7 +38,7 @@ ActiveRecord::Base.transaction do
   pledge_amount: 1000, description: "I'll play all your favorite Tassos hits",
   delivery_date: "2018/12/31", max_backers: 3)
 
-  reward2 = Reward.create(project: project2, title: "Free comic book",
+  reward3 = Reward.create(project: project2, title: "Free comic book",
   pledge_amount: 1, description: "A digital copy of the comic book",
   delivery_date: "2017/10/01", max_backers: 500)
 
@@ -49,5 +49,11 @@ ActiveRecord::Base.transaction do
   reward5 = Reward.create(project: project4, title: "Early access to book",
   pledge_amount: 25, description: "Get the book before anyone else",
   delivery_date: "2017/07/31", max_backers: 10000)
+
+  pledge1 = Pledge.create(reward: reward2, user: user1)
+  pledge2 = Pledge.create(reward: reward2, user: user2)
+  pledge3 = Pledge.create(reward: reward2, user: user3)
+  pledge4 = Pledge.create(reward: reward1, user: user3)
+  pledge5 = Pledge.create(reward: reward4, user: user3)
 
 end

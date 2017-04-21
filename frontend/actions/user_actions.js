@@ -10,6 +10,8 @@ export const createUser = (user) => (dispatch) => {
                         dispatch(receiveCurrentUser(newUser));
                         dispatch(clearErrors());
                       },
-                      (errors) =>  { dispatch(receiveErrors(errors.responseJSON)); }
+                      (errors) =>  {
+                        dispatch(receiveErrors(errors.responseJSON));
+                      }
                     );
 };

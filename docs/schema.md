@@ -72,7 +72,7 @@ FOREIGN KEY **reward_id** related to PRIMARY KEY **id** in rewards table
 
 - A Pledge `belongs_to` a **User** (the supporter)
 - A Pledge `belongs_to` a **Reward**
-- A Pledge `belongs_to` a **Project** (association through Reward)
+- A Pledge `has_one` a **Project** (association through Reward)
 
 Both the **user_id** and **reward_id** foreign keys are not unique.
 

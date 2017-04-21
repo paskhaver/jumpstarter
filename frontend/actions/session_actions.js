@@ -4,7 +4,6 @@ import { hashHistory } from 'react-router';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 
-
 export const receiveCurrentUser = (user) => {
   return {
     type: RECEIVE_CURRENT_USER,
@@ -36,7 +35,7 @@ export const logout = () => (dispatch) => {
                          },
 
                          (errors) => {
-                          dispatch(receiveUserErrors(errors.responseJSON));
+                          dispatch(receiveErrors(errors.responseJSON));
                          }
                        );
 };

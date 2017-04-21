@@ -1,5 +1,8 @@
 class Pledge < ApplicationRecord
 
+  validates :user, :reward,
+    presence: true
+
   belongs_to :user,
     class_name: "User",
     primary_key: :id,
@@ -10,7 +13,7 @@ class Pledge < ApplicationRecord
     primary_key: :id,
     foreign_key: :reward_id
 
-  belongs_to :project,
+  has_one :project,
     through: :reward,
     source: :project
 
