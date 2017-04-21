@@ -9,6 +9,9 @@ import CreateUserFormContainer from "./components/users/create_user_form_contain
 import CreateProjectContainer from "./components/projects/create_project_container";
 import AboutUs from "./components/about_us/about_us";
 
+import ProjectIndexContainer from "./components/projects/project_index_container";
+import ProjectPageContainer from "./components/projects/project_page_container";
+
 import * as UserAPIUtil from "./util/user_api_util";
 import * as SessionAPIUtil from "./util/session_api_util";
 import * as ProjectAPIUtil from "./util/project_api_util";
@@ -42,6 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={Root} >
+          <Route path="discover" component={ProjectIndexContainer} />
+          <Route path="projects/:id" component={ProjectPageContainer} />
           <Route path="start" component={CreateProjectContainer} />
           <Route path="about" component={AboutUs} />
           <Route path="login"  component={LoginFormContainer} />

@@ -108,8 +108,8 @@ class CreateProject extends React.Component {
     }
 
     if (!errors) {
-      if (currentUser) {
-        const creator_id = currentUser.id;
+      if (this.props.currentUser) {
+        const creator_id = this.props.currentUser.id;
         this.props.createProject({ creator_id, category, title, residence });
       } else {
         hashHistory.push(`/login?category=${category}&title=${title}&residence=${residence}`);
