@@ -13,6 +13,19 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :creator_id
 
+  has_many :pledges,
+    class_name: "Pledge",
+    primary_key: :id,
+    foreign_key: :user_id
+
+  has_many :rewards,
+    through: :pledges,
+    source: :reward
+
+  has_many :supported_projects,
+    through: :rewards,
+    source: :project
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(email, password)

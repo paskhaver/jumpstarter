@@ -13,4 +13,13 @@ class Project < ApplicationRecord
     primary_key: :id,
     foreign_key: :project_id
 
+  has_many :pledges,
+    through: :rewards,
+    source: :pledges
+
+  has_many :supporters,
+    through: :pledges,
+    source: :user
+
+
 end

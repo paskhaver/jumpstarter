@@ -8,4 +8,10 @@ class Reward < ApplicationRecord
     class_name: "Project",
     primary_key: :id,
     foreign_key: :project_id
+
+  has_many :pledges,
+    class_name: "Pledge",
+    primary_key: :id,
+    foreign_key: :reward_id
+
 end

@@ -31,7 +31,7 @@
 
 FOREIGN KEY **creator_id** connects to PRIMARY KEY **id** in users table
 
-- A Project `belongs_to` a User (the creator)
+- A Project `belongs_to` a creator (a **user**)
 - A Project `has_many` **rewards**
 - A Project `has_many` **pledges** (association through rewards)
 - A Project `has_many` **supporters** (association through pledges)
@@ -72,7 +72,7 @@ FOREIGN KEY **reward_id** related to PRIMARY KEY **id** in rewards table
 
 - A Pledge `belongs_to` a **User** (the supporter)
 - A Pledge `belongs_to` a **Reward**
-- A Pledge `has_one` **Project** (association through Reward)
+- A Pledge `belongs_to` a **Project** (association through Reward)
 
 Both the **user_id** and **reward_id** foreign keys are not unique.
 
