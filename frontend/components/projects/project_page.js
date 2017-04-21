@@ -1,18 +1,19 @@
 import React from "react";
 import { hashHistory } from 'react-router';
+import YouTube from "react-youtube";
 
 class ProjectPage extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      title: "Project Page"
+      title: ""
     };
   }
 
   // Functional but always one page behind --- not actually
   // loading the currently requested URL Page
-  
+
   // componentWillReceiveProps(nextProps) {
   //
   //   if (this.props.params.id != nextProps.params.id) {
@@ -32,7 +33,7 @@ class ProjectPage extends React.Component {
 
     project.then(() => {
       const { title, category, residence, blurb } = this.props.currentProject;
-      this.setState({ title });
+      this.setState({ title, category, residence, blurb });
     });
 
               // .then(project => {
@@ -46,14 +47,48 @@ class ProjectPage extends React.Component {
   }
 
   render() {
+
+    const videoOptions = {
+        height: "100%",
+        width: "100%",
+        playerVars: { // https://developers.google.com/youtube/player_parameters
+          autoplay: 0
+        }
+      };
+
     return (
       <div className="project-page">
-        <div className="project-page-video">
-          <h1>{this.state.title}</h1>
-        </div>
 
-        <div className="fundraising-box">
+        <header className="header">
+          <div className="creator-info">
 
+          </div>
+
+          <div className="project-title">
+            <h2>{this.state.title}</h2>
+            <p>{this.state.blurb}</p>
+          </div>
+        </header>
+
+        <div className="primary-info">
+          <div className="project-page-video">
+            <YouTube
+              videoId="MXKEccRiMeQ"
+              onEnd={event => { event.target.pauseVideo(); }}
+              opts={videoOptions}
+            />
+          </div>
+
+          <div className="fundraising-box">
+            <span className="pledge-amount">$59,094</span>
+            <span className="statistic-category">pledged of $100,000 goal</span>
+
+            <span className="statistic">333</span>
+            <span className="statistic-category">backers</span>
+
+            <span className="statistic">36</span>
+            <span className="statistic-category">days to go</span>
+          </div>
         </div>
 
         <div className="category-and-residency-info">

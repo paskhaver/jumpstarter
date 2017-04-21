@@ -18,7 +18,8 @@ class AboutUs extends React.Component {
 
       return (
         <YouTube
-          videoId="8AIwaSD9Sco"
+          videoId="RB4Ht70-XcY"
+          onEnd={event => { event.target.playVideo(); }}
           opts={opts}
         />
       );

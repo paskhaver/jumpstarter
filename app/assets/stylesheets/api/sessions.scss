@@ -90,6 +90,11 @@
     width: 100%;
   }
 
+  input[type="submit"]:hover {
+    transition: background-color 0.5s ease;
+    background-color: #05AF3C;
+  }
+
   .alternate-link {
     width: 100%;
     height: 45px;
@@ -104,6 +109,5 @@
     font-size: 14px;
     color: #FFFFFF;
   }
-
 
 }
