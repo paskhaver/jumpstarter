@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { Router, Route, hashHistory } from 'react-router';
+import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 
 import Root from "./components/root";
 import LoginFormContainer from "./components/users/login_form_container";
@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={Root} >
+          <IndexRoute component={CreateProjectContainer} />
           <Route path="discover" component={ProjectIndexContainer} />
           <Route path="projects/:id" component={ProjectPageContainer} />
           <Route path="start" component={CreateProjectContainer} />

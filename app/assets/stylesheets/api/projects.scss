@@ -196,6 +196,10 @@
     }
   }
 
+  .above-the-fold {
+    border-bottom: 1px solid #DCDEDD;
+  }
+
   .primary-info {
 
     margin: 36px auto;
@@ -294,8 +298,12 @@
     }
   }
 
-  .below-the-fold {
+  .white-box {
+    background-color: #ffffff;
 
+  }
+
+  .below-the-fold {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -304,7 +312,7 @@
     margin: 0 auto;
     width: 56%;
     margin-top: 50px;
-    border-top: 1px solid black;
+    background-color: #ffffff;
   }
 
     h3 {
@@ -327,6 +335,10 @@
       margin: 0 auto;
       // background-color: lightblue;
       width: 66.66%;
+
+      img {
+        padding-left: 20px;
+      }
     }
 
     .pledge-container {
