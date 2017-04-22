@@ -2,7 +2,7 @@
 
   width: 33%; // 32% of parent create-project box
   margin: 60px auto;
-  // background-color: orange;
+  background-color: #ffffff;
   box-sizing: border-box;
 
   p {
@@ -29,6 +29,7 @@
     margin-bottom: 20px;
 
     font-size: 22px;
+    color: #80809E;
     height: 50px;
     width: 300px;
   }
@@ -39,7 +40,9 @@
     box-sizing: border-box;
     margin: 20px auto;
     border-bottom: 1px solid #020621;
+
     background-color: transparent;
+    color: #80809E;
     font-size: 22px;
   }
 
@@ -75,7 +78,9 @@
   .modal {
     margin: 0 auto;
     width: 300px;
+
     background-color: #ffffff;
+
     box-sizing: border-box;
     border-radius: 6px;
     display: flex;
@@ -103,6 +108,7 @@
       width: 100px;
       padding-right: 18px;
       margin-bottom: 12px;
+
       color: #3D3D66;
       font-size: 14px;
     }

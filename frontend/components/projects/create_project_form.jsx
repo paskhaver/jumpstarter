@@ -25,7 +25,7 @@ class CreateProjectForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  generate_categories_list() {
+  generateCategoriesList() {
     const categories = ["Art", "Comics", "Crafts", "Dance", "Design", "Fashion",
                         "Film & Video", "Food", "Games", "Journalism", "Music",
                         "Photography", "Publishing", "Technology", "Theater"];
@@ -36,7 +36,7 @@ class CreateProjectForm extends React.Component {
     });
   }
 
-  generate_residencies_list() {
+  generateResidenciesList() {
 
     const residencies = ["Australia", "Austria", "Belgium", "Canada",
                          "Denmark", "France", "Germany", "Hong Kong",
@@ -83,8 +83,7 @@ class CreateProjectForm extends React.Component {
     });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  checkForErrors() {
     this.props.clearErrors();
     const { category, title, residence } = this.state;
     let errors = false;
@@ -94,22 +93,31 @@ class CreateProjectForm extends React.Component {
       errors = true;
     }
 
-    if (residence === "Select your country") {
-      this.props.receiveErrors(["Please select a valid country"]);
-      errors = true;
-    }
-
     if (title === "") {
       this.props.receiveErrors(["Please enter a valid title"]);
       errors = true;
     }
 
+    if (residence === "Select your country") {
+      this.props.receiveErrors(["Please select a valid country"]);
+      errors = true;
+    }
+
+    return errors;
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const errors = this.checkForErrors();
+    const { category, title, residence } = this.state;
+
     if (!errors) {
       if (this.props.currentUser) {
         const creator_id = this.props.currentUser.id;
         this.props.createProject({ creator_id, category, title, residence });
+        hashHistory.push("/about");
       } else {
-        hashHistory.push(`/login?category=${category}&title=${title}&residence=${residence}`);
+        // this.props.storeProject();
       }
     }
   }
@@ -128,7 +136,7 @@ class CreateProjectForm extends React.Component {
               <div className="modal"
                     style={{display: this.state.categoryModalStatus}}>
                 <ul>
-                  {this.generate_categories_list() }
+                  {this.generateCategoriesList() }
                 </ul>
               </div>
 
@@ -145,7 +153,7 @@ class CreateProjectForm extends React.Component {
              <div className="modal"
                    style={{display: this.state.residencyModalStatus}} >
                <ul>
-                 { this.generate_residencies_list() }
+                 { this.generateResidenciesList() }
                </ul>
              </div>
 
