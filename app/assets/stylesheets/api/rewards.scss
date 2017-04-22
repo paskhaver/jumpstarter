@@ -25,7 +25,6 @@
       color: #586BE9;
       font-size: 20px;
       line-height: 25.2px;
-      height: 39px;
       margin-bottom: 10px;
     }
 
@@ -33,11 +32,47 @@
       color: #020621;
       font-size: 16px;
       margin-bottom: 10px;
+      font-weight: normal;
+      line-height: 22.4px;
     }
 
     p {
       color: #80809E;
       font-size: 14px;
+    }
+
+    span {
+      margin-left: 20px;
+    }
+
+    .estimated-delivery {
+      font-size: 10px;
+      color: #80809E;
+      font-weight: 500;
+      line-height: 14px;
+      text-transform: uppercase;
+    }
+
+    .delivery-date {
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #020621;
+      font-weight: normal;
+      line-height: 21px;
+    }
+
+    .pledge-limit {
+      font-size: 12px;
+      color: #ff7d5f;
+      line-height: 16.8px;
+    }
+
+    .number-of-backers {
+      color: #80809E;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 16.8px;
+      margin-bottom: 20px;
     }
   }
 

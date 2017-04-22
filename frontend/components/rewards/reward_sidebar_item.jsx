@@ -16,8 +16,22 @@ class RewardSidebarItem extends React.Component {
           <h3>{this.props.reward.title}</h3>
 
           <p>{this.props.reward.description}</p>
-          <p>{this.props.reward.delivery_date}</p>
-          <p>{this.props.reward.max_backers}</p>
+
+          <span className="estimated-delivery">
+            Estimated Delivery
+          </span>
+
+          <span className="delivery-date">
+            {this.props.reward.delivery_date}
+          </span>
+
+          <span className="pledge-limit">
+            Limited (38 left of 40)
+          </span>
+
+          <span className="number-of-backers">
+            {this.props.reward.max_backers} backers
+          </span>
         </div>
       </li>
     );
