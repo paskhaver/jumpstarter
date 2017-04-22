@@ -75,6 +75,10 @@
       margin-bottom: 20px;
     }
   }
+}
 
-
+.reward-sidebar-list-item:hover {
+  background-color: rgba(43, 222, 115, 0.901961);
+  transition-duration: 0.2;
+  transition-timing-function: ease-in-out;
 }
