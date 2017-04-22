@@ -10,6 +10,11 @@
 **LoginFormContainer**
   - LoginForm Component
 
+**CreateProjectContainer**
+  - CreateProjectBackground
+    - CreateProjectBox
+  - GeneralInfoIndex Component
+    - GeneralInfoItem Component
 
 **ProjectContainer**
   - ProjectHeader Component

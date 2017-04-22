@@ -116,12 +116,7 @@ class CreateProjectBox extends React.Component {
 
   render() {
     return (
-
-
-      <div className="create-project">
         <form onSubmit = { this.handleSubmit }>
-            <h2>Get started</h2>
-
           <div className="category-flex">
             <div className="vertical-numbers">
               <div className="number">1.</div>
@@ -166,7 +161,6 @@ class CreateProjectBox extends React.Component {
 
           </div> { /* Close category-flex container */ }
         </form>
-      </div>
     );
   }
 }

@@ -10,13 +10,9 @@ class CreateProjectBackground extends React.Component {
 
   render() {
     return (
-      <div>
         <div className="create-project-background">
-
+          {this.props.children}
         </div>
-
-        <GeneralInfoIndex />
-      </div>
     );
   }
 }

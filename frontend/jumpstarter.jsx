@@ -10,6 +10,8 @@ import CreateUserFormContainer from "./components/users/create_user_form_contain
 import CreateProjectBackground from "./components/projects/create_project_background";
 import AboutUs from "./components/about_us/about_us";
 
+import CreateProjectPage from "./components/projects/create_project_page";
+
 import ProjectIndexContainer from "./components/projects/project_index_container";
 import ProjectPageContainer from "./components/projects/project_page_container";
 
@@ -46,11 +48,11 @@ document.addEventListener("DOMContentLoaded", () => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={Root} >
-          <IndexRoute component={CreateProjectBackground} />
-          
+          <IndexRoute component={CreateProjectPage} />
+
           <Route path="discover" component={ProjectIndexContainer} />
           <Route path="projects/:id" component={ProjectPageContainer} />
-          <Route path="start" component={CreateProjectBackground} />
+          <Route path="start" component={CreateProjectPage} />
           <Route path="about" component={AboutUs} />
           <Route path="login"  component={LoginFormContainer} />
           <Route path="signup" component={CreateUserFormContainer} />
