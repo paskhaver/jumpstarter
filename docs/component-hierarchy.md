@@ -11,8 +11,10 @@
   - LoginForm Component
 
 **CreateProjectContainer**
-  - CreateProjectBackground
-    - CreateProjectBox
+  - CreateProjectBackground Component
+    - CreateProjectHeader Component
+    - CreateProjectFormContainer
+      - CreateProjectForm Component
   - GeneralInfoIndex Component
     - GeneralInfoItem Component
 

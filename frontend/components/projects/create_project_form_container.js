@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
-import CreateProjectBox from "./create_project";
 import { createProject } from "../../actions/project_actions";
 import { receiveErrors, clearErrors } from "../../actions/error_actions";
+import CreateProjectForm from "./create_project_form";
+
 
 const mapStateToProps = (state) => {
   return {
@@ -17,4 +18,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateProjectBox);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateProjectForm);

@@ -2,7 +2,7 @@ import React from "react";
 
 import CreateProjectBackground from "./create_project_background";
 import CreateProjectHeader from "./create_project_header";
-import CreateProjectBoxContainer from "./create_project_box";
+import CreateProjectFormContainer from "./create_project_form_container";
 import GeneralInfoIndex from "./general_info_index";
 
 class CreateProjectPage extends React.Component {
@@ -16,7 +16,7 @@ class CreateProjectPage extends React.Component {
       <div>
         <CreateProjectBackground>
           <CreateProjectHeader />
-          <CreateProjectBoxContainer />
+          <CreateProjectFormContainer />
         </CreateProjectBackground>
         <GeneralInfoIndex />
       </div>
