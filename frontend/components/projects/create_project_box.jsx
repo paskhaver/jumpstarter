@@ -1,7 +1,7 @@
 import React from "react";
 import { hashHistory } from 'react-router';
 
-class CreateProject extends React.Component {
+class CreateProjectBox extends React.Component {
 
   // this.props.currentUser
 
@@ -116,6 +116,8 @@ class CreateProject extends React.Component {
 
   render() {
     return (
+
+
       <div className="create-project">
         <form onSubmit = { this.handleSubmit }>
             <h2>Get started</h2>
@@ -169,4 +171,4 @@ class CreateProject extends React.Component {
   }
 }
 
-export default CreateProject;
+export default CreateProjectBox;

@@ -6,7 +6,8 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import Root from "./components/root";
 import LoginFormContainer from "./components/users/login_form_container";
 import CreateUserFormContainer from "./components/users/create_user_form_container";
-import CreateProjectContainer from "./components/projects/create_project_container";
+
+import CreateProjectBackground from "./components/projects/create_project_background";
 import AboutUs from "./components/about_us/about_us";
 
 import ProjectIndexContainer from "./components/projects/project_index_container";
@@ -45,10 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={Root} >
-          <IndexRoute component={CreateProjectContainer} />
+          <IndexRoute component={CreateProjectBackground} />
+          
           <Route path="discover" component={ProjectIndexContainer} />
           <Route path="projects/:id" component={ProjectPageContainer} />
-          <Route path="start" component={CreateProjectContainer} />
+          <Route path="start" component={CreateProjectBackground} />
           <Route path="about" component={AboutUs} />
           <Route path="login"  component={LoginFormContainer} />
           <Route path="signup" component={CreateUserFormContainer} />

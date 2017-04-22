@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import CreateProject from "./create_project";
+import CreateProjectBox from "./create_project";
 import { createProject } from "../../actions/project_actions";
 import { receiveErrors, clearErrors } from "../../actions/error_actions";
 
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateProject);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateProjectBox);
