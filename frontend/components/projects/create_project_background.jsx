@@ -1,5 +1,6 @@
 import React from "react";
 import CreateProjectBoxContainer from "./create_project_box";
+import GeneralInfoIndex from "./general_info_index";
 
 class CreateProjectBackground extends React.Component {
 
@@ -9,8 +10,12 @@ class CreateProjectBackground extends React.Component {
 
   render() {
     return (
-      <div className="create-project-background">
-      
+      <div>
+        <div className="create-project-background">
+
+        </div>
+
+        <GeneralInfoIndex />
       </div>
     );
   }
