@@ -1,0 +1,218 @@
+.project-page {
+
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  border-top: 3px solid black;
+  width: 100%;
+  background-color: #FBFBFA;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
+  .header {
+    margin: 0 auto;
+    margin-top: 36px;
+    width: 86.5%;
+    height: 133px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    .creator-info {
+      width: 18%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .creator-image {
+        border-radius: 30px;
+        height: 42px;
+        width: 42px;
+        margin-top: 20px;
+        background-color: yellow;
+      }
+
+      span {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #353535;
+      }
+    }
+
+    .project-title {
+      width: 60%;
+      // background-color: blue;
+
+      h2 {
+        padding-top: 20px;
+        padding-left: 10px;
+        font-size: 38px;
+        color: #353535;
+        line-height: 42px;
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 18px;
+        padding-left: 10px;
+        line-height: 24px;
+        font-weight: normal;
+        color: #626369;
+      }
+    }
+  }
+
+  .above-the-fold {
+    border-bottom: 1px solid #DCDEDD;
+  }
+
+  .primary-info {
+
+    margin: 36px auto;
+    width: 86.5%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+
+    .project-page-video {
+      width: 66.66%;
+      background-color: transparent;
+      padding-right: 18px;
+    }
+
+    .fundraising-box {
+      border-top: 3px solid #2BDE73;
+      padding-left: 18px;
+      width: 33.33%;
+      // background-color: lightblue;
+      background-color: transparent;
+
+      span {
+        display: block;
+      }
+
+      .pledge-amount {
+        margin-top: 20px;
+        margin-bottom: 3px;
+        font-size: 24px;
+        color: #05AF3C;
+      }
+
+      .statistic {
+        margin-top: 20px;
+        margin-bottom: 3px;
+        color: #353535;
+        font-size: 24px;
+      }
+
+      .statistic-category {
+        color: #626369;
+        font-size: 14px;
+        line-height: 18px;
+      }
+
+      button {
+        margin-top: 30px;
+        cursor: pointer;
+        box-sizing: border-box;
+        border-radius: 6px;
+        border: 2px solid transparent;
+        background-color: #25CB68;
+        padding: 10px 20px;
+        text-align: center;
+        line-height: normal;
+        font-size: 16px;
+        font-weight: 500;
+        color: #FFFFFF;
+        height: 48px;
+        width: 100%;
+      }
+
+      button:hover {
+        transition: background-color 0.5s ease;
+        background-color: #05AF3C;
+      }
+
+      .social-stuff {
+        margin-top: 18px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .social-button {
+        cursor: pointer;
+        width: 48%;
+        height: 42px;
+        box-sizing: border-box;
+        border-radius: 6px;
+        font-weight: 500;
+        font-size: 14px;
+        color: #626369;
+        line-height: 42px;
+        background-color: #ffffff;
+        border: 1px solid #626369;
+        text-align: center;
+      }
+
+      p {
+        font-size: 12px;
+
+      }
+
+    }
+  }
+
+  .white-box {
+    background-color: #ffffff;
+
+  }
+
+  .below-the-fold {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 56%;
+    margin-top: 50px;
+    background-color: #ffffff;
+  }
+
+    h3 {
+      padding: 0px 20px;
+      font-size: 22px;
+      margin-bottom: 42px;
+      line-height: 30px;
+      color: #353535;
+    }
+
+    p {
+      padding: 0px 20px;
+      font-size: 16px;
+      line-height: 21px;
+      color: #353535;
+      margin-bottom: 20px;
+    }
+
+    .description-container {
+      margin: 0 auto;
+      // background-color: lightblue;
+      width: 66.66%;
+
+      img {
+        padding-left: 20px;
+      }
+    }
+
+    .pledge-container {
+      // background-color: yellow;
+      width: 33.33%;
+    }
+
+
+}

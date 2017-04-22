@@ -118,51 +118,51 @@ class CreateProject extends React.Component {
     return (
       <div className="create-project">
         <form onSubmit = { this.handleSubmit }>
-
-          <div className="row">
             <h2>Get started</h2>
-          </div>
 
-          <div className="row">
-            <p>Choose a category</p>
-            <span onClick = {this.handleSpanClick("categoryModalStatus")}>
-              {this.state.category}
-            </span>
-
-              <div className="modal"
-                    style={{display: this.state.categoryModalStatus}}>
-                <ul>
-                  {this.generate_categories_list() }
-                </ul>
-              </div>
-
-          </div>
-
-          <div className="row">
-            <p>Give your project a title:</p>
-            <input type="text"
-                   placeholder="...title"
-                   onChange={ this.handleTitleEdit }/>
-          </div>
-
-          <div className="row">
-            <p>Your permanent residence</p>
-              <span onClick = {this.handleSpanClick("residencyModalStatus")}>
-                {this.state.residence}</span>
-
-            <div className="modal"
-                  style={{display: this.state.residencyModalStatus}} >
-              <ul>
-                { this.generate_residencies_list() }
-              </ul>
+          <div className="category-flex">
+            <div className="vertical-numbers">
+              <div className="number">1.</div>
+              <div className="number">2.</div>
+              <div className="number">3.</div>
             </div>
 
-          </div>
+            <div className="form-entries">
+              <p>Choose a category:</p>
+              <span onClick = {this.handleSpanClick("categoryModalStatus")}>
+                {this.state.category}
+              </span>
 
-          <div className="row">
-            <input type="submit" value="Save and continue" />
-          </div>
+                <div className="modal"
+                      style={{display: this.state.categoryModalStatus}}>
+                  <ul>
+                    {this.generate_categories_list() }
+                  </ul>
+                </div>
 
+                <p>Give your project a title:</p>
+                <input type="text"
+                       placeholder="...title"
+                       onChange={ this.handleTitleEdit }/>
+
+
+               <p>Your permanent residence</p>
+                 <span onClick = {this.handleSpanClick("residencyModalStatus")}>
+                   {this.state.residence}</span>
+
+               <div className="modal"
+                     style={{display: this.state.residencyModalStatus}} >
+                 <ul>
+                   { this.generate_residencies_list() }
+                 </ul>
+               </div>
+
+               <div className="row">
+                 <input type="submit" value="Save and continue" />
+               </div>
+            </div>
+
+          </div> { /* Close category-flex container */ }
         </form>
       </div>
     );
