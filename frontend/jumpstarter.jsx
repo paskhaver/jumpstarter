@@ -11,6 +11,7 @@ import CreateProjectBackground from "./components/projects/create_project_backgr
 import AboutUs from "./components/about_us/about_us";
 
 import CreateProjectPage from "./components/projects/create_project_page";
+import EditProjectPageContainer from "./components/projects/edit_project_page_container";
 
 import ProjectIndexContainer from "./components/projects/project_index_container";
 import ProjectPageContainer from "./components/projects/project_page_container";
@@ -28,7 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let store;
   if (window.currentUser) {
-    const preloadedState = { session: { currentUser: window.currentUser, errors: [] } };
+    const preloadedState = { session:
+                              { currentUser: window.currentUser,
+                                errors: []
+                              }
+                           };
     store = configureStore(preloadedState);
   } else {
     store = configureStore();
@@ -49,11 +54,16 @@ document.addEventListener("DOMContentLoaded", () => {
       <Router history={hashHistory}>
         <Route path="/" component={Root} >
           <IndexRoute component={CreateProjectPage} />
+          <Route path="start" component={CreateProjectPage} />
 
           <Route path="discover" component={ProjectIndexContainer} />
-          <Route path="projects/:id" component={ProjectPageContainer} />
-          <Route path="start" component={CreateProjectPage} />
+
+          <Route path="projects/:id" component={ProjectPageContainer} >
+            <Route path="edit" component={EditProjectPageContainer}/>
+          </Route>
+
           <Route path="about" component={AboutUs} />
+
           <Route path="login"  component={LoginFormContainer} />
           <Route path="signup" component={CreateUserFormContainer} />
         </Route>

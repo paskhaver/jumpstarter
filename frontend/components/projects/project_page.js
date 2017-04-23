@@ -40,6 +40,11 @@ class ProjectPage extends React.Component {
 
   render() {
 
+    if (this.props.routes.childRoutes) {
+      return this.props.children;
+    }
+    debugger
+
     const videoOptions = {
         height: "100%",
         width: "100%",
