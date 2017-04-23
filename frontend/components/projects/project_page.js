@@ -1,5 +1,5 @@
 import React from "react";
-import { hashHistory } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import YouTube from "react-youtube";
 import RewardSidebar from "../rewards/reward_sidebar";
 
@@ -30,7 +30,7 @@ class ProjectPage extends React.Component {
 
   componentDidMount() {
     const projectId = this.props.params.id;
-    const project = this.props.fetchProject(projectId);
+    const project   = this.props.fetchProject(projectId);
 
     project.then(() => {
       const { title, category, residence, blurb } = this.props.currentProject;
@@ -38,20 +38,20 @@ class ProjectPage extends React.Component {
     });
   }
 
-  render() {
-
-    if (this.props.routes.childRoutes) {
-      return this.props.children;
-    }
-    debugger
-
+  videoOptions() {
     const videoOptions = {
         height: "100%",
         width: "100%",
-        playerVars: { // https://developers.google.com/youtube/player_parameters
+        playerVars: {
           autoplay: 0
         }
       };
+
+    return videoOptions;
+
+  }
+
+  render() {
 
     let rewards;
     if (this.props.currentProject) {
@@ -60,9 +60,13 @@ class ProjectPage extends React.Component {
       rewards = [];
     }
 
-    return (
-      <div className="project-page">
+    if (this.props.children) {
+      return this.props.children;
+    }
 
+    return (
+
+      <div className="project-page">
         <div className="above-the-fold">
 
           <header className="header">
@@ -82,7 +86,7 @@ class ProjectPage extends React.Component {
               <YouTube
                 videoId="MXKEccRiMeQ"
                 onEnd={event => { event.target.pauseVideo(); }}
-                opts={videoOptions}
+                opts={this.videoOptions()}
               />
             </div>
 

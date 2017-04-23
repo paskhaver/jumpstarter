@@ -9,7 +9,7 @@ class EditProjectPage extends React.Component {
   render() {
     return (
       <div className="edit-project-page">
-        <h1>Hello</h1>
+        <h1>Blah Blah </h1>
       </div>
     );
   }
