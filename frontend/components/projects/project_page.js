@@ -16,7 +16,6 @@ class ProjectPage extends React.Component {
   // on occasional new project fetches
 
   componentWillReceiveProps(nextProps) {
-    // debugger
     if (this.props.params.id !== nextProps.params.id) {
 
       const projectId = nextProps.params.id;
@@ -52,7 +51,6 @@ class ProjectPage extends React.Component {
   }
 
   render() {
-    debugger
     let rewards;
     if (this.props.currentProject) {
       rewards = this.props.currentProject.rewards;
