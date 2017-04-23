@@ -12,21 +12,21 @@ class ProjectPage extends React.Component {
     };
   }
 
-  // Functional but always one page behind --- not actually
-  // loading the currently requested URL Page
+  // Semi-functional --- seems to be forcing a refresh
+  // on occasional new project fetches
 
-  // componentWillReceiveProps(nextProps) {
-  //
-  //   if (this.props.params.id != nextProps.params.id) {
-  //     const projectId = this.props.params.id;
-  //     const project = this.props.fetchProject(projectId);
-  //
-  //     project.then(() => {
-  //        const { title, category, residence, blurb } = this.props.currentProject;
-  //       this.setState({ title });
-  //     });
-  //   }
-  // }
+  componentWillReceiveProps(nextProps) {
+    // debugger
+    if (this.props.params.id !== nextProps.params.id) {
+
+      const projectId = nextProps.params.id;
+      this.props.fetchProject(projectId)
+                .then(() => {
+                  const { title, category, residence, blurb } = this.props.currentProject;
+                  this.setState({ title, category, residence, blurb});
+                });
+    }
+  }
 
   componentDidMount() {
     const projectId = this.props.params.id;
@@ -52,7 +52,7 @@ class ProjectPage extends React.Component {
   }
 
   render() {
-
+    debugger
     let rewards;
     if (this.props.currentProject) {
       rewards = this.props.currentProject.rewards;
