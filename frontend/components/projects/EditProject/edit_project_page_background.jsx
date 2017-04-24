@@ -1,7 +1,7 @@
 import React from "react";
 import EditProjectPageMenuContainer from "./edit_project_page_menu_container";
 import EditProjectPageMotivationalHeader from "./edit_project_page_motivational_header";
-import EditProjectPageMainBox from "./edit_project_page_main_box";
+import EditProjectPageMainBoxContainer from "./edit_project_page_main_box_container";
 import EditProjectPageSaveBar from "./edit_project_page_save_bar";
 
 class EditProjectPageBackground extends React.Component {
@@ -19,11 +19,11 @@ class EditProjectPageBackground extends React.Component {
         <EditProjectPageMenuContainer />
         <EditProjectPageMotivationalHeader />
 
-        <EditProjectPageMainBox box={"Basics"} />
-        <EditProjectPageMainBox box={"Story"} />
-        <EditProjectPageMainBox box={"Rewards"} />
-        <EditProjectPageMainBox box={"About you"}/>
-        <EditProjectPageMainBox box={"Account"} />
+        <EditProjectPageMainBoxContainer box={"Basics"} />
+        <EditProjectPageMainBoxContainer box={"Story"} />
+        <EditProjectPageMainBoxContainer box={"Rewards"} />
+        <EditProjectPageMainBoxContainer box={"About you"}/>
+        <EditProjectPageMainBoxContainer box={"Account"} />
 
         <EditProjectPageSaveBar />
       </div>
