@@ -1,4 +1,5 @@
 import React from "react";
+import AddRewardFormComponent from "./rewards/add_reward_form_component";
 
 class EditProjectPageMainBox extends React.Component {
 
@@ -18,6 +19,7 @@ class EditProjectPageMainBox extends React.Component {
     return (
       <div className={className}>
           <h1>Box For:  {this.props.box}</h1>
+          <AddRewardFormComponent />
       </div>
     );
   }
