@@ -1,5 +1,5 @@
 import React from "react";
-import EditProjectPageMenu from "./edit_project_page_menu";
+import EditProjectPageMenuContainer from "./edit_project_page_menu_container";
 import EditProjectPageMotivationalHeader from "./edit_project_page_motivational_header";
 import EditProjectPageMainBox from "./edit_project_page_main_box";
 import EditProjectPageSaveBar from "./edit_project_page_save_bar";
@@ -16,7 +16,7 @@ class EditProjectPageBackground extends React.Component {
   render() {
     return (
       <div className="edit-project-page-background">
-        <EditProjectPageMenu />
+        <EditProjectPageMenuContainer />
         <EditProjectPageMotivationalHeader />
 
         <EditProjectPageMainBox box={"Basics"} />

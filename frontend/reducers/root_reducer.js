@@ -5,9 +5,11 @@ import SessionReducer from "./session_reducer";
 import ErrorsReducer from "./errors_reducer";
 import ProjectsReducer from "./projects_reducer";
 // import RewardsReducer from "./rewards_reducer";
+import MenuReducer from "./menu_reducer";
 
 export default combineReducers({
   session: SessionReducer,
   errors: ErrorsReducer,
-  project: ProjectsReducer
+  project: ProjectsReducer,
+  menu: MenuReducer
 });

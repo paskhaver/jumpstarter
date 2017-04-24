@@ -15,6 +15,7 @@ class EditProjectPageMenu extends React.Component {
     this.setState({
       activeMenuItem: itemName
     });
+    this.props.updateActiveMenuItem(itemName);
   }
 
   render() {
@@ -23,31 +24,26 @@ class EditProjectPageMenu extends React.Component {
         <ul className="edit-project-page-menu-ul">
 
           <EditProjectPageMenuItem
-            url="basics"
             name={"Basics"}
             checkIcon={true}
             handleMenuItemClick={ this.handleMenuItemClick }/>
 
           <EditProjectPageMenuItem
-            url="rewards"
             name={"Rewards"}
             checkIcon={true}
             handleMenuItemClick={ this.handleMenuItemClick }/>
 
           <EditProjectPageMenuItem
-            url="story"
             name={"Story"}
             checkIcon={true}
             handleMenuItemClick = { this.handleMenuItemClick }/>
 
           <EditProjectPageMenuItem
-            url="about-you"
             name={"About you"}
             checkIcon={true}
             handleMenuItemClick = { this.handleMenuItemClick } />
 
           <EditProjectPageMenuItem
-            url="account"
             name={"Account"}
             checkIcon={true}
             handleMenuItemClick = { this.handleMenuItemClick } />
