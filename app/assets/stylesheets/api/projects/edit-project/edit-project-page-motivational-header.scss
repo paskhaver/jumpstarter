@@ -1,0 +1,28 @@
+.edit-project-page-motivational-header {
+  width: 100%;
+  height: 112px;
+  background-color: lightgreen;
+  box-sizing: border-box;
+  margin-top: 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h2 {
+    width: 940px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 40px;
+  }
+
+  p {
+    width: 940px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 22px;
+  }
+
+}

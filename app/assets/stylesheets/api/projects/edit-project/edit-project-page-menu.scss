@@ -1,10 +1,11 @@
 .edit-project-page-menu {
-  width: 875px;
+
+  width: 850px;
   height: 62px;
-  margin: 60px auto;
+  margin: 42px auto;
   background-color: yellow;
 
-  // display: flex;
-  // flex-direction: row;
-  // justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

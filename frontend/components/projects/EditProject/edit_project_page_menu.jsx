@@ -11,19 +11,21 @@ class EditProjectPageMenu extends React.Component {
     return (
       <nav className="edit-project-page-menu">
         <ul className="edit-project-page-menu-ul">
-          <EditProjectPageMenuItem name={"Basics"} />
-          <EditProjectPageMenuItem name={"Rewards"} />
-          <EditProjectPageMenuItem name={"Story"} />
-          <EditProjectPageMenuItem name={"About You"} />
-          <EditProjectPageMenuItem name={"Account"} />
+          <EditProjectPageMenuItem url="basics" name={"Basics"} checkIcon={true} />
+          <EditProjectPageMenuItem url="rewards" name={"Rewards"} checkIcon={true} />
+          <EditProjectPageMenuItem url="story" name={"Story"} checkIcon={true} />
+          <EditProjectPageMenuItem url="about-you" name={"About you"} checkIcon={true} />
+          <EditProjectPageMenuItem url="account" name={"Account"} checkIcon={true} />
         </ul>
 
         <ul className="edit-project-page-menu-ul">
-          <EditProjectPageMenuItem name={"Preview"} />
+          <EditProjectPageMenuItem url="preview" name={"Preview"} checkIcon={false} />
         </ul>
 
         <ul className="edit-project-page-menu-ul">
-          <EditProjectPageMenuItem name={"Submit for review"}
+          <EditProjectPageMenuItem url="submit"
+                                   name={"Submit for review"}
+                                   checkIcon={false}
                                    bonusText={"Allow up to 3 business days"}/>
         </ul>
       </nav>

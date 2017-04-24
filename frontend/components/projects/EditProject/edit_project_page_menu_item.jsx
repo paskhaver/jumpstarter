@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 class EditProjectPageMenuItem extends React.Component {
 
@@ -11,11 +12,14 @@ class EditProjectPageMenuItem extends React.Component {
   render() {
 
     const bonusText = this.props.bonusText ? this.props.bonusText : "";
+    const checkIcon = this.props.checkIcon ?
+                      (<i className="fa fa-check" aria-hidden="true"></i>) :
+                      "";
 
     return (
       <li className="edit-project-page-menu-item">
-        { this.props.name }
-        { bonusText }
+        { checkIcon }
+        <Link to={this.props.url}>{ this.props.name }</Link>
       </li>
     );
   }

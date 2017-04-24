@@ -1,0 +1,14 @@
+.edit-project-page-menu-ul {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  margin-right: 20px;
+  height: 62px;
+
+}
+
+.edit-project-page-menu-ul:last-child {
+  margin-right: 0px;
+}
