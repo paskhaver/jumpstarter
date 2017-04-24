@@ -30,17 +30,20 @@ class NavBar extends React.Component {
 
     return (
       <nav>
-          <div className="left-nav">
-              <a><span>Explore</span></a>
-              <Link to="start"><span>Start a Project</span></Link>
-              <Link to="about"><span>About Us</span></Link>
-              <Link to="projects/1"><span>Sample Project</span></Link>
-              <Link to="projects/1/edit"><span>Edit Project</span></Link>
-          </div>
+
+        <div className="left-nav">
+            <a><span>Explore</span></a>
+            <Link to="start"><span>Start a Project</span></Link>
+            <Link to="about"><span>About Us</span></Link>
+            <Link to="projects/1"><span>Sample Project</span></Link>
+            <Link to="projects/1/edit"><span>Edit Project</span></Link>
+        </div>
 
           <div className="center-nav">
-            <i className="fa fa-motorcycle fa-3x" aria-hidden="true"></i>
-            <a><h2>Jumpstarter</h2></a>
+            <div className="center">
+              <i className="fa fa-motorcycle fa-3x" aria-hidden="true"></i>
+              <h2>Jumpstarter</h2>
+            </div>
           </div>
 
           <div className="right-nav">
@@ -48,9 +51,15 @@ class NavBar extends React.Component {
             <a onClick={ action } ><span>{logStatus}</span></a>
             <Link to="signup"><span>Sign up</span></Link>
           </div>
+
+
       </nav>
     );
   }
 }
 
 export default NavBar;
+
+
+
+//
