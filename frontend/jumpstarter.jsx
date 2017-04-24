@@ -11,7 +11,7 @@ import CreateProjectBackground from "./components/projects/create_project_backgr
 import AboutUs from "./components/about_us/about_us";
 
 import CreateProjectPage from "./components/projects/create_project_page";
-import EditProjectPageContainer from "./components/projects/edit_project_page_container";
+import EditProjectPageBackground from "./components/projects/EditProject/edit_project_page_background";
 
 import ProjectIndexContainer from "./components/projects/project_index_container";
 import ProjectPageContainer from "./components/projects/project_page_container";
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <Route path="discover" component={ProjectIndexContainer} />
 
           <Route path="projects/:id" component={ProjectPageContainer} >
-            <Route path="edit" component={EditProjectPageContainer}/>
+            <Route path="edit" component={EditProjectPageBackground}/>
           </Route>
 
           <Route path="about" component={AboutUs} />

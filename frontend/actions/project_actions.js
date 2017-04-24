@@ -37,6 +37,7 @@ export const fetchProject = (projectId) => (dispatch) => {
                          project => {
                            dispatch(receiveProject(project));
                            dispatch(clearErrors());
+                           return project;
                          },
                          errors => {
                            dispatch(receiveErrors(errors));

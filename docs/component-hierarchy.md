@@ -18,6 +18,11 @@
   - GeneralInfoIndex Component
     - GeneralInfoItem Component
 
+**EditProject**
+  - EditProjectBackground Component
+  - EditProjectMenu Component (Links)
+  - EditProjectSection (general one that takes arguments) - 2 column design
+
 **ProjectContainer**
   - ProjectHeader Component
   - ProjectVideo Component
