@@ -52,10 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(
     <Provider store={store}>
       <Router history={hashHistory}>
+
         <Route path="/" component={Root} >
+          
           <IndexRoute component={CreateProjectPage} />
           <Route path="start" component={CreateProjectPage} />
-
           <Route path="discover" component={ProjectIndexContainer} />
 
           <Route path="projects/:id" component={ProjectPageContainer} >
@@ -63,9 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
           </Route>
 
           <Route path="about" component={AboutUs} />
-
           <Route path="login"  component={LoginFormContainer} />
           <Route path="signup" component={CreateUserFormContainer} />
+
         </Route>
       </Router>
     </Provider>, rootDOMElement);
