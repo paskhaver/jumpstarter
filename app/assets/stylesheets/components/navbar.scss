@@ -9,6 +9,8 @@ nav {
 
   a {
     text-decoration: none;
+    cursor: pointer;
+    line-height: 60px;
   }
 
   span {
@@ -70,17 +72,5 @@ nav {
     }
 
   }
-
-
-
-  // a {
-  //   box-sizing: border-box;
-  //   margin-left: 24px;
-  //   margin-right: 24px;
-  //   cursor: pointer;
-  //   height: 60px;
-  //   line-height: 60px;
-  //   text-decoration: none;
-  //
 
 }
