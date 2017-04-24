@@ -10,12 +10,14 @@ const Root = (props) => {
     <div>
       <NavBarContainer />
       { props.children }
-      <Footer />
+
     </div>
   );
 };
 
 export default Root;
+
+// <Footer />
 
 // <CreateUserFormContainer />
 // <LoginFormContainer />
