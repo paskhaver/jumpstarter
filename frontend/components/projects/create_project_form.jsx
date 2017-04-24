@@ -110,17 +110,14 @@ class CreateProjectForm extends React.Component {
     event.preventDefault();
     const errors = this.checkForErrors();
     const { category, title, residence } = this.state;
-    debugger
 
     if (!errors) {
       if (this.props.currentUser) {
         const creator_id = this.props.currentUser.id;
         this.props.createProject({ creator_id, category, title, residence })
-                  .then(project => {
-                    debugger
+                  .then(project => {              
                     console.log(project);
                   });
-        debugger
         hashHistory.push("/about");
       } else {
         // this.props.storeProject();
