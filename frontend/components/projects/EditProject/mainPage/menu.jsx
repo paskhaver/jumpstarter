@@ -13,17 +13,19 @@ class Menu extends React.Component {
 
   render() {
 
-    const currentPath = this.props.location.pathname;
+    const projectId = this.props.params.id;
+    const basicsURL = `/projects/${projectId}/edit/basics`;
+    const rewardsURL = `/projects/${projectId}/edit/rewards`;
 
     return (
       <nav className="edit-project-page-menu">
         <ul className="edit-project-page-menu-ul">
           <li className="edit-project-page-menu-item">
-            <Link to={`${currentPath}/basics`}>Basics</Link>
+            <Link to={basicsURL}>Basics</Link>
           </li>
 
           <li className="edit-project-page-menu-item">
-            <Link to={`${currentPath}/rewards`}>Rewards</Link>
+            <Link to={rewardsURL}>Rewards</Link>
           </li>
 
         </ul>

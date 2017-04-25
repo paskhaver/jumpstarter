@@ -21,8 +21,6 @@ class BasicsForm extends React.Component {
               .then(() => {
                 const { title, blurb, category, end_date, funding_goal } = this.props.currentProject;
 
-                debugger;
-
                 this.setState({ title, blurb, category, end_date, funding_goal});
               });
 
