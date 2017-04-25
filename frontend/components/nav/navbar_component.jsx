@@ -34,7 +34,6 @@ class NavBar extends React.Component {
         <div className="left-nav">
             <a><span>Explore</span></a>
             <Link to="start"><span>Start a Project</span></Link>
-            <Link to="about"><span>About Us</span></Link>
             <Link to="projects/1"><span>Sample Project</span></Link>
             <Link to="projects/1/edit"><span>Edit Project</span></Link>
         </div>

@@ -4,10 +4,9 @@ import { Provider } from "react-redux";
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 
 import Root from "./components/root";
-import LoginFormContainer from "./components/users/login_form_container";
-import CreateUserFormContainer from "./components/users/create_user_form_container";
+import LoginForm from "./components/users/login_form_container";
 
-import AboutUs from "./components/about_us/about_us";
+import CreateUserForm from "./components/users/create_user_form_container";
 
 import CreateProjectPage from "./components/projects/CreateProject/create_project_page";
 
@@ -49,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <Route path="edit" component={EditProjectPage}/>
           </Route>
 
+          <Route path="login"  component={LoginForm} />
+          <Route path="signup" component={CreateUserForm} />
 
         </Route>
       </Router>
@@ -58,6 +59,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //
 //
-// <Route path="about" component={AboutUs} />
-// <Route path="login"  component={LoginFormContainer} />
-// <Route path="signup" component={CreateUserFormContainer} />
+//
+//
