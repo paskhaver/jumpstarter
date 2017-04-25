@@ -15,27 +15,22 @@ class AddRewardForm extends React.Component {
       <div className="add-reward-form">
         <div className="row">
           <label>Title</label>
-          <input></input>
-        </div>
-
-        <div className="row">
-          <label>Title</label>
-          <input></input>
+          <input type="text"></input>
         </div>
 
         <div className="row">
           <label>Pledge amount</label>
-          <input></input>
+          <input type="text"></input>
         </div>
 
         <div className="row">
           <label>Description</label>
-          <input></input>
+          <textarea></textarea>
         </div>
 
         <div className="row">
           <label>Estimated delivery</label>
-          <input></input>
+          <input type="date"></input>
         </div>
 
         <div className="row">

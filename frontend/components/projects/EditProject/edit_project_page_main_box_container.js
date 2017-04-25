@@ -1,5 +1,5 @@
 import  { connect } from "react-redux";
-import EditProjectPageMainBox from "./edit_project_page_main_box";
+import EditProjectPageMainBox from "./edit_project_page_main_box_component";
 
 const mapStateToProps = (state, ownProps) => {
   return {

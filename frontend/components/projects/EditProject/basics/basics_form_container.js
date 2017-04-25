@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import ProjectIndex from "./project_index";
+import BasicsForm from "./basics_form_component";
 
 const mapStateToProps = (state) => {
   return {
@@ -7,10 +7,11 @@ const mapStateToProps = (state) => {
   };
 };
 
+
 const mapDispatchToProps = (dispatch) => {
   return {
 
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(BasicsForm);

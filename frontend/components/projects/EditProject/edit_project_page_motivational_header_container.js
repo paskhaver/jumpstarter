@@ -1,5 +1,5 @@
 import  { connect } from "react-redux";
-import EditProjectPageMotivationalHeader from "./edit_project_page_motivational_header";
+import EditProjectPageMotivationalHeader from "./edit_project_page_motivational_header_component";
 
 const mapStateToProps = (state, ownProps) => {
   return {

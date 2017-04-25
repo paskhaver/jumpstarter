@@ -7,6 +7,9 @@ import EditProjectPageMainBoxContainer from "./edit_project_page_main_box_contai
 
 import EditProjectPageSaveBar from "./edit_project_page_save_bar";
 
+import BasicsForm from "./basics/basics_form_container";
+
+
 class EditProjectPageBackground extends React.Component {
 
   constructor(props) {
@@ -22,7 +25,10 @@ class EditProjectPageBackground extends React.Component {
         <EditProjectPageMenuContainer />
         <EditProjectPageMotivationalHeaderContainer />
 
-        <EditProjectPageMainBoxContainer box={"Basics"} />
+        <EditProjectPageMainBoxContainer box={"Basics"}>
+          <BasicsForm />
+        </EditProjectPageMainBoxContainer>
+
         <EditProjectPageMainBoxContainer box={"Story"} />
         <EditProjectPageMainBoxContainer box={"Rewards"} />
         <EditProjectPageMainBoxContainer box={"About you"}/>

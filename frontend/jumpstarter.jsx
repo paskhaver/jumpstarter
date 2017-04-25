@@ -13,7 +13,6 @@ import AboutUs from "./components/about_us/about_us";
 import CreateProjectPage from "./components/projects/create_project_page";
 import EditProjectPageBackground from "./components/projects/EditProject/edit_project_page_background";
 
-import ProjectIndexContainer from "./components/projects/project_index_container";
 import ProjectPageContainer from "./components/projects/project_page_container";
 
 import * as UserAPIUtil from "./util/user_api_util";
@@ -54,11 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
       <Router history={hashHistory}>
 
         <Route path="/" component={Root} >
-          
+
           <IndexRoute component={CreateProjectPage} />
           <Route path="start" component={CreateProjectPage} />
-          <Route path="discover" component={ProjectIndexContainer} />
-
+        
           <Route path="projects/:id" component={ProjectPageContainer} >
             <Route path="edit" component={EditProjectPageBackground}/>
           </Route>

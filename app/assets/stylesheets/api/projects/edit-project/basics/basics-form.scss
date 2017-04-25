@@ -1,0 +1,17 @@
+.basics-form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: yellow;
+
+  .basics-content {
+    width: 66.66%;
+  }
+
+  .basics-sidebar {
+    width: 33.33%;
+  }
+
+
+}

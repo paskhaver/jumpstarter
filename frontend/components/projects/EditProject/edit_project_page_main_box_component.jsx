@@ -19,7 +19,7 @@ class EditProjectPageMainBox extends React.Component {
     return (
       <div className={className}>
           <h1>Box For:  {this.props.box}</h1>
-          <AddRewardFormComponent />
+
       </div>
     );
   }
@@ -27,3 +27,5 @@ class EditProjectPageMainBox extends React.Component {
 }
 
 export default EditProjectPageMainBox;
+
+// <AddRewardFormComponent />
