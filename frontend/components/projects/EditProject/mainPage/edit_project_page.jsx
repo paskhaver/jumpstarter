@@ -1,8 +1,8 @@
 import React from "react";
 
 import Menu from "./menu";
-import MotivationalHeader from "./motivational_header_container";
-import SaveBar from "./save_bar";
+// import MotivationalHeader from "./motivational_header_container";
+// import SaveBar from "./save_bar";
 
 class EditProjectPage extends React.Component {
 
@@ -19,7 +19,7 @@ class EditProjectPage extends React.Component {
       <div className="edit-project-page-background">
         <Menu />
           { this.props.children}
-        <SaveBar />
+
       </div>
     );
   }

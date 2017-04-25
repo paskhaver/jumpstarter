@@ -59,6 +59,7 @@ export const createProject = (project) => (dispatch) => {
 };
 
 export const updateProject = (project) => (dispatch) => {
+  debugger
   return ProjectAPIUtil.updateProject(project)
                        .then(
                          updatedProject => {

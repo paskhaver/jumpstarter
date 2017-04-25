@@ -1,11 +1,21 @@
 import React from "react";
+import { connect } from "react-redux";
+import { updateProject } from "./../../../../actions/project_actions";
 
 class SaveBar extends React.Component {
 
-  // this.props.name
+  // this.props.project
+  // this.props.updateProject
 
   constructor(props) {
     super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit() {
+    debugger
+    const project = this.props.project;
+    this.props.updateProject(project);
   }
 
   render() {
@@ -14,11 +24,23 @@ class SaveBar extends React.Component {
       <div className="edit-project-page-save-bar">
         <div className="inner-container">
           <a>Discard changes</a>
-          <button>Save</button>
+          <button onClick={ this.handleSubmit }>Save</button>
         </div>
       </div>
     );
   }
 }
 
-export default SaveBar;
+const mapStateToProps = (state) => {
+  return {
+
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateProject: (project) => { dispatch(updateProject(project)); }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SaveBar);

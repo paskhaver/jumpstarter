@@ -29,9 +29,12 @@ export const createProject = (project) => {
 // VALIDATED
 // ProjectsController#update
 export const updateProject = (project) => {
+  const projectId = project.id;
+  delete project.id;
+
   return $.ajax({
     method: "PATCH",
-    url: `/api/projects/${project.id}`,
+    url: `/api/projects/${projectId}`,
     data: { project }
   });
 };

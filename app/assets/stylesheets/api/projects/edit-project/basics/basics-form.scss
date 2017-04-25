@@ -35,10 +35,26 @@
     display: flex;
     flex-direction: row;
 
+    .basics-sidebar {
+      box-sizing: border-box;
+      width: 226px;
+      margin: 18px 24px;
+
+      h5 {
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 12px;
+        line-height: 17px;
+      }
+    }
+
     .basics-main-content {
       box-sizing: border-box;
       width: 660px;
-      background-color: lightgreen;
+      // background-color: lightgreen;
       margin: 18px 24px;
       padding-right: 20px;
 
@@ -46,12 +62,7 @@
       flex-direction: column;
     }
 
-    .basics-sidebar {
-      box-sizing: border-box;
-      width: 226px;
-      background-color: orange;
-      margin: 18px 24px;
-    }
+
 
     .question-box {
 
@@ -76,7 +87,7 @@
 
       .answer {
         width: 450px;
-        background-color: yellow;
+        // background-color: yellow;
 
         display: flex;
         flex-direction: column;
@@ -128,9 +139,11 @@
           height: 40px;
           margin-top: 10px;
           // margin-right: 10px;
+          background-color: #ffffff;
           font-size: 14px;
         }
       } /* Close answer div */
     } /* Close answer-box div */
+
   } /* Close basics-form div */
 } /* Close basics div */

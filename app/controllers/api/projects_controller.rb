@@ -28,6 +28,7 @@ class Api::ProjectsController < ApplicationController
   end
 
   def update
+    debugger
     @project = Project.find(params[:id])
     if @project.update(project_params)
       render :show
