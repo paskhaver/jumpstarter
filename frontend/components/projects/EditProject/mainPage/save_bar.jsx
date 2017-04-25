@@ -13,7 +13,6 @@ class SaveBar extends React.Component {
   }
 
   handleSubmit() {
-    debugger
     const project = this.props.project;
     this.props.updateProject(project);
   }

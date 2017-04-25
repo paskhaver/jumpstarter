@@ -26,17 +26,6 @@ class Menu extends React.Component {
             <Link to={`${currentPath}/rewards`}>Rewards</Link>
           </li>
 
-          <li className="edit-project-page-menu-item">
-            <Link to={`${currentPath}/story`}>Story</Link>
-          </li>
-
-          <li className="edit-project-page-menu-item">
-            <Link to={`${currentPath}/about-you`}>About you</Link>
-          </li>
-
-          <li className="edit-project-page-menu-item">
-            <Link to={`${currentPath}/account`}>Account</Link>
-          </li>
         </ul>
       </nav>
     );

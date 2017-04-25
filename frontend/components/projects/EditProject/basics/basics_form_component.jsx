@@ -16,11 +16,19 @@ class BasicsForm extends React.Component {
   }
 
   componentDidMount() {
+    const projectId = this.props.params.id;
+    this.props.fetchProject(projectId)
+              .then(() => {
+                const { title, blurb, category, end_date, funding_goal } = this.props.currentProject;
+
+                debugger;
+
+                this.setState({ title, blurb, category, end_date, funding_goal});
+              });
 
   }
 
   handleEdit(field) {
-    debugger
     return (event) => {
       this.setState({
         [field]: event.target.value
@@ -70,7 +78,9 @@ class BasicsForm extends React.Component {
 
                 <div className="answer">
                   <input type="text"
-                         onChange={this.handleEdit("title")}>
+                         onChange={this.handleEdit("title")}
+                         value={this.state.title}
+                         >
                   </input>
 
                   <p>
@@ -90,7 +100,9 @@ class BasicsForm extends React.Component {
                 </div>
 
                 <div className="answer">
-                  <textarea onChange={this.handleEdit("blurb")}>
+                  <textarea
+                      onChange={this.handleEdit("blurb")}
+                      value={this.state.blurb}>
                   </textarea>
                   <p>Give people a sense of what you’re doing. Skip “Help me” and focus on what you’re making.</p>
                 </div>
@@ -118,7 +130,9 @@ class BasicsForm extends React.Component {
 
                 <div className="answer">
                   <input type="date"
-                         onChange={this.handleEdit("end_date")}></input>
+                         onChange={this.handleEdit("end_date")}
+                         value={this.state.end_date}>
+                  </input>
                   <p>
                     Projects with shorter durations have higher success rates. You won’t be able to adjust your duration after you launch.
                     </p>
@@ -132,7 +146,8 @@ class BasicsForm extends React.Component {
 
                 <div className="answer">
                   <input type="text"
-                         onChange={this.handleEdit("funding_goal")}>
+                         onChange={this.handleEdit("funding_goal")}
+                         value={this.state.funding_goal} >
                   </input>
                   <p>
                     Funding on Kickstarter is all-or-nothing. It’s okay to raise more than your goal, but if your goal isn’t met, no money will be collected. Your goal should reflect the minimum amount of funds you need to complete your project and send out rewards, and include a buffer for payments processing fees.</p>
