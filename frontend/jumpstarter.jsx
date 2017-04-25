@@ -16,6 +16,8 @@ import EditProjectPage from "./components/projects/EditProject/mainPage/edit_pro
 
 import BasicsForm from "./components/projects/EditProject/basics/basics_form_container";
 
+import RewardForm from "./components/projects/EditProject/rewards/add_reward_form";
+
 
 import configureStore from "./store/store";
 
@@ -50,10 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <Route path="edit" component={EditProjectPage}>
               <Route path="basics" component={BasicsForm} />
-              <Route path="rewards" component={BasicsForm} />
-              <Route path="story" component={BasicsForm} />
-              <Route path="about-you" component={BasicsForm} />
-              <Route path="account" component={BasicsForm} />
+              <Route path="rewards" component={RewardForm} />
             </Route>
 
           </Route>

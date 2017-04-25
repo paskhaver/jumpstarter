@@ -18,8 +18,8 @@ class BasicsForm extends React.Component {
   componentDidMount() {
     const projectId = this.props.params.id;
     this.props.fetchProject(projectId)
-              .then(() => {
-                const { title, blurb, category, end_date, funding_goal } = this.props.currentProject;
+              .then((response) => {
+                const { title, blurb, category, end_date, funding_goal } = response;
 
                 this.setState({ title, blurb, category, end_date, funding_goal});
               });
