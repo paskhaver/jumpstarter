@@ -5,8 +5,7 @@ export const getRewardsForProject = (projectId) => {
   });
 };
 
-export const createReward = (reward) => {
-  const projectId = reward.project.id;
+export const createReward = (projectId, reward) => {
   return $.ajax({
     method: "POST",
     url: `/api/projects/${projectId}/rewards`,
@@ -14,8 +13,7 @@ export const createReward = (reward) => {
   });
 };
 
-export const updateReward = (reward) => {
-  const projectId = reward.project.id;
+export const updateReward = (projectId, reward) => {
   return $.ajax({
     method: "PATCH",
     url: `/api/projects/${projectId}/rewards`,

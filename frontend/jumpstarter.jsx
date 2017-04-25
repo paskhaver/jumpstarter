@@ -18,6 +18,8 @@ import BasicsForm from "./components/projects/EditProject/basics/basics_form_con
 
 import RewardForm from "./components/projects/EditProject/rewards/add_reward_form";
 
+import RewardAPIUtil from "./util/reward_api_util";
+
 
 import configureStore from "./store/store";
 
@@ -36,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.store = store;
+  window.RewardAPIUtil = RewardAPIUtil;
 
   const rootDOMElement = document.getElementById("root");
 
