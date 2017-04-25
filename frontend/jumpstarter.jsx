@@ -14,6 +14,8 @@ import ShowProjectPage from "./components/projects/ShowProject/project_page_cont
 
 import EditProjectPage from "./components/projects/EditProject/mainPage/edit_project_page";
 
+import BasicsForm from "./components/projects/EditProject/basics/basics_form_container";
+
 
 import configureStore from "./store/store";
 
@@ -44,8 +46,16 @@ document.addEventListener("DOMContentLoaded", () => {
           <IndexRoute component={CreateProjectPage} />
           <Route path="start" component={CreateProjectPage} />
 
-          <Route path="projects/:id" component={ShowProjectPage} >
-            <Route path="edit" component={EditProjectPage}/>
+          <Route path="projects/:id" component={ShowProjectPage}>
+
+            <Route path="edit" component={EditProjectPage}>
+              <Route path="basics" component={BasicsForm} />
+              <Route path="rewards" component={BasicsForm} />
+              <Route path="story" component={BasicsForm} />
+              <Route path="about-you" component={BasicsForm} />
+              <Route path="account" component={BasicsForm} />
+            </Route>
+
           </Route>
 
           <Route path="login"  component={LoginForm} />
