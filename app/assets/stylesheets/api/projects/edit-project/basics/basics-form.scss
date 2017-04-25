@@ -1,4 +1,7 @@
 .basics {
+
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
   .basics-header {
     h2 {
       font-size: 32px;
@@ -35,7 +38,6 @@
     .basics-main-content {
       box-sizing: border-box;
       width: 660px;
-      height: 500px;
       background-color: lightgreen;
       margin: 18px 24px;
       padding-right: 20px;
@@ -47,20 +49,88 @@
     .basics-sidebar {
       box-sizing: border-box;
       width: 226px;
-      height: 500px;
       background-color: orange;
       margin: 18px 24px;
     }
 
-    .question {
+    .question-box {
 
       margin: 10px;
       box-sizing: border-box;
+      border-radius: 6px;
       width: 640px;
-      height: 158px;
       background-color: #F8F9FD;
 
-    }
-  }
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
 
-}
+      .question {
+        p {
+          margin: 10px;
+          font-size: 13px;
+          font-weight: bold;
+        }
+      }
+
+
+      .answer {
+        width: 450px;
+        background-color: yellow;
+
+        display: flex;
+        flex-direction: column;
+
+        p {
+          font-size: 12px;
+        }
+
+        input {
+          cursor: pointer;
+          margin-top: 10px;
+          margin-right: 10px;
+          width: 450px;
+        }
+
+        input[type="file"] {
+          border: 1px dashed rgb(88, 107, 233);
+          height: 114px;
+        }
+
+        input[type="text"] {
+          height: 40px;
+          line-height: 18px;
+          font-size: 14px;
+          color: #020621;
+          border-radius: 6px;
+          margin-top: 10px;
+          margin-right: 10px;
+          border: 1px solid rgb(218, 215, 212);
+        }
+
+        input[type="date"] {
+          height: 40px;
+          line-height: 18px;
+          font-size: 14px;
+          color: #020621;
+          border-radius: 6px;
+          border: 1px solid rgb(218, 215, 212);
+        }
+
+        textarea {
+          height: 70px;
+          border-radius: 6px;
+          border: 1px solid rgb(218, 215, 212);
+          margin-top: 10px;
+        }
+
+        select {
+          height: 40px;
+          margin-top: 10px;
+          // margin-right: 10px;
+          font-size: 14px;
+        }
+      } /* Close answer div */
+    } /* Close answer-box div */
+  } /* Close basics-form div */
+} /* Close basics div */
