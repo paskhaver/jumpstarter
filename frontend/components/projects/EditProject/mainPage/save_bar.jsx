@@ -1,6 +1,6 @@
 import React from "react";
 
-class EditProjectPageSaveBar extends React.Component {
+class SaveBar extends React.Component {
 
   // this.props.name
 
@@ -21,4 +21,4 @@ class EditProjectPageSaveBar extends React.Component {
   }
 }
 
-export default EditProjectPageSaveBar;
+export default SaveBar;

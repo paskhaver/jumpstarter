@@ -1,5 +1,5 @@
 import  { connect } from "react-redux";
-import EditProjectPageMainBox from "./edit_project_page_main_box_component";
+import MotivationalHeader from "./motivational_header_component";
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -13,4 +13,4 @@ const mapDispatchToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditProjectPageMainBox);
+export default connect(mapStateToProps, mapDispatchToProps)(MotivationalHeader);

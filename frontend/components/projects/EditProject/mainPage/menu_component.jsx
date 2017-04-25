@@ -1,7 +1,7 @@
 import React from "react";
-import EditProjectPageMenuItem from "./edit_project_page_menu_item";
+import MenuItem from "./menu_item";
 
-class EditProjectPageMenu extends React.Component {
+class Menu extends React.Component {
 
   constructor(props) {
     super(props);
@@ -23,38 +23,38 @@ class EditProjectPageMenu extends React.Component {
       <nav className="edit-project-page-menu">
         <ul className="edit-project-page-menu-ul">
 
-          <EditProjectPageMenuItem
+          <MenuItem
             name={"Basics"}
             checkIcon={true}
             handleMenuItemClick={ this.handleMenuItemClick }/>
 
-          <EditProjectPageMenuItem
+          <MenuItem
             name={"Rewards"}
             checkIcon={true}
             handleMenuItemClick={ this.handleMenuItemClick }/>
 
-          <EditProjectPageMenuItem
+          <MenuItem
             name={"Story"}
             checkIcon={true}
             handleMenuItemClick = { this.handleMenuItemClick }/>
 
-          <EditProjectPageMenuItem
+          <MenuItem
             name={"About you"}
             checkIcon={true}
             handleMenuItemClick = { this.handleMenuItemClick } />
 
-          <EditProjectPageMenuItem
+          <MenuItem
             name={"Account"}
             checkIcon={true}
             handleMenuItemClick = { this.handleMenuItemClick } />
         </ul>
 
         <ul className="edit-project-page-menu-ul">
-          <EditProjectPageMenuItem url="preview" name={"Preview"} checkIcon={false} />
+          <MenuItem url="preview" name={"Preview"} checkIcon={false} />
         </ul>
 
         <ul className="edit-project-page-menu-ul">
-          <EditProjectPageMenuItem url="submit"
+          <MenuItem url="submit"
                                    name={"Submit for review"}
                                    checkIcon={false}
                                    bonusText={"Allow up to 3 business days"}/>
@@ -64,4 +64,4 @@ class EditProjectPageMenu extends React.Component {
   }
 }
 
-export default EditProjectPageMenu;
+export default Menu;

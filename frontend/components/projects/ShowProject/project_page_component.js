@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, hashHistory } from 'react-router';
 import YouTube from "react-youtube";
-import RewardSidebar from "../rewards/reward_sidebar";
+import RewardSidebarIndex from "./reward_sidebar_index";
 
 class ProjectPage extends React.Component {
 
@@ -150,7 +150,7 @@ class ProjectPage extends React.Component {
             <div className="pledge-container">
               <h3>Support this Project</h3>
 
-            <RewardSidebar rewards={rewards}/>
+            <RewardSidebarIndex rewards={rewards}/>
             </div>
 
           </div>

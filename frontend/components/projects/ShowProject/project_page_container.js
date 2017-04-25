@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import ProjectPage from "./project_page";
-import { fetchProject, updateProject, deleteProject } from "../../actions/project_actions";
+import ProjectPage from "./project_page_component";
+import { fetchProject, updateProject, deleteProject } from "../../../actions/project_actions";
 
 const mapStateToProps = (state) => {
   return {

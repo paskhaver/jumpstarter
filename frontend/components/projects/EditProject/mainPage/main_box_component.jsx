@@ -1,7 +1,6 @@
 import React from "react";
-import AddRewardFormComponent from "./rewards/add_reward_form_component";
 
-class EditProjectPageMainBox extends React.Component {
+class MainBox extends React.Component {
 
   // this.props.activeMenuItem -- Coming from store
   // this.props.box            -- Coming from parent background component
@@ -26,6 +25,4 @@ class EditProjectPageMainBox extends React.Component {
 
 }
 
-export default EditProjectPageMainBox;
-
-// <AddRewardFormComponent />
+export default MainBox;

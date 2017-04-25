@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 
-class EditProjectPageMenuItem extends React.Component {
+class MenuItem extends React.Component {
 
   // this.props.name
   // this.props.handleMenuItemClick
@@ -32,4 +32,4 @@ class EditProjectPageMenuItem extends React.Component {
   }
 }
 
-export default EditProjectPageMenuItem;
+export default MenuItem;

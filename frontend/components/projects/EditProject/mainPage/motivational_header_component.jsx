@@ -1,6 +1,6 @@
 import React from "react";
 
-class EditProjectPageMotivationalHeader extends React.Component {
+class MotivationalHeader extends React.Component {
 
   // this.props.name
   // this.props.activeMenuItem
@@ -67,4 +67,4 @@ class EditProjectPageMotivationalHeader extends React.Component {
   }
 }
 
-export default EditProjectPageMotivationalHeader;
+export default MotivationalHeader;

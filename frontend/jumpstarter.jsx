@@ -7,20 +7,14 @@ import Root from "./components/root";
 import LoginFormContainer from "./components/users/login_form_container";
 import CreateUserFormContainer from "./components/users/create_user_form_container";
 
-import CreateProjectBackground from "./components/projects/create_project_background";
 import AboutUs from "./components/about_us/about_us";
 
-import CreateProjectPage from "./components/projects/create_project_page";
-import EditProjectPageBackground from "./components/projects/EditProject/edit_project_page_background";
+import CreateProjectPage from "./components/projects/CreateProject/create_project_page";
 
-import ProjectPageContainer from "./components/projects/project_page_container";
+import ShowProjectPage from "./components/projects/ShowProject/project_page_container";
 
-import * as UserAPIUtil from "./util/user_api_util";
-import * as SessionAPIUtil from "./util/session_api_util";
-import * as ProjectAPIUtil from "./util/project_api_util";
+import EditProjectPage from "./components/projects/EditProject/mainPage/edit_project_page";
 
-import * as SessionActions from "./actions/session_actions";
-import * as ProjectActions from "./actions/project_actions";
 
 import configureStore from "./store/store";
 
@@ -39,12 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.store = store;
-  window.UserAPIUtil = UserAPIUtil;
-  window.SessionAPIUtil = SessionAPIUtil;
-  window.ProjectAPIUtil = ProjectAPIUtil;
-
-  window.SessionActions = SessionActions;
-  window.ProjectActions = ProjectActions;
 
   const rootDOMElement = document.getElementById("root");
 
@@ -56,16 +44,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <IndexRoute component={CreateProjectPage} />
           <Route path="start" component={CreateProjectPage} />
-        
-          <Route path="projects/:id" component={ProjectPageContainer} >
-            <Route path="edit" component={EditProjectPageBackground}/>
+
+          <Route path="projects/:id" component={ShowProjectPage} >
+            <Route path="edit" component={EditProjectPage}/>
           </Route>
 
-          <Route path="about" component={AboutUs} />
-          <Route path="login"  component={LoginFormContainer} />
-          <Route path="signup" component={CreateUserFormContainer} />
 
         </Route>
       </Router>
     </Provider>, rootDOMElement);
 });
+
+
+//
+//
+// <Route path="about" component={AboutUs} />
+// <Route path="login"  component={LoginFormContainer} />
+// <Route path="signup" component={CreateUserFormContainer} />

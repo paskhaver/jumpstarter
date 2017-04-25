@@ -1,7 +1,7 @@
 import React from "react";
 import RewardSidebarItem from "./reward_sidebar_item";
 
-class RewardSidebar extends React.Component {
+class RewardSidebarIndex extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -20,4 +20,4 @@ class RewardSidebar extends React.Component {
   }
 }
 
-export default RewardSidebar;
+export default RewardSidebarIndex;

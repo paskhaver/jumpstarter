@@ -1,6 +1,6 @@
 import React from "react";
 
-class CreateProjectBackground extends React.Component {
+class Background extends React.Component {
 
   constructor(props) {
     super(props);
@@ -15,4 +15,4 @@ class CreateProjectBackground extends React.Component {
   }
 }
 
-export default CreateProjectBackground;
+export default Background;
