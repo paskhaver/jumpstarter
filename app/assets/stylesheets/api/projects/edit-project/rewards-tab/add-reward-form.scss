@@ -1,4 +1,4 @@
-.rewards-form {
+.rewards-tab {
 
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -25,5 +25,42 @@
     }
   }
 
+  .rewards-form {
+    width: 960px;
+    box-sizing: border-box;
+
+    background-color: #ffffff;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+
+    .rewards-sidebar {
+      box-sizing: border-box;
+      width: 226px;
+      margin: 18px 24px;
+
+      h5 {
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 12px;
+        line-height: 17px;
+      }
+    }
+
+    .rewards-main-content {
+      box-sizing: border-box;
+      width: 660px;
+      background-color: lightgreen;
+      margin: 18px 24px;
+      padding-right: 20px;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+  }
 
 }

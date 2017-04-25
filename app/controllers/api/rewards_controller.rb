@@ -1,7 +1,8 @@
 class Api::RewardsController < ApplicationController
 
   def index
-    @rewards = Reward.all
+    project_id = params[:project_id]
+    @rewards = Reward.where(project_id: project_id)
     render :index
   end
 
@@ -45,7 +46,6 @@ class Api::RewardsController < ApplicationController
   private
 
   def reward_params
-    params.require(:reward).permit(:title, :pledge_amount, :description,
-                                   :delivery_date, :max_backer)
+    params.require(:reward).permit(:title, :pledge_amount, :description, :delivery_date, :max_backer)
   end
 end
