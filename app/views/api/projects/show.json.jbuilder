@@ -1,4 +1,5 @@
-json.extract! @project, :id, :title, :category, :residence, :blurb
+json.extract! @project, :id, :title, :category, :description,
+                        :residence, :blurb, :funding_goal
 
 json.set! :rewards do
   json.array! @project.rewards do |reward|
