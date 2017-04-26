@@ -4,7 +4,8 @@ import { hashHistory } from 'react-router';
 
 class NavBar extends React.Component {
 
-  // this.props.currentUser
+  // this.props.currentUser - State property received from container
+  // this.props.logout      - Method received from container
 
   constructor(props) {
     super(props);
@@ -39,18 +40,26 @@ class NavBar extends React.Component {
         </div>
 
           <div className="center-nav">
+
             <div className="center">
-              <i className="fa fa-motorcycle fa-3x" aria-hidden="true"></i>
+              <i className="fa fa-motorcycle fa-3x"
+                  aria-hidden="true"></i>
               <h2>Jumpstarter</h2>
             </div>
+            
           </div>
 
           <div className="right-nav">
-            <i className="fa fa-search fa-1x" aria-hidden="true"></i>
-            <a onClick={ action } ><span>{logStatus}</span></a>
-            <Link to="signup"><span>Sign up</span></Link>
-          </div>
 
+            <i className="fa fa-search fa-1x" aria-hidden="true"></i>
+            <a onClick={ action }>
+              <span>{logStatus}</span>
+            </a>
+            <Link to="signup">
+              <span>Sign up</span>
+            </Link>
+
+          </div>
 
       </nav>
     );
@@ -58,7 +67,3 @@ class NavBar extends React.Component {
 }
 
 export default NavBar;
-
-
-
-//
