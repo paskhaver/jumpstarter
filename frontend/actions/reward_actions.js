@@ -43,7 +43,6 @@ export const updateReward = (reward) => (dispatch) => {
 };
 
 export const createReward = (reward) => (dispatch) => {
-  debugger
   return RewardAPIUtil.createReward(reward)
                       .then(reward => {
                         return dispatch(receiveReward(reward));

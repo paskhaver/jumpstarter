@@ -6,7 +6,6 @@ export const getRewardsForProject = (projectId) => {
 };
 
 export const createReward = (reward) => {
-  debugger
   const projectId = reward.project_id;
   delete reward.project_id;
   return $.ajax({
@@ -17,7 +16,6 @@ export const createReward = (reward) => {
 };
 
 export const updateReward = (reward) => {
-  debugger
   const projectId = reward.project_id;
   const rewardId  = reward.id;
   delete reward.project_id;

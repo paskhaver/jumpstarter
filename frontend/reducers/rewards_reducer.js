@@ -14,7 +14,6 @@ const RewardsReducer = (state = {}, action) => {
       newState = merge({}, state);
       reward = action.reward;
       newState[reward.id] = reward;
-      debugger
       return newState;
 
     default:
