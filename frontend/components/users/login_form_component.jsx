@@ -13,8 +13,6 @@ class LoginForm extends React.Component {
       password: ""
     };
 
-    props.clearErrors();
-
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFormRedirect = this.handleFormRedirect.bind(this);
@@ -49,7 +47,7 @@ class LoginForm extends React.Component {
     }
 
     if (!errors) {
-        this.props.login(this.state);    
+        this.props.login(this.state);
     }
   }
 
@@ -59,6 +57,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    debugger
 
     const errorItems = this.props.errors.map((error, idx) => {
       return <li key={idx}>{error}</li>;
