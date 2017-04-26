@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import { getRewardsForProject } from "./../../../../actions/reward_actions";
 
 import RewardBox from "./reward_box";
-import SaveBar from "./../mainPage/save_bar";
+import SaveBar from "./rewards_save_bar";
 
 class AddRewardForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { rewards: [] };
+    this.state = { rewards: {}};
   }
 
   componentDidMount() {
@@ -22,7 +22,7 @@ class AddRewardForm extends React.Component {
 
   render() {
 
-    const rewards = this.state.rewards.map((reward, idx) => {
+    const rewards = Object.values(this.state.rewards).map((reward, idx) => {
       return <RewardBox key={reward.id}
                         reward={reward}
                         rewardNumber={idx + 1} />;
@@ -69,7 +69,7 @@ class AddRewardForm extends React.Component {
         </div>
 
 
-        <SaveBar project={this.state} />
+        <SaveBar />
       </div>
     );
   }

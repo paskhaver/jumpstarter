@@ -42,4 +42,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SaveBar);
+export default connect(mapStateToProps, mapDispatchToProps)(RewardsSaveBar);
