@@ -1,0 +1,67 @@
+.edit-reward-box {
+
+  width: 632px;
+  // height: 349px;
+  margin: 20px 10px;
+  background-color: yellow;
+  border: 5px solid black;
+
+  display: flex;
+  flex-direction: row;
+
+}
+
+.edit-reward-number{
+  box-sizing: border-box;
+  margin: 10px;
+  width: 174px;
+  height: 349px;
+  background-color: purple;
+
+  h3 {
+    margin: 15px;
+    font-size: 13px;
+    color: black;
+    font-weight: bold;
+  }
+}
+
+.edit-reward-info {
+  box-sizing: border-box;
+  width: 453px;
+  height: 349px;
+  margin: 10px;
+  background-color: orange;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-reward-row {
+
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0px;
+  font-size: 12px;
+
+  p {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 115px;
+
+  }
+
+  input {
+    box-sizing: border-box;
+    width: 333px;
+    background-color: red;
+  }
+
+  textarea {
+    box-sizing: border-box;
+    width: 333px;
+    height: 70px;
+    background-color: red;
+  }
+
+}

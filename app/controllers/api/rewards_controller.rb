@@ -4,6 +4,7 @@ class Api::RewardsController < ApplicationController
   def index
     project_id = params[:project_id]
     @rewards = Reward.where(project_id: project_id)
+                     .order(:pledge_amount)
     render :index
   end
 
