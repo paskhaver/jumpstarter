@@ -36,7 +36,7 @@ class NavBar extends React.Component {
             <a><span>Explore</span></a>
             <Link to="start"><span>Start a Project</span></Link>
             <Link to="projects/1"><span>Sample Project</span></Link>
-            <Link to="projects/1/edit"><span>Edit Project</span></Link>
+            <Link to="projects/1/edit/basics"><span>Edit Project</span></Link>
         </div>
 
           <div className="center-nav">
@@ -46,7 +46,7 @@ class NavBar extends React.Component {
                   aria-hidden="true"></i>
               <h2>Jumpstarter</h2>
             </div>
-            
+
           </div>
 
           <div className="right-nav">

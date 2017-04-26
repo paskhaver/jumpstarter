@@ -22,13 +22,11 @@ class RewardBox extends React.Component {
   }
 
   handleSubmit(event) {
-    debugger
     event.preventDefault();
     this.props.updateReward(this.state);
   }
 
   handleEdit(field) {
-    debugger
     return (event) => {
       this.setState({
         [field]: event.target.value
