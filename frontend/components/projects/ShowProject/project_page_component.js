@@ -32,8 +32,10 @@ class ProjectPage extends React.Component {
     const project   = this.props.fetchProject(projectId);
 
     project.then(() => {
-      const { title, category, residence, blurb, funding_goal, description } = this.props.currentProject;
-      this.setState({ title, category, residence, blurb, funding_goal, description });
+      const { title, category, residence, blurb, funding_goal,
+              description, amount_raised, number_of_backers } = this.props.currentProject;
+      this.setState({ title, category, residence, blurb, funding_goal,
+        description, amount_raised, number_of_backers });
     });
   }
 
@@ -89,7 +91,7 @@ class ProjectPage extends React.Component {
             </div>
 
             <div className="fundraising-box">
-              <span className="pledge-amount">$59,094</span>
+              <span className="pledge-amount">${this.state.amount_raised}</span>
               <span className="statistic-category">pledged of ${this.state.funding_goal} goal</span>
 
               <span className="statistic">333</span>
