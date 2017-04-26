@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
     resources :projects, except: [:new, :edit] do
       resources :rewards, except: [:new, :edit, :show]
+      resources :pledges, only: [:create]
     end
 
   end

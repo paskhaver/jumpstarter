@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 
 class RewardSidebarItem extends React.Component {
 
@@ -26,12 +27,10 @@ class RewardSidebarItem extends React.Component {
           </span>
 
           <span className="pledge-limit">
-            Limited (38 left of 40)
+            Limited (_ left of {this.props.reward.max_backers})
           </span>
 
-          <span className="number-of-backers">
-            {this.props.reward.max_backers} backers
-          </span>
+
         </div>
       </li>
     );
@@ -39,3 +38,25 @@ class RewardSidebarItem extends React.Component {
 }
 
 export default RewardSidebarItem;
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.session.currentUser
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+
+};
+
+
+
+
+
+
+
+
+//
+// <span className="number-of-backers">
+//   {this.props.reward.max_backers} backers
+// </span>
