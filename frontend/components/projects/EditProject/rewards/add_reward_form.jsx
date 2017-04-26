@@ -3,15 +3,17 @@ import { connect } from "react-redux";
 import { getRewardsForProject } from "./../../../../actions/reward_actions";
 
 import RewardBox from "./reward_box";
-import SaveBar from "./rewards_save_bar";
+
 
 class AddRewardForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { rewards: {}};
+    this.state = { rewards: {} };
   }
 
+  // When page loads, get all rewards for project in object
+  // and replace state.rewards with that object.
   componentDidMount() {
 
     const projectId = this.props.params.id;
@@ -69,8 +71,6 @@ class AddRewardForm extends React.Component {
 
         </div>
 
-
-        <SaveBar rewards={this.state.rewards}/>
       </div>
     );
   }

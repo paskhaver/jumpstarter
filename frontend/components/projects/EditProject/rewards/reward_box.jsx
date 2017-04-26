@@ -1,7 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
+import { updateReward } from "./../../../../actions/reward_actions";
 
 class RewardBox extends React.Component {
-  // this.props.reward
+  // this.props.reward   --> From parent addRewardForm component
   // this.props.reward.id
   // this.props.reward.title
   // this.props.reward.pledge_amount
@@ -10,13 +12,23 @@ class RewardBox extends React.Component {
   // this.props.reward.max_backers
   // this.props.rewardNumber
 
+  // this.props.updateReward(reward)
+
   constructor(props) {
     super(props);
     this.state = this.props.reward;
     this.handleEdit = this.handleEdit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    debugger
+    event.preventDefault();
+    this.props.updateReward(this.state);
   }
 
   handleEdit(field) {
+    debugger
     return (event) => {
       this.setState({
         [field]: event.target.value
@@ -26,13 +38,14 @@ class RewardBox extends React.Component {
 
   render() {
     return(
-      <div className="edit-reward-box">
+    <div className="edit-reward-box">
 
-        <div className="edit-reward-number">
+        <div className="edit-reward-number-box">
           <h3>Reward {this.props.rewardNumber}</h3>
         </div>
 
-        <div className="edit-reward-info">
+        <div className="edit-reward-info-box">
+
           <div className="edit-reward-row">
             <p>
               Title
@@ -40,7 +53,6 @@ class RewardBox extends React.Component {
 
             <input value={this.state.title}
                    onChange={this.handleEdit("title")}/>
-
 
           </div>
 
@@ -84,12 +96,29 @@ class RewardBox extends React.Component {
                    onChange={this.handleEdit("max_backers")} />
           </div>
 
+          <button onClick= {this.handleSubmit}>Save Reward</button>
+
         </div>
 
+
       </div>
+
+
     );
   }
 
 }
 
-export default RewardBox;
+const mapStateToProps = (state) => {
+  return {
+
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateReward: reward => { dispatch(updateReward(reward)); }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RewardBox);

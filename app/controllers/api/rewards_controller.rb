@@ -44,6 +44,7 @@ class Api::RewardsController < ApplicationController
   private
 
   def reward_params
-    params.require(:reward).permit(:title, :pledge_amount, :description, :delivery_date, :max_backer)
+    params.require(:reward).permit(:title, :pledge_amount,
+    :description, :delivery_date, :max_backers)
   end
 end
