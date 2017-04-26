@@ -25,11 +25,25 @@ class AddRewardForm extends React.Component {
 
   render() {
 
-    const rewards = Object.values(this.state.rewards).map((reward, idx) => {
-      return <RewardBox key={reward.id}
+    const existingRewards = Object.values(this.state.rewards).map((reward, idx) => {
+      return <RewardBox key={idx}
                         reward={reward}
-                        rewardNumber={idx + 1} />;
+                        rewardNumber={idx + 1}
+                        responsibility={"Update Reward"} />;
     });
+
+    const project_id = this.props.params.id;
+    const emptyReward = { project_id, title: "", description: "", pledge_amount: "", max_backers: "", delivery_date: ""};
+
+    const nextRewardNumber = existingRewards.length + 1;
+    const newRewardNumbers = [nextRewardNumber, nextRewardNumber + 1,nextRewardNumber + 2];
+    const newRewards = newRewardNumbers.map(number => {
+      return <RewardBox key={number}
+                        reward={emptyReward}
+                        rewardNumber={number}
+                        responsibility={"Create Reward"}/>;
+    });
+
 
     return (
       <div>
@@ -44,7 +58,8 @@ class AddRewardForm extends React.Component {
 
             <div className="rewards-main-content">
               <ul>
-                {rewards}
+                {existingRewards}
+                {newRewards}
               </ul>
 
             </div>

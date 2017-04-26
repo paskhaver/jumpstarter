@@ -32,7 +32,6 @@ export const getRewardsForProject = (projectId) => (dispatch) => {
 };
 
 export const updateReward = (reward) => (dispatch) => {
-  debugger
   return RewardAPIUtil.updateReward(reward)
                       .then(reward => {
                           return dispatch(receiveReward(reward));
@@ -41,4 +40,15 @@ export const updateReward = (reward) => (dispatch) => {
                           return dispatch(receiveErrors(errors));
                         }
                       );
+};
+
+export const createReward = (reward) => (dispatch) => {
+  debugger
+  return RewardAPIUtil.createReward(reward)
+                      .then(reward => {
+                        return dispatch(receiveReward(reward));
+                      },
+                      errors => {
+                        return dispatch(receiveErrors(errors));
+                      });
 };

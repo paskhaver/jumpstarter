@@ -19,6 +19,7 @@ class Api::RewardsController < ApplicationController
 
   def create
     @reward = Reward.new(reward_params)
+    @reward.project = Project.find(params[:project_id])
     if @reward.save
       render :show
     else

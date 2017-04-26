@@ -5,7 +5,19 @@ export const getRewardsForProject = (projectId) => {
   });
 };
 
+export const createReward = (reward) => {
+  debugger
+  const projectId = reward.project_id;
+  delete reward.project_id;
+  return $.ajax({
+    method: "POST",
+    url: `/api/projects/${projectId}/rewards`,
+    data: { reward }
+  });
+};
+
 export const updateReward = (reward) => {
+  debugger
   const projectId = reward.project_id;
   const rewardId  = reward.id;
   delete reward.project_id;

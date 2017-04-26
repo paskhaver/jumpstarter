@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateReward } from "./../../../../actions/reward_actions";
+import { createReward, updateReward } from "./../../../../actions/reward_actions";
+import { withRouter, hashHistory } from "react-router";
 
 class RewardBox extends React.Component {
   // this.props.reward   --> From parent addRewardForm component
@@ -17,13 +18,19 @@ class RewardBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.reward;
+
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
+
     event.preventDefault();
-    this.props.updateReward(this.state);
+    if (this.props.responsibility === "Update Reward") {
+      this.props.updateReward(this.state);
+    } else if (this.props.responsibility === "Create Reward") {
+      this.props.createReward(this.state);
+    }
   }
 
   handleEdit(field) {
@@ -94,7 +101,7 @@ class RewardBox extends React.Component {
                    onChange={this.handleEdit("max_backers")} />
           </div>
 
-          <button onClick= {this.handleSubmit}>Save Reward</button>
+          <button onClick= {this.handleSubmit}>{this.props.responsibility}</button>
 
         </div>
 
@@ -115,7 +122,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateReward: reward => { dispatch(updateReward(reward)); }
+    createReward: reward => { return dispatch(createReward(reward)); },
+    updateReward: reward => { return dispatch(updateReward(reward)); }
   };
 };
 
