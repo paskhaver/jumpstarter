@@ -34,8 +34,7 @@ export const getRewardsForProject = (projectId) => (dispatch) => {
 export const updateReward = (reward) => (dispatch) => {
   return RewardAPIUtil.updateReward(reward)
                       .then(reward => {
-                        dispatch(updateReward(reward));
-                        return reward;
+                        return dispatch(receiveReward(reward));
                       },
                         errors => dispatch(receiveErrors(errors))
                       );

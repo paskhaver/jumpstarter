@@ -1,19 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateProject } from "./../../../../actions/project_actions";
+import { updateReward } from "./../../../../actions/reward_actions";
 
 class RewardsSaveBar extends React.Component {
 
-  // this.props.project
-  // this.props.updateProject
+  // this.props.rewards      -- Passed in from parent AddRewardForm
+  // this.props.updateReward -- Passed in from Redux store
 
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleSubmit(event) {
 
-  handleSubmit() {
+    event.preventDefault();
+    for (let objectProp in this.props.rewards) {
+      const reward = this.props.rewards[objectProp];
+      this.props.updateReward(reward);
+    }
 
   }
 
@@ -38,7 +43,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateProject: (project) => { dispatch(updateProject(project)); }
+    updateReward: reward => { return dispatch(updateReward(reward)); }
   };
 };
 

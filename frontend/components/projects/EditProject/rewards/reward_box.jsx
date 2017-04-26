@@ -13,6 +13,15 @@ class RewardBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.reward;
+    this.handleEdit = this.handleEdit.bind(this);
+  }
+
+  handleEdit(field) {
+    return (event) => {
+      this.setState({
+        [field]: event.target.value
+      });
+    };
   }
 
   render() {
@@ -29,7 +38,8 @@ class RewardBox extends React.Component {
               Title
             </p>
 
-            <input value={this.state.title} />
+            <input value={this.state.title}
+                   onChange={this.handleEdit("title")}/>
 
 
           </div>
@@ -39,7 +49,8 @@ class RewardBox extends React.Component {
               Pledge Amount
             </p>
 
-            <input value={this.state.pledge_amount} />
+            <input value={this.state.pledge_amount}
+                   onChange={this.handleEdit("pledge_amount")}/>
 
           </div>
 
@@ -49,7 +60,8 @@ class RewardBox extends React.Component {
               Description
             </p>
 
-            <textarea value={this.state.description}>
+            <textarea value={this.state.description}
+                      onChange={this.handleEdit("description")}>
 
             </textarea>
           </div>
@@ -59,7 +71,8 @@ class RewardBox extends React.Component {
               Estimated Delivery
             </p>
 
-            <input value={this.state.delivery_date} />
+            <input value={this.state.delivery_date}
+                   onChange={this.handleEdit("delivery_date")}/>
           </div>
 
           <div className="edit-reward-row">
@@ -67,7 +80,8 @@ class RewardBox extends React.Component {
               Limit Availability
             </p>
 
-            <input value={this.state.max_backers} />
+            <input value={this.state.max_backers}
+                   onChange={this.handleEdit("max_backers")} />
           </div>
 
         </div>

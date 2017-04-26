@@ -13,6 +13,7 @@ class AddRewardForm extends React.Component {
   }
 
   componentDidMount() {
+
     const projectId = this.props.params.id;
     this.props.getRewardsForProject(projectId)
         .then(rewards => {
@@ -69,7 +70,7 @@ class AddRewardForm extends React.Component {
         </div>
 
 
-        <SaveBar />
+        <SaveBar rewards={this.state.rewards}/>
       </div>
     );
   }

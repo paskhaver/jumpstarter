@@ -27,13 +27,9 @@ class Api::RewardsController < ApplicationController
   end
 
   def update
-    @reward = Reward.find_by(id: params[:id])
-    if @reward
-      if @reward.update(reward_params)
-        render :show
-      else
-        render json: @reward.errors.full_messages, status: 422
-      end
+    @reward = Reward.find(params[:id])
+    if @reward.update(reward_params)
+      render :show
     else
       render json: @reward.errors.full_messages, status: 422
     end
