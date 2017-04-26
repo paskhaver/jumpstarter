@@ -1,7 +1,7 @@
 class Api::PledgesController < ApplicationController
 
   def create
-    @pledge = Pledge.new(pledges_params)
+    @pledge = Pledge.new(pledge_params)
     if @pledge.save
       render :show
     else
@@ -11,7 +11,7 @@ class Api::PledgesController < ApplicationController
 
   private
 
-  def pledges_params
+  def pledge_params
     params.require(:pledge).permit(:user_id, :reward_id)
   end
 end

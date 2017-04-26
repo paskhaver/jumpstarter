@@ -1,4 +1,4 @@
-import * as SessionAPIUtil from "../util/session_api_util";
+import * as SessionAPIUtil from "../util/session_api_util.js";
 import { receiveErrors, clearErrors } from "./error_actions";
 import { hashHistory } from 'react-router';
 

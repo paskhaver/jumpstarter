@@ -1,1 +1,1 @@
-json.extract! @pledge, :id, :user_id, :pledge_id
+json.extract! @pledge, :id, :user_id, :reward_id

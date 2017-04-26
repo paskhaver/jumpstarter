@@ -94,7 +94,7 @@ class ProjectPage extends React.Component {
               <span className="pledge-amount">${this.state.amount_raised}</span>
               <span className="statistic-category">pledged of ${this.state.funding_goal} goal</span>
 
-              <span className="statistic">333</span>
+              <span className="statistic">{this.state.number_of_backers}</span>
               <span className="statistic-category">backers</span>
 
               <span className="statistic">36</span>
