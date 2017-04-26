@@ -14,9 +14,11 @@ export const receiveRewards = (rewards) => {
 export const getRewardsForProject = (projectId) => (dispatch) => {
   return RewardAPIUtil.getRewardsForProject(projectId)
         .then(rewards => {
-           dispatch(receiveRewards(rewards));
-           return rewards;
-         },
-              errors  => { return dispatch(receiveErrors(errors)); }
+                dispatch(receiveRewards(rewards));
+                return rewards;
+              },
+              errors  => {
+                return dispatch(receiveErrors(errors));
+              }
         );
 };
