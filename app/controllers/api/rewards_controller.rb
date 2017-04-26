@@ -1,5 +1,6 @@
 class Api::RewardsController < ApplicationController
 
+  # Validated - returns array of objects representing rewards
   def index
     project_id = params[:project_id]
     @rewards = Reward.where(project_id: project_id)

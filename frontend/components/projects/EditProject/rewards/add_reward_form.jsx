@@ -1,18 +1,29 @@
 import React from "react";
 import { connect } from "react-redux";
+import { getRewardsForProject } from "./../../../../actions/reward_actions";
 import SaveBar from "./../mainPage/save_bar";
 
 class AddRewardForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      title: "", pledge_amount: "", description: "",
-      delivery_date: "", limit_availability: ""
-    };
+    this.state = { rewards: [] };
+  }
+
+  componentDidMount() {
+    const projectId = this.props.params.id;
+    this.props.getRewardsForProject(projectId)
+        .then(rewards => {
+          this.setState({ rewards });
+        });
   }
 
   render() {
+
+    const rewards = this.state.rewards.map(reward => {
+      return <li key={reward.id}>{reward.title}</li>;
+    });
+
     return (
       <div>
         <div className="rewards-tab">
@@ -25,9 +36,9 @@ class AddRewardForm extends React.Component {
           <div className="rewards-form">
 
             <div className="rewards-main-content">
-
-
-
+              <ul>
+                {rewards}
+              </ul>
 
             </div>
 
@@ -72,7 +83,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    getRewardsForProject: (projectId) => {
+      return dispatch(getRewardsForProject(projectId));
+    }
   };
 };
 
