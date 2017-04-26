@@ -57,7 +57,6 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    debugger
 
     const errorItems = this.props.errors.map((error, idx) => {
       return <li key={idx}>{error}</li>;

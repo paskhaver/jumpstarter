@@ -116,9 +116,10 @@ class CreateProjectForm extends React.Component {
         const creator_id = this.props.currentUser.id;
         this.props.createProject({ creator_id, category, title, residence })
                   .then(project => {
-                    console.log(project);
+                    const projectID = project.id;
+                    hashHistory.push(`/projects/${projectID}/edit`);
                   });
-        hashHistory.push("/about");
+
       } else {
         this.props.clearErrors();
         this.props.receiveErrors(["Please login to create a project"]);

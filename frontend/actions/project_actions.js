@@ -51,6 +51,7 @@ export const createProject = (project) => (dispatch) => {
                          newProject => {
                            dispatch(receiveProject(newProject));
                            dispatch(clearErrors());
+                           return newProject;
                          },
                          errors => {
                            dispatch(receiveErrors(errors));
