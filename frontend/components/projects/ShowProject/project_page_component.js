@@ -12,7 +12,6 @@ class ProjectPage extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger
 
     if (this.props.params.id !== nextProps.params.id) {
       const projectId = nextProps.params.id;

@@ -1,4 +1,4 @@
-import { RECEIVE_REWARDS, RECEIVE_REWARD } from "./../actions/reward_actions";
+import { RECEIVE_REWARDS, RECEIVE_REWARD, REMOVE_REWARD } from "./../actions/reward_actions";
 import { merge } from "lodash";
 
 const RewardsReducer = (state = {}, action) => {
@@ -14,6 +14,12 @@ const RewardsReducer = (state = {}, action) => {
       newState = merge({}, state);
       reward = action.reward;
       newState[reward.id] = reward;
+      return newState;
+
+    case REMOVE_REWARD:
+      newState = merge({}, state);
+      reward = action.reward;
+      delete newState[reward.id];
       return newState;
 
     default:

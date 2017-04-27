@@ -3,6 +3,7 @@ import { receiveErrors, clearErrors } from "./error_actions";
 
 export const RECEIVE_REWARDS = "RECEIVE_REWARDS";
 export const RECEIVE_REWARD  = "RECEIVE_REWARD";
+export const REMOVE_REWARD   = "REMOVE_REWARD";
 
 export const receiveRewards = (rewards) => {
   return {
@@ -14,6 +15,13 @@ export const receiveRewards = (rewards) => {
 export const receiveReward = (reward) => {
   return {
     type: RECEIVE_REWARD,
+    reward
+  };
+};
+
+export const removeReward = (reward) => {
+  return {
+    type: REMOVE_REWARD,
     reward
   };
 };
@@ -51,3 +59,14 @@ export const createReward = (reward) => (dispatch) => {
                         return dispatch(receiveErrors(errors));
                       });
 };
+
+export const deleteReward = (reward) => (dispatch) => {
+  return RewardAPIUtil.deleteReward(reward)
+                      .then(reward => {
+                        dispatch(removeReward(reward));
+                        return reward;
+                      },
+                      errors => {
+                        return dispatch(receiveErrors(errors));
+                      });
+}

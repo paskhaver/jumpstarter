@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createReward, updateReward } from "./../../../../actions/reward_actions";
+import { createReward, updateReward, deleteReward } from "./../../../../actions/reward_actions";
 import { withRouter, hashHistory } from "react-router";
 
 class RewardBox extends React.Component {
@@ -19,18 +19,23 @@ class RewardBox extends React.Component {
     super(props);
     this.state = this.props.reward;
 
-    this.handleEdit = this.handleEdit.bind(this);
+    this.handleEdit   = this.handleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   handleSubmit(event) {
-
     event.preventDefault();
     if (this.props.responsibility === "Update Reward") {
       this.props.updateReward(this.state);
     } else if (this.props.responsibility === "Create Reward") {
       this.props.createReward(this.state);
     }
+  }
+
+  handleDelete(event) {
+    event.preventDefault();
+    this.props.deleteReward(this.props.reward);
   }
 
   handleEdit(field) {
@@ -42,6 +47,7 @@ class RewardBox extends React.Component {
   }
 
   render() {
+
     return(
     <div className="edit-reward-box">
 
@@ -52,9 +58,9 @@ class RewardBox extends React.Component {
         <div className="edit-reward-info-box">
 
           <div className="edit-reward-row">
-            <p>
+            <div className="reward-field">
               Title
-            </p>
+            </div>
 
             <input value={this.state.title}
                    onChange={this.handleEdit("title")}/>
@@ -62,9 +68,9 @@ class RewardBox extends React.Component {
           </div>
 
           <div className="edit-reward-row">
-            <p>
+            <div className="reward-field">
               Pledge Amount
-            </p>
+            </div>
 
             <input value={this.state.pledge_amount}
                    onChange={this.handleEdit("pledge_amount")}/>
@@ -73,9 +79,9 @@ class RewardBox extends React.Component {
 
 
           <div className="edit-reward-row">
-            <p>
+            <div className="reward-field">
               Description
-            </p>
+            </div>
 
             <textarea value={this.state.description}
                       onChange={this.handleEdit("description")}>
@@ -84,24 +90,35 @@ class RewardBox extends React.Component {
           </div>
 
           <div className="edit-reward-row">
-            <p>
+            <div className="reward-field">
               Estimated Delivery
-            </p>
+            </div>
 
             <input value={this.state.delivery_date}
                    onChange={this.handleEdit("delivery_date")}/>
           </div>
 
           <div className="edit-reward-row">
-            <p>
+            <div className="reward-field">
               Limit Availability
-            </p>
+            </div>
 
             <input value={this.state.max_backers}
                    onChange={this.handleEdit("max_backers")} />
           </div>
 
-          <button onClick= {this.handleSubmit}>{this.props.responsibility}</button>
+          <div className="reward-button-row">
+
+            <button className="reward-change-button"
+                  onClick= {this.handleSubmit}>
+            {this.props.responsibility}
+            </button>
+
+            <button className="reward-delete-button"
+                    onClick= {this.handleDelete }>
+              Delete Reward
+            </button>
+         </div>
 
         </div>
 
@@ -123,7 +140,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createReward: reward => { return dispatch(createReward(reward)); },
-    updateReward: reward => { return dispatch(updateReward(reward)); }
+    updateReward: reward => { return dispatch(updateReward(reward)); },
+    deleteReward: reward => { return dispatch(deleteReward(reward)); }
   };
 };
 

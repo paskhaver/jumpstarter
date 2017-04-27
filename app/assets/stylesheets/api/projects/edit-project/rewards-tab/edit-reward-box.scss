@@ -1,10 +1,9 @@
 .edit-reward-box {
 
   width: 632px;
-  // height: 349px;
   margin: 20px 10px;
-  background-color: yellow;
-  border: 5px solid black;
+  // background-color: yellow;
+  // border: 5px solid black;
 
   display: flex;
   flex-direction: row;
@@ -16,7 +15,7 @@
   margin: 10px;
   width: 174px;
   height: 349px;
-  background-color: purple;
+  // background-color: purple;
 
   h3 {
     margin: 15px;
@@ -31,7 +30,10 @@
   width: 453px;
   height: 349px;
   margin: 10px;
-  background-color: orange;
+
+  border-radius: 3px;
+  border: 1px solid rgb(218, 215, 212);
+  // background-color: orange;
 
   display: flex;
   flex-direction: column;
@@ -41,34 +43,61 @@
 
   display: flex;
   flex-direction: row;
-  margin: 10px 0px;
+  // margin: 10px 0px;
   font-size: 12px;
+  border: 1px solid rgb(218, 215, 212);
 
-  p {
+  .reward-field {
     box-sizing: border-box;
-    padding: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
     width: 115px;
+    border-right: 1px solid rgb(218, 215, 212);
+    height: 38px;
 
   }
 
   input {
     box-sizing: border-box;
     width: 333px;
-    background-color: red;
+    // background-color: red;
+    padding-left: 10px;
   }
 
   textarea {
     box-sizing: border-box;
+    border: 0px;
+    height: 100px;
     width: 333px;
-    height: 70px;
-    background-color: red;
+    border-left: 1px solid rgb(218, 215, 212);
+    padding: 10px;
+
+    // background-color: red;
   }
 
 }
 
-button {
-  width: 100%;
-  height: 100px;
-  border-radius: 6px;
-  background-color: #25CB68;
+.reward-button-row {
+
+  display: flex;
+  flex-direction: row;
+
+  .reward-change-button {
+    box-sizing: border-box;
+    width: 45%;
+    height: 50px;
+    margin: 20px auto;
+    border-radius: 6px;
+    background-color: #25CB68;
+  }
+
+  .reward-delete-button {
+    box-sizing: border-box;
+    width: 45%;
+    height: 50px;
+    margin: 20px auto;
+    border-radius: 6px;
+    background-color: #fd003b;
+  }
+
 }

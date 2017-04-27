@@ -26,3 +26,15 @@ export const updateReward = (reward) => {
     data: { reward }
   });
 };
+
+export const deleteReward = (reward) => {
+  const projectId = reward.project_id;
+  const rewardId  = reward.id;
+  delete reward.project_id;
+  delete reward.id;
+  return $.ajax({
+    method: "DELETE",
+    url: `/api/projects/${projectId}/rewards/${rewardId}`,
+    data: { id: rewardId }
+  });
+}
