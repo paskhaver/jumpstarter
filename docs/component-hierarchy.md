@@ -4,13 +4,15 @@
   **NavBarContainer**
     - SearchBar Component
 
-**CreaterUserFormContainer**
-  - CreateUserForm Component
+**SignUpForm Container**
+  - SignUpForm Component
 
-**LoginFormContainer**
+**LoginForm Container**
   - LoginForm Component
 
-**CreateProjectContainer**
+**Footer Component**
+
+**CreateProject**
   - CreateProjectBackground Component
     - CreateProjectHeader Component
     - CreateProjectFormContainer
@@ -19,16 +21,17 @@
     - GeneralInfoItem Component
 
 **EditProject**
-  - EditProjectBackground Component
-  - EditProjectMenu Component (Links)
-  - EditProjectSection (general one that takes arguments) - 2 column design
+  - /basics
+    - BasicsForm Container
+    - SaveBar Component
+  - /rewards
+    - AddRewardForm Container
+    - RewardBox Container
 
-**ProjectContainer**
-  - ProjectHeader Component
-  - ProjectVideo Component
-  - ProjectStatus Component
-  - ProjectDescription Component
-  - ProjectRewards Component
+**ShowProject**
+  - ProjectPage Container
+  - RewardSidebarIndex Component
+  - RewardSidebarItem Container
 
 **Categories Container**
   - Categories Component
