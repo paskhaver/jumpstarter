@@ -9,58 +9,76 @@ class CreateUserForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { name: "", email: "", password: "",
-                   second_email:"", second_password: "" };
+                   second_email: "", second_password: "" };
 
-    props.clearErrors();
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
+    this.handleSubmit           = this.handleSubmit.bind(this);
+    this.handleEdit             = this.handleEdit.bind(this);
     this.handleGuestButtonClick = this.handleGuestButtonClick.bind(this);
-    this.handleFormRedirect = this.handleFormRedirect.bind(this);
+    this.handleFormRedirect     = this.handleFormRedirect.bind(this);
   }
 
   componentWillUnmount() {
     this.props.clearErrors();
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-
-    let errors = false;
-    this.props.clearErrors();
+  checkForErrors() {
+    let hasErrors = false;
+    let errors = [];
 
     for (let formItem in this.state) {
       const visualString = formItem.toUpperCase().split("_").join(" ");
       if (this.state[formItem] === "") {
-        this.props.receiveErrors([`${visualString} cannot be blank!`]);
-        errors = true;
+        errors.push(`${visualString} cannot be blank!`);
+        hasErrors = true;
       }
     }
 
-    const { name, email, second_email, password, second_password } = this.state;
+    const { name, email, second_email,
+            password, second_password } = this.state;
 
     if (email !== second_email) {
-      this.props.receiveErrors(["Emails do not match"]);
-      errors = true;
+      errors.push("Emails do not match");
+      hasErrors = true;
     }
 
     if (password !== second_password) {
-      this.props.receiveErrors(["Passwords do not match"]);
-      errors = true;
+      erorrs.push("Passwords do not match");
+      hasErrors = true;
     }
 
     if (password.length < 6) {
-      this.props.receiveErrors(["Password must have at least 6 characters"]);
-      errors = true;
+      errors.push("Password must have at least 6 characters");
+      hasErrors = true;
     }
 
-    if (!errors) {
-      this.props.clearErrors();
+    if (hasErrors) {
+      this.props.receiveErrors(errors);
+    }
+
+    return hasErrors;
+
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    this.props.clearErrors();
+    const hasErrors = this.checkForErrors();
+
+    debugger
+    // If no errors;
+    if (!hasErrors) {
+
       const properUser = { name, email, password };
       this.props.createUser(properUser);
       hashHistory.push("/");
     }
-    console.log("Handled submit!");
+
+  }
+
+  handleFormRedirect(event) {
+    event.preventDefault();
+    hashHistory.push("/login");
   }
 
   handleGuestButtonClick(event) {
@@ -79,10 +97,7 @@ class CreateUserForm extends React.Component {
     };
   }
 
-  handleFormRedirect(event) {
-    event.preventDefault();
-    hashHistory.push("/login");
-  }
+
 
   render() {
 
@@ -94,7 +109,7 @@ class CreateUserForm extends React.Component {
       <div className="grey-container">
         <div className="log-in-box">
           <button className="alternate-link"
-                  onClick={ this.handleFormRedirect}>
+                  onClick={ this.handleFormRedirect }>
             Have an account? Log in!
           </button>
 
