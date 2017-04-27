@@ -1,5 +1,5 @@
-json.extract! @project, :id, :title, :category, :description,
-                        :residence, :blurb, :funding_goal
+json.extract! @project, :id, :creator_id, :title, :category, :residence,
+                        :blurb, :end_date, :funding_goal, :description
 
 json.amount_raised @amount_raised
 json.number_of_backers @number_of_backers

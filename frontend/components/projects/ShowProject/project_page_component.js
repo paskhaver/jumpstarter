@@ -2,6 +2,7 @@ import React from "react";
 import { Link, hashHistory } from 'react-router';
 import YouTube from "react-youtube";
 import RewardSidebarIndex from "./reward_sidebar_index";
+import moment from "moment";
 
 class ProjectPage extends React.Component {
 
@@ -33,8 +34,8 @@ class ProjectPage extends React.Component {
 
     project.then(() => {
       const { title, category, residence, blurb, funding_goal,
-              description, amount_raised, number_of_backers } = this.props.currentProject;
-      this.setState({ title, category, residence, blurb, funding_goal,
+              description, amount_raised, number_of_backers, end_date } = this.props.currentProject;
+      this.setState({ title, category, residence, blurb, end_date, funding_goal,
         description, amount_raised, number_of_backers });
     });
   }
@@ -63,6 +64,10 @@ class ProjectPage extends React.Component {
     if (this.props.children) {
       return this.props.children;
     }
+
+    const endDateMoment = moment(this.state.end_date);
+    const remainingDays = endDateMoment.diff(moment(), "days");
+
 
     return (
 
@@ -97,7 +102,7 @@ class ProjectPage extends React.Component {
               <span className="statistic">{this.state.number_of_backers}</span>
               <span className="statistic-category">backers</span>
 
-              <span className="statistic">36</span>
+              <span className="statistic">{remainingDays}</span>
               <span className="statistic-category">days to go</span>
 
               <button>Back this Project</button>
@@ -109,7 +114,7 @@ class ProjectPage extends React.Component {
 
               <p>
                 All or nothing. This project will only be funded if it
-                reaches its goal by Sun, May 28 2017 10:00 AM EDT.
+                reaches its goal by {this.state.end_date}.
               </p>
 
             </div>

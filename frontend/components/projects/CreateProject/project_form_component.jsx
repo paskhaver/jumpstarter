@@ -117,7 +117,7 @@ class CreateProjectForm extends React.Component {
         this.props.createProject({ creator_id, category, title, residence })
                   .then(project => {
                     const projectID = project.id;
-                    hashHistory.push(`/projects/${projectID}/edit`);
+                    hashHistory.push(`/projects/${projectID}/edit/basics`);
                   });
 
       } else {
