@@ -67,9 +67,9 @@ class CreateUserForm extends React.Component {
 
     // If no errors;
     if (!hasErrors) {
-
+      const { name, email, password } = this.state;
       const properUser = { name, email, password };
-      this.props.createUser(properUser);
+      this.props.createUser(properUser)
       hashHistory.push("/");
     }
 

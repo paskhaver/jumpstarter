@@ -21,7 +21,6 @@ class BasicsForm extends React.Component {
               .then(response => {
                 this.setState(response);
               });
-
   }
 
   handleEdit(field) {

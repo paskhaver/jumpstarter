@@ -16,7 +16,7 @@ ActiveRecord::Base.transaction do
   user1 = User.create(name: "Guest", email: "guest@example.com", password: pw)
   user2 = User.create(name: "Boris", email: "boris@example.com", password: pw)
   user3 = User.create(name: "Wilson", email: "wilson@example.com", password: pw)
-  user4 = User.create(name: "Tassos", email: "tassos@example.com", password: pw)
+  user4 = User.create(name: "Will Smith", email: "willsmith@example.com", password: pw)
 
   project1 = Project.create(title: "My New Album", category: "Music",
                             creator: user4, residence: "United States")
