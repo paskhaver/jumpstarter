@@ -13,12 +13,17 @@ class LoginForm extends React.Component {
       password: ""
     };
 
-    props.clearErrors();
+    // props.clearErrors();
 
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFormRedirect = this.handleFormRedirect.bind(this);
   }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
 
   handleEdit(field) {
     return (event) => {
