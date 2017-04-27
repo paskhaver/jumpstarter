@@ -27,7 +27,12 @@ class NavBar extends React.Component {
   render() {
 
     const logStatus = this.props.currentUser ? "Log out" : "Log In";
-    const action = this.props.currentUser ? this.handleLogout : this.handleLogin;
+    const action    = this.props.currentUser ? this.handleLogout : this.handleLogin;
+    const signUp    = this.props.currentUser ? "" : (
+      <Link to="signup">
+        <span>Sign up</span>
+      </Link>
+    );
 
     return (
       <nav>
@@ -55,9 +60,7 @@ class NavBar extends React.Component {
               <span>{logStatus}</span>
             </a>
 
-            <Link to="signup">
-              <span>Sign up</span>
-            </Link>
+            { signUp }
 
           </div>
 

@@ -15,11 +15,11 @@ class Footer extends React.Component {
 
   render() {
 
-    const aboutUsLinks = ["What is Jumpstarter?", "Who we are", "Impact", "Jobs", "Press", "Stats", "Newsletters", "Spotlight", "Drip", "Jumpstarter Live", "This Year in Jumpstarter: 2017"];
-    const helpLinks = ["FAQ", "Our Rules", "Creator Handbook", "Campus", "Experts", "Trust & Safety", "Support", "Trust & Safety", "Support", "Terms of Use", "Privacy Policy", "Cookie Policy"];
+    const aboutUsLinks   = ["What is Jumpstarter?", "Who we are", "Impact", "Jobs", "Press", "Stats", "Newsletters", "Spotlight", "Drip", "Jumpstarter Live", "This Year in Jumpstarter: 2017"];
+    const helpLinks      = ["FAQ", "Our Rules", "Creator Handbook", "Campus", "Experts", "Trust & Safety", "Support", "Trust & Safety", "Support", "Terms of Use", "Privacy Policy", "Cookie Policy"];
     const discoverLinks1 = ["Art", "Comics", "Crafts", "Dance", "Design", "Fashion", "Film & Video", "Food"];
     const discoverLinks2 = ["Games", "Journalism", "Music", "Photography", "Publishing", "Technology", "Theater"];
-    const helloLinks = ["Happening", "Company Blog", "Engineering Blog", "The Creative", "Independent"];
+    const helloLinks     = ["Happening", "Company Blog", "Engineering Blog", "The Creative", "Independent"];
 
     return (
       <footer>
