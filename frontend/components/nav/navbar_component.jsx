@@ -42,9 +42,9 @@ class NavBar extends React.Component {
           <div className="center-nav">
 
             <div className="center">
-              <i className="fa fa-motorcycle fa-3x"
-                  aria-hidden="true"></i>
-              <h2>Jumpstarter</h2>
+
+                <img src={window.images.logo}></img>
+              
             </div>
 
           </div>
