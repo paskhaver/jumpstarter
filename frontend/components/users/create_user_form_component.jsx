@@ -3,8 +3,14 @@ import { hashHistory } from 'react-router';
 
 class CreateUserForm extends React.Component {
 
+  // STATE
+  // this.props.errors
+
+  // DISPATCH
   // this.props.createUser(user)
-  // this.props.currentUser
+  // this.props.login(user)
+  // this.props.receiveErrors(errors)
+  // this.props.clearErrors()
 
   constructor(props) {
     super(props);
@@ -65,7 +71,7 @@ class CreateUserForm extends React.Component {
     this.props.clearErrors();
     const hasErrors = this.checkForErrors();
 
-    // If no errors;
+    // If no errors on front-end validation;
     if (!hasErrors) {
       const { name, email, password } = this.state;
       const properUser = { name, email, password };
