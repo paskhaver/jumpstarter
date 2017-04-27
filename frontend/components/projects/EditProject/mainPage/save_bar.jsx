@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { updateProject } from "./../../../../actions/project_actions";
+import { hashHistory } from "react-router";
 
 class SaveBar extends React.Component {
 
@@ -12,7 +13,8 @@ class SaveBar extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit() {
+  handleSubmit(event) {
+    event.preventDefault();
     const project = this.props.project;
     this.props.updateProject(project);
   }
@@ -38,7 +40,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateProject: (project) => { dispatch(updateProject(project)); }
+    updateProject: (project) => { return dispatch(updateProject(project)); }
   };
 };
 
