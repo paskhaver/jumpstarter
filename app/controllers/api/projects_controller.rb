@@ -18,6 +18,7 @@ class Api::ProjectsController < ApplicationController
   # Validated
   def show
     @project = Project.includes(:rewards)
+                      .includes(:creator)
                       .order("rewards.pledge_amount")
                       .find_by(id: params[:id])
     if @project

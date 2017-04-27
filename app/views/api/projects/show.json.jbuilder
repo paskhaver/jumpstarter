@@ -3,6 +3,7 @@ json.extract! @project, :id, :creator_id, :title, :category, :residence,
 
 json.amount_raised @amount_raised
 json.number_of_backers @number_of_backers
+json.creator_name @project.creator.name
 
 json.set! :rewards do
   json.array! @project.rewards do |reward|

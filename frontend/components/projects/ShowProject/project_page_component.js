@@ -8,23 +8,20 @@ class ProjectPage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      title: ""
-    };
+    this.state = props.project;
   }
 
-  // Semi-functional --- seems to be forcing a refresh
-  // on occasional new project fetches
-
   componentWillReceiveProps(nextProps) {
-    if (this.props.params.id !== nextProps.params.id) {
+    debugger
 
+    if (this.props.params.id !== nextProps.params.id) {
       const projectId = nextProps.params.id;
       this.props.fetchProject(projectId)
-                .then(() => {
-                  const { title, category, residence, blurb } = this.props.currentProject;
-                  this.setState({ title, category, residence, blurb});
+                .then(project => {
+                  this.setState(project);
                 });
+    } else {
+      this.setState(this.props.project);
     }
   }
 
@@ -32,11 +29,8 @@ class ProjectPage extends React.Component {
     const projectId = this.props.params.id;
     const project   = this.props.fetchProject(projectId);
 
-    project.then(() => {
-      const { title, category, residence, blurb, funding_goal,
-              description, amount_raised, number_of_backers, end_date } = this.props.currentProject;
-      this.setState({ title, category, residence, blurb, end_date, funding_goal,
-        description, amount_raised, number_of_backers });
+    project.then(project => {
+      this.setState(project);
     });
   }
 
@@ -54,12 +48,6 @@ class ProjectPage extends React.Component {
   }
 
   render() {
-    let rewards;
-    if (this.props.currentProject) {
-      rewards = this.props.currentProject.rewards;
-    } else {
-      rewards = [];
-    }
 
     if (this.props.children) {
       return this.props.children;
@@ -67,7 +55,6 @@ class ProjectPage extends React.Component {
 
     const endDateMoment = moment(this.state.end_date);
     const remainingDays = endDateMoment.diff(moment(), "days");
-
 
     return (
 
@@ -77,7 +64,7 @@ class ProjectPage extends React.Component {
           <header className="header">
             <div className="creator-info">
               <div className="creator-image"></div>
-              <span>By Boris Paskhaver</span>
+              <span>By {this.state.creator_name}</span>
             </div>
 
             <div className="project-title">
@@ -136,7 +123,7 @@ class ProjectPage extends React.Component {
             <div className="pledge-container">
               <h3>Support this Project</h3>
 
-            <RewardSidebarIndex rewards={rewards}/>
+            <RewardSidebarIndex rewards={this.state.rewards}/>
             </div>
 
           </div>

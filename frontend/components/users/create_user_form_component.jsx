@@ -65,7 +65,6 @@ class CreateUserForm extends React.Component {
     this.props.clearErrors();
     const hasErrors = this.checkForErrors();
 
-    debugger
     // If no errors;
     if (!hasErrors) {
 

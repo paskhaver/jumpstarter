@@ -5,7 +5,7 @@ import { fetchProject, updateProject, deleteProject } from "../../../actions/pro
 const mapStateToProps = (state) => {
   return {
     currentUser: state.session.currentUser,
-    currentProject: state.project.currentProject
+    project: state.project
   };
 };
 
