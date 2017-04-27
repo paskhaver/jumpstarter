@@ -3,12 +3,6 @@ import { hashHistory } from 'react-router';
 
 class CreateProjectForm extends React.Component {
 
-  // this.props.currentUser
-
-  // this.props.createProject
-  // this.props.clearErrors
-  // this.props.receiveErrors
-
   constructor(props) {
     super(props);
     this.state = ({
@@ -19,10 +13,10 @@ class CreateProjectForm extends React.Component {
       residencyModalStatus: "none",
     });
 
-    this.handleSpanClick = this.handleSpanClick.bind(this);
+    this.handleSpanClick  = this.handleSpanClick.bind(this);
     this.handleModalClick = this.handleModalClick.bind(this);
-    this.handleTitleEdit = this.handleTitleEdit.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleTitleEdit  = this.handleTitleEdit.bind(this);
+    this.handleSubmit     = this.handleSubmit.bind(this);
   }
 
   generateCategoriesList() {
@@ -32,22 +26,26 @@ class CreateProjectForm extends React.Component {
 
     return categories.map(category => {
       return <li key={category}
-                 onClick={ this.handleModalClick("category")}>{category}</li>;
+                 onClick={ this.handleModalClick("category") }>
+                  {category}
+            </li>;
     });
+
   }
 
   generateResidenciesList() {
 
-    const residencies = ["Australia", "Austria", "Belgium", "Canada",
-                         "Denmark", "France", "Germany", "Hong Kong",
-                         "Ireland", "Italy", "Luxembourg", "Mexico",
-                         "Netherlands", "New Zealand", "Norway", "Singapore",
-                         "Spain", "Sweden", "Switzerland", "United Kingdom",
-                         "United States"];
+    const residencies = ["Australia", "Austria", "Belgium", "Canada", "Denmark",
+                         "France", "Germany", "Hong Kong", "Ireland", "Italy",
+                         "Luxembourg", "Mexico", "Netherlands", "New Zealand",
+                         "Norway", "Singapore", "Spain", "Sweden", "Switzerland",
+                         "United Kingdom", "United States"];
 
     return residencies.map(residence => {
       return <li key={residence}
-                 onClick = { this.handleModalClick("residence") }>{residence}</li>;
+                 onClick = { this.handleModalClick("residence") }>
+                  {residence}
+              </li>;
     });
   }
 
@@ -117,11 +115,17 @@ class CreateProjectForm extends React.Component {
     event.preventDefault();
     const errors = this.checkForErrors();
 
+    // If no errors exist on the front-end
     if (!errors) {
-      if (this.props.currentUser) {
+
+      let currentUser = this.props.currentUser
+      // If a user is logged in...
+      if (currentUser) {
+
         const { category, title, residence } = this.state;
-        const creator_id = this.props.currentUser.id;
-        this.props.createProject({ creator_id, category, title, residence })
+        const creator_id = currentUser.id;
+        const project = { category, title, residence, creator_id };
+        this.props.createProject(project)
                   .then(project => {
                     const projectID = project.id;
                     hashHistory.push(`/projects/${projectID}/edit/basics`);

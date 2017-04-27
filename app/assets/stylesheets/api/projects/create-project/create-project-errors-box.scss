@@ -1,7 +1,11 @@
 .create-project-errors-box {
-  margin: 10px auto;
+
   width: 400px;
-  background-color: purple;
+  margin: 10px auto;
+  border-radius: 6px;
+  border: 1px dashed #cc0000;
+
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   li {
     list-style-type: none;

@@ -9,11 +9,18 @@ class ErrorsBox extends React.Component {
 
   render() {
 
+    if (this.props.errors.length === 0) {
+      return (
+        <ul></ul>
+      )
+    }
+
     const errorItems = this.props.errors.map((error, idx) => {
       return <li key={idx}>{error}</li>
     });
 
     return (
+
       <ul className="create-project-errors-box">
         {errorItems}
       </ul>

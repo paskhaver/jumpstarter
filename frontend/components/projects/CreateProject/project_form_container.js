@@ -6,8 +6,7 @@ import ProjectForm from "./project_form_component";
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.session.currentUser,
-    errors: state.errors
+    currentUser: state.session.currentUser
   };
 };
 
