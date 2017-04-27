@@ -6,7 +6,7 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import Root from "./components/root";
 
 import LoginForm from "./components/users/login_form_container";
-import CreateUserForm from "./components/users/create_user_form_container";
+import SignUpForm from "./components/users/sign_up_form_container";
 
 import CreateProjectPage from "./components/projects/CreateProject/create_project_page";
 import ShowProjectPage from "./components/projects/ShowProject/project_page_container";
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </Route>
 
           <Route path="login"  component={LoginForm} />
-          <Route path="signup" component={CreateUserForm} />
+          <Route path="signup" component={SignUpForm} />
 
         </Route>
 

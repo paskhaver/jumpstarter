@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.grey-container {
+.auth-grey-container {
   background-color: #F7F5F2;
   padding: 60px 18px;
   width: 100%;
@@ -68,15 +68,8 @@
     outline: 1px solid #2752ff;
   }
 
-  input[type=email] {
-    // background-color: yellow;
-  }
-
-  input[type=password] {
-
-  }
-
-  input[type=submit], button {
+  input[type=submit] {
+    width: 100%;
     cursor: pointer;
     box-sizing: border-box;
     border-radius: 6px;
@@ -87,7 +80,6 @@
     line-height: normal;
     font-size: 14px;
     color: #FFFFFF;
-    width: 100%;
   }
 
   input[type="submit"]:hover {
@@ -95,7 +87,22 @@
     background-color: #05AF3C;
   }
 
-  .alternate-link {
+  .green-button {
+    width: 100%;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background-color: #25CB68;
+    padding: 10px 20px;
+    text-align: center;
+    line-height: normal;
+    font-size: 14px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+  }
+
+  .blue-button {
     width: 100%;
     height: 45px;
     margin-bottom: 10px;

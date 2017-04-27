@@ -1,7 +1,8 @@
 import React from "react";
 import { hashHistory } from 'react-router';
+import Footer from "./../footer/footer";
 
-class CreateUserForm extends React.Component {
+class SignUpForm extends React.Component {
 
   // STATE
   // this.props.errors
@@ -14,8 +15,11 @@ class CreateUserForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { name: "", email: "", password: "",
-                   second_email: "", second_password: "" };
+    this.state = { name: "",
+                   email: "",
+                   second_email: "",
+                   password: "",
+                   second_password: "" };
 
     this.handleSubmit           = this.handleSubmit.bind(this);
     this.handleEdit             = this.handleEdit.bind(this);
@@ -111,9 +115,12 @@ class CreateUserForm extends React.Component {
     });
 
     return (
-      <div className="grey-container">
+
+      <div>
+
+      <div className="auth-grey-container">
         <div className="log-in-box">
-          <button className="alternate-link"
+          <button className="blue-button"
                   onClick={ this.handleFormRedirect }>
             Have an account? Log in!
           </button>
@@ -167,16 +174,17 @@ class CreateUserForm extends React.Component {
                        value="Create Account!"/>
               </li>
 
-              <li>
-                <button onClick={ this.handleGuestButtonClick }>
-                  Login as Guest User!</button>
-              </li>
-            </ol>
+              </ol>
           </form>
         </div>
+      </div>
+
+
+
+      <Footer />
       </div>
     );
   }
 }
 
-export default CreateUserForm;
+export default SignUpForm;

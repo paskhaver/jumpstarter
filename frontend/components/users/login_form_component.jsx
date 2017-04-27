@@ -1,5 +1,6 @@
 import React from "react";
 import { hashHistory } from 'react-router';
+import Footer from "./../footer/footer";
 
 class LoginForm extends React.Component {
 
@@ -8,20 +9,17 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      email: "",
-      password: ""
-    };
+    this.state = { email: "", password: "" };
 
-    this.handleEdit = this.handleEdit.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEdit         = this.handleEdit.bind(this);
+    this.handleSubmit       = this.handleSubmit.bind(this);
     this.handleFormRedirect = this.handleFormRedirect.bind(this);
+    this.handleGuestLogin   = this.handleGuestLogin.bind(this);
   }
 
   componentWillUnmount() {
     this.props.clearErrors();
   }
-
 
   handleEdit(field) {
     return (event) => {
@@ -52,13 +50,23 @@ class LoginForm extends React.Component {
     }
 
     if (!errors) {
-        this.props.login(this.state);
+        const user = this.state;
+        this.props.login(user);
     }
   }
 
   handleFormRedirect(event) {
     event.preventDefault();
     hashHistory.push("/signup");
+  }
+
+  handleGuestLogin(event) {
+    const guestUser = {
+      email: "guest@example.com",
+      password: "password"
+    };
+
+    this.props.login(guestUser);
   }
 
   render() {
@@ -69,7 +77,9 @@ class LoginForm extends React.Component {
 
     return (
 
-      <div className="grey-container">
+      <div>
+
+      <div className="auth-grey-container">
         <div className="log-in-box">
           <h2>Log in</h2>
 
@@ -84,6 +94,7 @@ class LoginForm extends React.Component {
               <li><input type="email"
                          placeholder="Email"
                          className="input-text-padding"
+                         value={this.state.email}
                          onChange={ this.handleEdit("email")} />
               </li>
 
@@ -92,6 +103,7 @@ class LoginForm extends React.Component {
                 <input type="password"
                        placeholder="Password"
                        className="input-text-padding"
+                       value={this.state.password}
                        onChange={ this.handleEdit("password")} />
               </li>
 
@@ -103,11 +115,24 @@ class LoginForm extends React.Component {
             </ol>
             </form>
 
-            <button className="alternate-link"
+            <button className="green-button"
+                    onClick={ this.handleGuestLogin }>
+              Login as Guest User!
+            </button>
+
+            <button className="blue-button"
                     onClick = { this.handleFormRedirect }>
               New to Jumpstarter? Sign up!
             </button>
+
+
         </div>
+
+      </div>
+
+
+      <Footer />
+
       </div>
     );
   }

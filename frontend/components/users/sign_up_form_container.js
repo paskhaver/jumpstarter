@@ -4,7 +4,7 @@ import { login } from "./../../actions/session_actions";
 import { createUser } from "./../../actions/user_actions";
 import { receiveErrors, clearErrors } from "./../../actions/error_actions";
 
-import CreateUserForm from "./create_user_form_component";
+import SignUpForm from "./sign_up_form_component";
 
 const mapStateToProps = (state) => {
   return {
@@ -21,4 +21,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateUserForm);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
