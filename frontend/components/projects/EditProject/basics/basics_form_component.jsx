@@ -1,5 +1,5 @@
 import React from "react";
-import SaveBar from "./../mainPage/save_bar";
+import SaveBar from "./save_bar";
 
 class BasicsForm extends React.Component {
 
@@ -9,7 +9,7 @@ class BasicsForm extends React.Component {
       id: this.props.params.id,
       title: "",
       blurb: "",
-      category: "",
+      category: "Art",
       end_date: "",
       funding_goal: ""
     };
@@ -18,10 +18,8 @@ class BasicsForm extends React.Component {
   componentDidMount() {
     const projectId = this.props.params.id;
     this.props.fetchProject(projectId)
-              .then((response) => {
-                const { title, blurb, category, end_date, funding_goal } = response;
-
-                this.setState({ title, blurb, category, end_date, funding_goal});
+              .then(response => {
+                this.setState(response);
               });
 
   }
@@ -33,7 +31,6 @@ class BasicsForm extends React.Component {
       });
     };
   }
-
 
 
   render() {
@@ -51,25 +48,19 @@ class BasicsForm extends React.Component {
 
           <div className="basics-form">
             <div className="basics-main-content">
-              <div className="question-box">
 
+              <div className="question-box">
                 <div className="question">
                   <p>Project image</p>
                 </div>
 
                 <div className="answer">
-                  <input type="file"></input>
-
-                  <p>
-                    This is the first thing that people will see when they come across your project. Choose an image that’s crisp and text-free. Here are some tips.
-                  </p>
-
+                  <input type="file" />
+                  <p>This is the first thing that people will see when they come across your project. Choose an image that’s crisp and text-free. Here are some tips.</p>
                 </div>
-
               </div>
 
               <div className="question-box">
-
                 <div className="question">
                   <p>Project title</p>
                 </div>
@@ -78,18 +69,11 @@ class BasicsForm extends React.Component {
                   <input type="text"
                          onChange={this.handleEdit("title")}
                          value={this.state.title}
-                         >
-                  </input>
+                         />
 
-                  <p>
-                    Our search looks through words from your project title and blurb, so make them clear and descriptive of what you’re making. Your profile name will be searchable, too.
-                  </p>
-
-                  <p>
-                    These words will help people find your project, so choose them wisely! Your name will be searchable too.
-                  </p>
+                  <p>Our search looks through words from your project title and blurb, so make them clear and descriptive of what you’re making. Your profile name will be searchable, too.</p>
+                  <p>These words will help people find your project, so choose them wisely! Your name will be searchable too.</p>
                 </div>
-
               </div>
 
               <div className="question-box">
@@ -112,11 +96,12 @@ class BasicsForm extends React.Component {
                 </div>
 
                 <div className="answer">
-                  <select onChange={this.handleEdit("category")}>
-                    <option>Art</option>
-                    <option>Comics</option>
-                    <option>Crafts</option>
-                    <option>Dance</option>
+                  <select onChange={this.handleEdit("category")}
+                          value={this.state.category} >
+                    <option value={"Art"}>Art</option>
+                    <option value={"Comics"}>Comics</option>
+                    <option value={"Crafts"}>Crafts</option>
+                    <option value={"Dance"}>Dance</option>
                   </select>
                 </div>
               </div>
@@ -159,29 +144,13 @@ class BasicsForm extends React.Component {
 
             </div>
 
-
-
-
-
-
             <div className="basics-sidebar">
-
               <h5>Need advice?</h5>
-
-              <p>
-                Ahoy handsomely scuttle tender reef sails walk the plank warp brigantine Nelsons folly sutler. Cat o'nine tails tackle scurvy gun rum ye flogging sutler maroon hang the jib. Jack Ketch matey Jolly Roger warp chase prow Blimey bilge crow's nest transom.
-              </p>
-
-             <p>
-              Bring a spring upon her cable Nelsons folly fathom spanker pressgang spike ye quarter clap of thunder matey. Spanish Main long boat dance the hempen jig sloop heave down grog draft weigh anchor loaded to the gunwalls lugger. Quarter parrel furl sheet landlubber or just lubber trysail transom dance the hempen jig gangway cackle fruit.
-            </p>
-
-
-            <p>
-              Scallywag stern bounty sheet measured fer yer chains parley American Main topmast Shiver me timbers list. Sloop line Privateer sutler lugger transom yardarm fore American Main chantey. Walk the plank splice the main brace Blimey me line mizzen fire ship scuppers log tackle.
-            </p>
-
+              <p>Ahoy handsomely scuttle tender reef sails walk the plank warp brigantine Nelsons folly sutler. Cat o'nine tails tackle scurvy gun rum ye flogging sutler maroon hang the jib. Jack Ketch matey Jolly Roger warp chase prow Blimey bilge crow's nest transom.</p>
+              <p>Bring a spring upon her cable Nelsons folly fathom spanker pressgang spike ye quarter clap of thunder matey. Spanish Main long boat dance the hempen jig sloop heave down grog draft weigh anchor loaded to the gunwalls lugger. Quarter parrel furl sheet landlubber or just lubber trysail transom dance the hempen jig gangway cackle fruit.</p>
+              <p>Scallywag stern bounty sheet measured fer yer chains parley American Main topmast Shiver me timbers list. Sloop line Privateer sutler lugger transom yardarm fore American Main chantey. Walk the plank splice the main brace Blimey me line mizzen fire ship scuppers log tackle.</p>
             </div>
+
           </div>
 
         </div>
