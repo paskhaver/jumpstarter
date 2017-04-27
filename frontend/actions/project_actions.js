@@ -35,12 +35,12 @@ export const fetchProject = (projectId) => (dispatch) => {
   return ProjectAPIUtil.fetchProject(projectId)
                        .then(
                          project => {
-                           dispatch(receiveProject(project));
                            dispatch(clearErrors());
+                           dispatch(receiveProject(project));
                            return project;
                          },
                          errors => {
-                           dispatch(receiveErrors(errors));
+                           return dispatch(receiveErrors(errors));
                          }
                        );
 };
@@ -54,7 +54,7 @@ export const createProject = (project) => (dispatch) => {
                            return newProject;
                          },
                          errors => {
-                           dispatch(receiveErrors(errors));
+                           return dispatch(receiveErrors(errors));
                          }
                        );
 };
@@ -63,11 +63,11 @@ export const updateProject = (project) => (dispatch) => {
   return ProjectAPIUtil.updateProject(project)
                        .then(
                          updatedProject => {
-                           dispatch(receiveProject(updatedProject));
                            dispatch(clearErrors());
+                           return dispatch(receiveProject(updatedProject));
                          },
                          errors => {
-                           dispatch(receiveErrors(errors));
+                           return dispatch(receiveErrors(errors));
                          }
                        );
 };

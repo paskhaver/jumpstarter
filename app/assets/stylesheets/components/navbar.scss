@@ -7,20 +7,21 @@ nav {
   display: flex;
   flex-direction: row;
 
-  a {
-    text-decoration: none;
-    cursor: pointer;
-    line-height: 60px;
-  }
-
   span {
     font-size: 14px;
     font-weight: 500;
     color: rgb(2, 6, 33);
   }
 
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 60px;
+  }
+
   a:hover {
     border-bottom: 3px solid #25CB68;
+    padding: 0px;
   }
 
   div {

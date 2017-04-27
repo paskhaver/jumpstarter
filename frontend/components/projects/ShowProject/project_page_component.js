@@ -9,6 +9,7 @@ class ProjectPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.project;
+    this.handleRedirectToEdit = this.handleRedirectToEdit.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -31,6 +32,12 @@ class ProjectPage extends React.Component {
     project.then(project => {
       this.setState(project);
     });
+  }
+
+  handleRedirectToEdit(event) {
+    event.preventDefault();
+    const projectId = this.props.project.id;
+    hashHistory.push(`/projects/${projectId}/edit/basics`);
   }
 
   videoOptions() {
@@ -92,6 +99,7 @@ class ProjectPage extends React.Component {
               <span className="statistic-category">days to go</span>
 
               <button>Back this Project</button>
+              <button onClick={ this.handleRedirectToEdit }>Edit This Project</button>
 
               <div className="social-stuff">
                 <div className="social-button">Remind Me</div>

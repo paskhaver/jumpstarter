@@ -26,10 +26,19 @@ class RewardBox extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const projectId = this.props.params.id;
+
     if (this.props.responsibility === "Update Reward") {
-      this.props.updateReward(this.state);
+      this.props.updateReward(this.state)
+                .then(() => {
+                  hashHistory.push(`/projects/${projectId}`);
+                });
+
     } else if (this.props.responsibility === "Create Reward") {
-      this.props.createReward(this.state);
+      this.props.createReward(this.state)
+                .then(() => {
+                  hashHistory.push(`/projects/${projectId}`);
+                });
     }
   }
 
@@ -145,4 +154,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RewardBox);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RewardBox));

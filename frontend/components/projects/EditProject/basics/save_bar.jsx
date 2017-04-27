@@ -16,7 +16,12 @@ class SaveBar extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const project = this.props.project;
-    this.props.updateProject(project);
+    const id = project.id;
+    this.props.updateProject(project)
+              .then(() => {
+                hashHistory.push(`/projects/${id}`);
+              });
+
   }
 
   render() {
