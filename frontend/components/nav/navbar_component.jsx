@@ -38,18 +38,16 @@ class NavBar extends React.Component {
       <nav>
 
         <div className="left-nav">
-            <a><span>Explore</span></a>
+            <a><span><i className="fa fa-compass fa-1x" aria-hidden="true"></i>  Explore</span></a>
             <Link to="start"><span>Start a Project</span></Link>
             <Link to="projects/1"><span>Sample Project</span></Link>
             <Link to="projects/1/edit/basics"><span>Edit Project</span></Link>
         </div>
 
           <div className="center-nav">
-
             <div className="center">
                 <img src={window.images.logo}></img>
             </div>
-
           </div>
 
           <div className="right-nav">
