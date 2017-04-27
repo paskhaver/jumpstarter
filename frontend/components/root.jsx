@@ -15,6 +15,3 @@ const Root = (props) => {
 export default Root;
 
 // <Footer />
-
-// <CreateUserFormContainer />
-// <LoginFormContainer />

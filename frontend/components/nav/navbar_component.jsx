@@ -42,9 +42,7 @@ class NavBar extends React.Component {
           <div className="center-nav">
 
             <div className="center">
-
                 <img src={window.images.logo}></img>
-              
             </div>
 
           </div>
@@ -52,9 +50,11 @@ class NavBar extends React.Component {
           <div className="right-nav">
 
             <i className="fa fa-search fa-1x" aria-hidden="true"></i>
+
             <a onClick={ action }>
               <span>{logStatus}</span>
             </a>
+
             <Link to="signup">
               <span>Sign up</span>
             </Link>
