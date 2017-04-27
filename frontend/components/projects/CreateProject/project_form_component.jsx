@@ -84,26 +84,33 @@ class CreateProjectForm extends React.Component {
   }
 
   checkForErrors() {
+
     this.props.clearErrors();
+
     const { category, title, residence } = this.state;
-    let errors = false;
+    let hasErrors = false;
+    let errors = [];
 
     if (category === "Select a category") {
-      this.props.receiveErrors(["Please select a valid category"]);
-      errors = true;
+      errors.push("Please select a valid category");
+      hasErrors = true;
     }
 
     if (title === "") {
-      this.props.receiveErrors(["Please enter a valid title"]);
-      errors = true;
+      errors.push("Please enter a valid title");
+      hasErrors = true;
     }
 
     if (residence === "Select your country") {
-      this.props.receiveErrors(["Please select a valid country"]);
-      errors = true;
+      errors.push("Please select a valid country");
+      hasErrors = true;
     }
 
-    return errors;
+    if (hasErrors) {
+      this.props.receiveErrors(errors);
+    }
+
+    return hasErrors;
   }
 
   handleSubmit(event) {
