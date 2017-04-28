@@ -16,6 +16,9 @@ const nullUser = {
 //    email: "boris.paskhaver@nyu.edu",
 //  }
 
+// On logout, action.user will be equal to null, which
+// will reset the state to its original state
+
 const SessionReducer = (state = nullUser, action) => {
   Object.freeze(state);
   let newState;

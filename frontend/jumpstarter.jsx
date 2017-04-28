@@ -17,6 +17,7 @@ import RewardForm from "./components/projects/EditProject/rewards/add_reward_for
 
 import * as RewardAPIUtil from "./util/reward_api_util";
 import * as RewardActions from "./actions/reward_actions";
+import * as SessionActions from "./actions/session_actions";
 
 import configureStore from "./store/store";
 
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.store = store;
   window.RewardAPIUtil = RewardAPIUtil;
   window.RewardActions = RewardActions;
+  window.SessionActions = SessionActions;
 
   const rootDOMElement = document.getElementById("root");
 

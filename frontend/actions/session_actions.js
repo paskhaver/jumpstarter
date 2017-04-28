@@ -14,28 +14,28 @@ export const receiveCurrentUser = (user) => {
 export const login = (user) => (dispatch) => {
   return SessionAPIUtil.login(user)
                        .then(
-                        currentUser => {
-                          dispatch(receiveCurrentUser(currentUser));
-                          dispatch(clearErrors());
-                          hashHistory.push("/");
-                        },
+                          currentUser => {
+                            dispatch(receiveCurrentUser(currentUser));
+                            return currentUser;
+                          },
 
-                        errors => {
-                          dispatch(receiveErrors(errors.responseJSON));
-                        }
-                     );
+                          errors => {
+                            dispatch(receiveErrors(errors.responseJSON));
+                            return errors;
+                          }
+                        );
+
 };
 
 export const logout = () => (dispatch) => {
   return SessionAPIUtil.logout()
-                       .then(
-                         loggedOutUser => {
-                          dispatch(receiveCurrentUser(null));
-                          dispatch(clearErrors());
+                       .then(loggedOutUser => {
+                          return dispatch(receiveCurrentUser(null));
                          },
 
                          errors => {
-                          dispatch(receiveErrors(errors.responseJSON));
+                           dispatch(receiveErrors(errors.responseJSON));
+                           return errors;
                          }
                        );
 };

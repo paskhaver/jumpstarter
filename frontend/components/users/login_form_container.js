@@ -14,9 +14,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    login: (user) => { dispatch(login(user)); },
-    clearErrors: () => { dispatch(clearErrors()); },
-    receiveErrors: (errors) => { dispatch(receiveErrors(errors)); }
+    login: (user) => { return dispatch(login(user)); },
+    clearErrors: () => { return dispatch(clearErrors()); },
+    receiveErrors: (errors) => { return dispatch(receiveErrors(errors)); }
   };
 };
 
