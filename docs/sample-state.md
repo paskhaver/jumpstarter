@@ -2,39 +2,65 @@
 {
   session: {
     currentUser: {
-        email: "boris.paskhaver@nyu.edu",
+        id: 1,
         name: "Boris Paskhaver"
+        email: "boris.paskhaver@nyu.edu",
     }    
+  },
+
+  user: {
+    projects: [],
+    pledges: [],
+    rewards: [],
+    supported_projects: []
   },
 
   errors:
     [
       "NAME cannot be blank!",
-      "PASSWORD cannot be blank!"
+      "PASSWORD cannot be blank!",
+      "Project needs a title!",
+      "Reward needs a pledge amount"
     ],
 
-  projects: {
+  project: {
+    id: 1
+    blurb: "",
+    category: "",
+    creator_id: 1,
+    creator_name: "",
+    description: "",
+    end_date: "",
+    funding_goal: "",
+    residence: "",
+  },
+
+  rewards: {
     1: {
-      title: "Recipe Book",
-      blurb: "100+ family recipes",
-      category: "Cooking",
-      end_date: "12/31/2017",
-      funding_goal: "3000",
-      total_amount_raised: "2020",
-      description: "A deluxe collection of fresh recipes"
+      id: 1,
+      delivery_date: "2017-10-31",
+      description: "One on one time with the folk hero",
+      max_backers: 5,
+      pledge_amount: 100,
+      project_id: 1,
+      title: "Personal meet and greet"
     },
 
     2: {
-      title: "Tech Gadget",
-      blurb: "Fancy new piece of technology",
-      category: "Technology",
-      end_date: "05/31/2017",
-      funding_goal: "10000",
-      total_amount_raised: "5000",
-      description: "Helps you with your day-to-day errands"
-    },
+      id: 2,
+      delivery_date: "2018-05-18",
+      description: "You'll get a free copy of the new album",
+      max_backers: 100,
+      pledge_amount: 50,
+      project_id: 1,
+      title: "Free copy of the new album"
+    }
   },
 
-  rewards: [25, 26, 27, 28] // Project's associated reward_ids
+  category: {
+    name: "Art"
+    projects: [{}, {}, {}]
+  }
+
 }
 ```
