@@ -11,9 +11,9 @@
 
   session: {
     currentUser: {
-        id: 1,
-        name: "Boris Paskhaver"
-        email: "boris.paskhaver@nyu.edu",
+      id: 1,
+      name: "Boris Paskhaver"
+      email: "boris.paskhaver@nyu.edu",
     }    
   },
 

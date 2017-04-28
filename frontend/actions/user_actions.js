@@ -6,11 +6,11 @@ import { receiveErrors, clearErrors } from "./error_actions";
 export const createUser = (user) => (dispatch) => {
   return UserAPIUtil.createUser(user)
                     .then(
-                      (newUser) => {
+                      newUser => {
                         dispatch(receiveCurrentUser(newUser));
                         dispatch(clearErrors());
                       },
-                      (errors) =>  {
+                      errors =>  {
                         dispatch(receiveErrors(errors.responseJSON));
                       }
                     );
