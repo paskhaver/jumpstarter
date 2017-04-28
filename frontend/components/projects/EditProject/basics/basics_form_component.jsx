@@ -34,6 +34,7 @@ class BasicsForm extends React.Component {
 
   render() {
 
+    debugger
     return (
 
       <div>

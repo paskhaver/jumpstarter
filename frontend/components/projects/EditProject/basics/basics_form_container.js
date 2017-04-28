@@ -4,14 +4,14 @@ import BasicsForm from "./basics_form_component";
 
 const mapStateToProps = (state) => {
   return {
-    currentProject: state.project.currentProject
+    
   };
 };
 
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchProject: (projectId) => { return dispatch(fetchProject(projectId)); }
+    fetchProject: projectId => { return dispatch(fetchProject(projectId)); }
   };
 };
 

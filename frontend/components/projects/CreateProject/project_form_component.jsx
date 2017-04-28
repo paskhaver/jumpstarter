@@ -25,10 +25,11 @@ class CreateProjectForm extends React.Component {
                         "Photography", "Publishing", "Technology", "Theater"];
 
     return categories.map(category => {
-      return <li key={category}
+      return (
+        <li key={category}
                  onClick={ this.handleModalClick("category") }>
                   {category}
-            </li>;
+        </li>);
     });
 
   }
@@ -38,14 +39,15 @@ class CreateProjectForm extends React.Component {
     const residencies = ["Australia", "Austria", "Belgium", "Canada", "Denmark",
                          "France", "Germany", "Hong Kong", "Ireland", "Italy",
                          "Luxembourg", "Mexico", "Netherlands", "New Zealand",
-                         "Norway", "Singapore", "Spain", "Sweden", "Switzerland",
-                         "United Kingdom", "United States"];
+                         "Norway", "Singapore", "Spain", "Sweden", "Switzerland", "United Kingdom", "United States"];
 
     return residencies.map(residence => {
-      return <li key={residence}
-                 onClick = { this.handleModalClick("residence") }>
-                  {residence}
-              </li>;
+      return (
+        <li key={residence}
+            onClick = { this.handleModalClick("residence") }>
+            {residence}
+        </li>
+      );
     });
   }
 
@@ -118,7 +120,7 @@ class CreateProjectForm extends React.Component {
     // If no errors exist on the front-end
     if (!errors) {
 
-      let currentUser = this.props.currentUser
+      let currentUser = this.props.currentUser;
       // If a user is logged in...
       if (currentUser) {
 
