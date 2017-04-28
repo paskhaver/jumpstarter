@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createPledge } from "./../../../util/pledge_api_util";
+import { receivePledge } from "./../../../actions/pledge_actions";
+
 import { withRouter } from "react-router";
 
 class RewardSidebarItem extends React.Component {
@@ -13,12 +15,15 @@ class RewardSidebarItem extends React.Component {
   }
 
   handleClick(event) {
-    event.preventDefault()
+    event.preventDefault();
     const user_id = this.props.currentUser.id;
     const project_id = this.props.params.id;
     const reward_id = this.props.reward.id;
-    const pledge = { user_id, reward_id, project_id }
+    const pledge = { user_id, reward_id, project_id };
     createPledge(pledge);
+
+    pledge.amount = this.props.reward.pledge_amount;
+    this.props.receivePledge(pledge);
   }
 
   render() {
@@ -58,19 +63,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    receivePledge: (pledge) => { return dispatch(receivePledge(pledge)); }
   };
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RewardSidebarItem));
-
-
-
-
-
-
-
-//
-// <span className="number-of-backers">
-//   {this.props.reward.max_backers} backers
-// </span>
