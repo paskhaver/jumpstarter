@@ -21,12 +21,13 @@ class RewardBox extends React.Component {
 
     this.handleEdit   = this.handleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleDelete = this.handleDelete.bind(this)
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const projectId = this.props.params.id;
+
 
     if (this.props.responsibility === "Update Reward") {
       this.props.updateReward(this.state)
