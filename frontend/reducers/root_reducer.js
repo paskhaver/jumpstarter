@@ -6,8 +6,8 @@ import ProjectsReducer from "./projects_reducer";
 import RewardsReducer from "./rewards_reducer";
 
 export default combineReducers({
-  session: SessionReducer,
   errors: ErrorsReducer,
+  session: SessionReducer,
   project: ProjectsReducer,
   rewards: RewardsReducer
 });

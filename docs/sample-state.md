@@ -1,5 +1,14 @@
 ```js
 {
+
+  errors:
+    [
+      "NAME cannot be blank!",
+      "PASSWORD cannot be blank!",
+      "Project needs a title!",
+      "Reward needs a pledge amount"
+    ],
+
   session: {
     currentUser: {
         id: 1,
@@ -14,14 +23,6 @@
     rewards: [],
     supported_projects: []
   },
-
-  errors:
-    [
-      "NAME cannot be blank!",
-      "PASSWORD cannot be blank!",
-      "Project needs a title!",
-      "Reward needs a pledge amount"
-    ],
 
   project: {
     id: 1
