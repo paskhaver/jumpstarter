@@ -1,6 +1,10 @@
 import React from "react";
 import { Link, withRouter } from "react-router";
 
+// withRouter grants access to this.props.params, which
+// contains information about the current route. We can
+// extract the project ID from the link for easy navigation.
+
 class Menu extends React.Component {
 
   constructor(props) {
@@ -19,11 +23,19 @@ class Menu extends React.Component {
         <ul className="edit-project-page-menu-ul">
 
           <li className="edit-project-page-menu-item">
-            <Link to={basicsURL}>Basics</Link>
+            <Link to={basicsURL}
+                  activeClassName={"edit-project-active-menu-item"}
+                  activeStyle={{color: "#2752ff"}}>
+                  Basics
+            </Link>
           </li>
 
           <li className="edit-project-page-menu-item">
-            <Link to={rewardsURL}>Rewards</Link>
+            <Link to={rewardsURL}
+                  activeClassName={"edit-project-active-menu-item"}
+                  activeStyle={{color: "#2752ff"}}>
+                  Rewards
+            </Link>
           </li>
 
           <li className="edit-project-page-menu-item">
