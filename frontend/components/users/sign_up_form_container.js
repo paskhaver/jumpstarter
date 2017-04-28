@@ -14,10 +14,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createUser: (newUser) => { dispatch(createUser(newUser)); },
-    login: (user) => { dispatch(login(user)); },
-    receiveErrors: (errors) => { dispatch(receiveErrors(errors)); },
-    clearErrors: () => { dispatch(clearErrors()); }
+    createUser: newUser => { return dispatch(createUser(newUser)); },
+    login: user => { return dispatch(login(user)); },
+    receiveErrors: errors => { return dispatch(receiveErrors(errors)); },
+    clearErrors: () => { return dispatch(clearErrors()); }
   };
 };
 

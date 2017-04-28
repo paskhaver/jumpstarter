@@ -80,7 +80,12 @@ class SignUpForm extends React.Component {
       const { name, email, password } = this.state;
       const properUser = { name, email, password };
       this.props.createUser(properUser)
-      hashHistory.push("/");
+                .then(success => {
+                  hashHistory.push("/");
+                }, failure => {
+                  console.log(failure);
+                });
+
     }
 
   }
