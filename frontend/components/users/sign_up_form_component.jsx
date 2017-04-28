@@ -95,6 +95,7 @@ class SignUpForm extends React.Component {
     hashHistory.push("/login");
   }
 
+  // Guest login immediately sends the user in
   handleGuestButtonClick(event) {
     event.preventDefault();
     const guestUser = { email: "guest@example.com",
@@ -103,6 +104,8 @@ class SignUpForm extends React.Component {
     hashHistory.push("/");
   }
 
+  // Update pieces of state (name, email, second email, password
+  // second password) upon any user edit in form inputs
   handleEdit(field) {
     return (event) => {
       this.setState({
