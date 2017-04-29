@@ -5,6 +5,9 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 
 import Root from "./components/root";
 
+import ExploreCategories from "./components/explore/categoriesIndex/exploreCategories";
+import CategoryPage from "./components/explore/categoryPage/categoryPage";
+
 import LoginForm from "./components/users/login_form";
 import SignUpForm from "./components/users/sign_up_form";
 
@@ -15,7 +18,6 @@ import EditProjectPage from "./components/projects/EditProject/mainPage/edit_pro
 import BasicsForm from "./components/projects/EditProject/basics/basics_form";
 import RewardForm from "./components/projects/EditProject/rewards/add_reward_form";
 
-import ExploreCategories from "./components/explore/categoriesIndex/exploreCategories";
 
 
 
@@ -52,7 +54,12 @@ document.addEventListener("DOMContentLoaded", () => {
           <Route path="login"  component={LoginForm} />
           <Route path="signup" component={SignUpForm} />
 
-          <Route path="explore" component={ExploreCategories} />
+          <Route path="explore" component={ExploreCategories} >
+
+          </Route>
+
+          <Route path="explore/:category" component={CategoryPage} />
+
           <Route path="start" component={CreateProjectPage} />
 
           <Route path="projects/:id" component={ShowProjectPage}>
