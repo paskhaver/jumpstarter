@@ -8,8 +8,6 @@
 
 ActiveRecord::Base.transaction do
 
-  pw = "password"
-
   title_options = ["Startup", "Cookbook", "Fashion Item",
                    "Film", "Album", "Novel"]
 
@@ -33,68 +31,50 @@ ActiveRecord::Base.transaction do
   User.destroy_all
   Project.destroy_all
   Reward.destroy_all
+  Pledge.destroy_all
 
-  user1 = User.create(name: "Guest", email: "guest@example.com", password: pw)
-  user2 = User.create(name: "Boris", email: "boris@example.com", password: pw)
-  user3 = User.create(name: "Wilson", email: "wilson@example.com", password: pw)
-  user4 = User.create(name: "Tassos", email: "tassos@folkman.com", password: pw)
-  user5 = User.create(name: "Ron Burgundy", email: "ron@burgundy.com", password: pw)
+  user1 = User.create(name: "Guest", email: "guest@example.com", password: "password")
 
-  creators = [user1, user2, user3, user4, user5]
-
-  project1 = Project.create(title: "My New Album", category: "Music",
-                            creator: user4, residence: "United States",
-                            description: description, blurb: "Fund the
-                            new record from America's favorite folk hero")
-
-  project2 = Project.create(title: "Hire Batman", category: "Comics",
-                            creator: user1, residence: "Australia",
-                            blurb: "Help raise funds to hire a superhero",
-                            description: description)
-
-  project3 = Project.create(title: "Spring Jeans Collection", category: "Crafts",
-                            creator: user4, residence: "Germany",
-                            blurb: "Stylish fashion items for all occasions",
-                            description: description)
-
-  project4 = Project.create(title: "Delicious Recipe Book", category: "Music",
-                            creator: user2  , residence: "Singapore",
-                            blurb: "1000+ family recipes in a deluxe 100+ page book",
-                            description: description)
-
-  100.times do |index|
-    Project.create(title: "Help fund my #{title_options.sample}",
-                   category: categories.sample,
-                   creator: creators.sample,
-                   residence: residencies.sample,
-                   blurb: blurb,
-                   description: description)
+  1000.times do
+    User.create(name: Faker::Name.name,
+                email: Faker::Internet.unique.email,
+                password: Faker::Pokemon.name)
   end
 
-  reward1 = Reward.create(project: project1, title: "Personal meet and greet",
-  pledge_amount: 100, description: "One on one time with the folk hero",
-  delivery_date: "2017/10/31", max_backers: 5)
+  #
+  # project1 = Project.create(title: "My New Album", category: "Music",
+  #                           creator: user4, residence: "United States",
+  #                           description: description, blurb: "Fund the
+  #                           new record from America's favorite folk hero")
+  #
 
-  reward2 = Reward.create(project: project1, title: "Private concert",
-  pledge_amount: 1000, description: "I'll play all your favorite Tassos hits",
-  delivery_date: "2018/12/31", max_backers: 3)
+  300.times do
+    Project.create(title: "Help fund my #{title_options.sample}",
+                   category: categories.sample,
+                   creator: User.order("RANDOM()").first,
+                   residence: residencies.sample,
+                   blurb: blurb,
+                   description: description,
+                   funding_goal: rand(100...100000) / 100 * 100,
+                   end_date: rand(30..500).days.from_now
+                  )
+  end
 
-  reward3 = Reward.create(project: project2, title: "Free comic book",
-  pledge_amount: 1, description: "A digital copy of the comic book",
-  delivery_date: "2017/10/01", max_backers: 500)
+  1500.times do
+    random_project = Project.order("RANDOM()").first
+    random_project_end_date = random_project.end_date
+    Reward.create(project: random_project,
+                  title: "Reward #{('A'..'Z').to_a.sample}",
+                  pledge_amount: rand(1..1000),
+                  description: "Description",
+                  delivery_date: (random_project_end_date + rand(1...366).days),
+                  max_backers: rand(1..1000)
+                  )
+  end
 
-  reward4 = Reward.create(project: project3, title: "Pair of jeans",
-  pledge_amount: 50, description: "First chance to shop our collection",
-  delivery_date: "2018/04/15", max_backers: 1000)
-
-  reward5 = Reward.create(project: project4, title: "Early access to book",
-  pledge_amount: 25, description: "Get the book before anyone else",
-  delivery_date: "2017/07/31", max_backers: 10000)
-
-  pledge1 = Pledge.create(reward: reward2, user: user1)
-  pledge2 = Pledge.create(reward: reward2, user: user2)
-  pledge3 = Pledge.create(reward: reward2, user: user3)
-  pledge4 = Pledge.create(reward: reward1, user: user3)
-  pledge5 = Pledge.create(reward: reward4, user: user3)
-
+  10000.times do
+    Pledge.create(reward: Reward.order("RANDOM()").first,
+                  user: User.order("RANDOM()").first
+                 )
+  end
 end
