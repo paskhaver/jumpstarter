@@ -26,6 +26,13 @@ export const createProject = (project) => {
   });
 };
 
+export const editProject = (projectId) => {
+  return $.ajax({
+    method: "GET",
+    url: `/api/projects/${projectId}/edit`
+  });
+};
+
 // VALIDATED
 // ProjectsController#update
 export const updateProject = (project) => {

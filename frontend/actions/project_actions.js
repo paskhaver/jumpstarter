@@ -43,7 +43,7 @@ export const fetchProject = (projectId) => (dispatch) => {
                          },
                          errors => {
                            dispatch(clearErrors());
-                           hashHistory.push("/");
+                           hashHistory.push("/start");
                            dispatch(receiveErrors(errors.responseJSON));
                            return errors.responseJSON;
                          }

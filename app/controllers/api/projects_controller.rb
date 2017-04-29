@@ -30,6 +30,15 @@ class Api::ProjectsController < ApplicationController
     end
   end
 
+  def edit
+    @project = Project.includes(:creator).find_by(id: params[:id])
+    if @project
+      render :edit
+    else
+      render json: ["Project with that ID does not exist!"], status: 422
+    end
+  end
+
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params)

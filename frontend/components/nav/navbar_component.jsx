@@ -41,7 +41,6 @@ class NavBar extends React.Component {
             <a><span><i className="fa fa-compass fa-1x" aria-hidden="true"></i>  Explore</span></a>
             <Link to="start"><span>Start a Project</span></Link>
             <Link to="projects/1"><span>Sample Project</span></Link>
-            <Link to="projects/1/edit/basics"><span>Edit Project</span></Link>
         </div>
 
           <div className="center-nav">
