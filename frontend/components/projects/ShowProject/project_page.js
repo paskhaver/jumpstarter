@@ -1,14 +1,34 @@
 import React from "react";
+import { connect } from "react-redux"
 import { Link, hashHistory } from 'react-router';
+import { fetchProject } from "../../../actions/project_actions";
+
 import YouTube from "react-youtube";
 import RewardSidebarIndex from "./reward_sidebar_index";
 import moment from "moment";
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.session.currentUser,
+    project: state.project,
+    rewards: state.rewards
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchProject: (projectId) => { return dispatch(fetchProject(projectId)); },
+  };
+};
+
 
 class ProjectPage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = props.project;
+    this.state = {
+      loading: true
+    };
     this.handleRedirectToEdit = this.handleRedirectToEdit.bind(this);
   }
 
@@ -20,9 +40,10 @@ class ProjectPage extends React.Component {
                 .then(project => {
                   this.setState(project);
                 });
-    } else {
-      this.setState(this.props.project);
     }
+    // else {
+    //   this.setState(this.props.project);
+    // }
   }
 
   componentDidMount() {
@@ -30,7 +51,7 @@ class ProjectPage extends React.Component {
     const project   = this.props.fetchProject(projectId);
 
     project.then(project => {
-      this.setState(project);
+      this.setState({ loading: false });
     });
   }
 
@@ -55,11 +76,22 @@ class ProjectPage extends React.Component {
 
   render() {
 
+    if (this.state.loading) {
+      return (
+        <div className="cssload-tetrominos">
+        	<div className="cssload-tetromino cssload-box1"></div>
+        	<div className="cssload-tetromino cssload-box2"></div>
+        	<div className="cssload-tetromino cssload-box3"></div>
+        	<div className="cssload-tetromino cssload-box4"></div>
+        </div>
+      )
+    }
+
     if (this.props.children) {
       return this.props.children;
     }
 
-    const endDateMoment = moment(this.state.end_date);
+    const endDateMoment = moment(this.props.project.end_date);
     const remainingDays = endDateMoment.diff(moment(), "days");
 
     return (
@@ -70,12 +102,12 @@ class ProjectPage extends React.Component {
           <header className="header">
             <div className="creator-info">
               <div className="creator-image"></div>
-              <span>By {this.state.creator_name}</span>
+              <span>By {this.props.project.creator_name}</span>
             </div>
 
             <div className="project-title">
-              <h2>{this.state.title}</h2>
-              <p>{this.state.blurb}</p>
+              <h2>{this.props.project.title}</h2>
+              <p>{this.props.project.blurb}</p>
             </div>
           </header>
 
@@ -89,10 +121,10 @@ class ProjectPage extends React.Component {
             </div>
 
             <div className="fundraising-box">
-              <span className="pledge-amount">${this.state.amount_raised}</span>
-              <span className="statistic-category">pledged of ${this.state.funding_goal} goal</span>
+              <span className="pledge-amount">${this.props.project.amount_raised}</span>
+              <span className="statistic-category">pledged of ${this.props.project.funding_goal} goal</span>
 
-              <span className="statistic">{this.state.number_of_backers}</span>
+              <span className="statistic">{this.props.project.number_of_backers}</span>
               <span className="statistic-category">backers</span>
 
               <span className="statistic">{remainingDays}</span>
@@ -108,7 +140,7 @@ class ProjectPage extends React.Component {
 
               <p>
                 All or nothing. This project will only be funded if it
-                reaches its goal by {this.state.end_date}.
+                reaches its goal by {this.props.project.end_date}.
               </p>
 
             </div>
@@ -123,14 +155,14 @@ class ProjectPage extends React.Component {
 
               <img src="https://ksr-ugc.imgix.net/assets/015/923/025/f35112cea6b5a8a216cdf13913937125_original.jpg?w=680&fit=max&v=1489943369&auto=format&q=92&s=37d4107b35e1a49c809cf34f4c745241" />
 
-              <p>{this.state.description}
+              <p>{this.props.project.description}
               </p>
             </div>
 
             <div className="pledge-container">
               <h3>Support this Project</h3>
 
-            <RewardSidebarIndex rewards={this.state.rewards}/>
+            <RewardSidebarIndex rewards={this.props.rewards}/>
             </div>
 
           </div>
@@ -141,4 +173,4 @@ class ProjectPage extends React.Component {
 
 }
 
-export default ProjectPage;
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectPage);

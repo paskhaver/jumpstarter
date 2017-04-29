@@ -17,6 +17,7 @@ class Api::ProjectsController < ApplicationController
 
   # Validated
   def show
+    sleep(1)
     @project = Project.includes(:rewards)
                       .includes(:creator)
                       .order("rewards.pledge_amount")

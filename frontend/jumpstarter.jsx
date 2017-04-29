@@ -9,7 +9,7 @@ import LoginForm from "./components/users/login_form";
 import SignUpForm from "./components/users/sign_up_form";
 
 import CreateProjectPage from "./components/projects/CreateProject/create_project_page";
-import ShowProjectPage from "./components/projects/ShowProject/project_page_container";
+import ShowProjectPage from "./components/projects/ShowProject/project_page";
 import EditProjectPage from "./components/projects/EditProject/mainPage/edit_project_page";
 
 import BasicsForm from "./components/projects/EditProject/basics/basics_form";
