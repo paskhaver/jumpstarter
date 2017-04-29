@@ -21,21 +21,15 @@ class BasicsForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      id: this.props.params.id,
-      title: "",
-      blurb: "",
-      category: "Art",
-      end_date: "",
-      funding_goal: ""
-    };
+    this.state = { loading: true };
   }
 
   componentDidMount() {
     const projectId = this.props.params.id;
     this.props.fetchProject(projectId)
-              .then(response => {
-                this.setState(response);
+              .then(project => {
+                this.setState({ loading: false});
+                this.setState(project);
               });
   }
 
@@ -49,6 +43,17 @@ class BasicsForm extends React.Component {
 
 
   render() {
+
+    if (this.state.loading) {
+      return (
+        <div className="cssload-tetrominos">
+        	<div className="cssload-tetromino cssload-box1"></div>
+        	<div className="cssload-tetromino cssload-box2"></div>
+        	<div className="cssload-tetromino cssload-box3"></div>
+        	<div className="cssload-tetromino cssload-box4"></div>
+        </div>
+      );
+    }
 
     return (
 
@@ -88,6 +93,20 @@ class BasicsForm extends React.Component {
 
                   <p>Our search looks through words from your project title and blurb, so make them clear and descriptive of what you’re making. Your profile name will be searchable, too.</p>
                   <p>These words will help people find your project, so choose them wisely! Your name will be searchable too.</p>
+                </div>
+              </div>
+
+              <div className="question-box">
+                <div className="question">
+                  <p>Description</p>
+                </div>
+
+                <div className="answer">
+                  <textarea
+                      onChange={this.handleEdit("description")}
+                      value={this.state.description}>
+                  </textarea>
+                  <p>This will appear immediately below the project image.</p>
                 </div>
               </div>
 

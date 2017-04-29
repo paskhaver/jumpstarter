@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux"
+import { connect } from "react-redux";
 import { Link, hashHistory } from 'react-router';
 import { fetchProject } from "../../../actions/project_actions";
 
@@ -48,11 +48,10 @@ class ProjectPage extends React.Component {
 
   componentDidMount() {
     const projectId = this.props.params.id;
-    const project   = this.props.fetchProject(projectId);
-
-    project.then(project => {
-      this.setState({ loading: false });
-    });
+    this.props.fetchProject(projectId)
+              .then(project => {
+                this.setState({ loading: false });
+              });
   }
 
   handleRedirectToEdit(event) {
@@ -129,7 +128,7 @@ class ProjectPage extends React.Component {
               <span className="pledge-amount">${this.props.project.amount_raised || 0}</span>
               <span className="statistic-category">pledged of ${this.props.project.funding_goal || 0} goal</span>
 
-              <span className="statistic">{this.props.project.number_of_backers}</span>
+              <span className="statistic">{this.props.project.number_of_backers || 0}</span>
               <span className="statistic-category">backers</span>
 
               <span className="statistic">{remainingDays}</span>
@@ -157,8 +156,6 @@ class ProjectPage extends React.Component {
 
             <div className="description-container">
               <h3>About this Project</h3>
-
-              <img src="https://ksr-ugc.imgix.net/assets/015/923/025/f35112cea6b5a8a216cdf13913937125_original.jpg?w=680&fit=max&v=1489943369&auto=format&q=92&s=37d4107b35e1a49c809cf34f4c745241" />
 
               <p>{this.props.project.description}
               </p>
