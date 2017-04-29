@@ -5,6 +5,19 @@ import { receivePledge } from "./../../../actions/pledge_actions";
 
 import { withRouter } from "react-router";
 
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.session.currentUser
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    receivePledge: (pledge) => { return dispatch(receivePledge(pledge)); }
+  };
+};
+
+
 class RewardSidebarItem extends React.Component {
 
   // this.props.reward
@@ -45,7 +58,7 @@ class RewardSidebarItem extends React.Component {
           </span>
 
           <span className="pledge-limit">
-            Limited (_ left of {this.props.reward.max_backers})
+            Limited ({this.props.reward.max_backers - this.props.reward.pledge_count} left of {this.props.reward.max_backers})
           </span>
 
 
@@ -54,17 +67,5 @@ class RewardSidebarItem extends React.Component {
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    currentUser: state.session.currentUser
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    receivePledge: (pledge) => { return dispatch(receivePledge(pledge)); }
-  };
-};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RewardSidebarItem));

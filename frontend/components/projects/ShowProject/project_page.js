@@ -6,7 +6,10 @@ import { fetchProject } from "../../../actions/project_actions";
 import YouTube from "react-youtube";
 import AJAXLoader from "./../../ajax-loader/ajax_loader";
 import RewardSidebarIndex from "./reward_sidebar_index";
+import Footer from "./../../footer/footer";
+
 import moment from "moment";
+
 
 const mapStateToProps = (state) => {
   return {
@@ -97,6 +100,7 @@ class ProjectPage extends React.Component {
 
     return (
 
+    <div>
       <div className="project-page">
         <div className="above-the-fold">
 
@@ -154,8 +158,10 @@ class ProjectPage extends React.Component {
             <div className="description-container">
               <h3>About this Project</h3>
 
+              <img src="http://lorempixel.com/500/400/business/" />
               <p>{this.props.project.description}
               </p>
+              <img src="http://lorempixel.com/500/400/city/" />
             </div>
 
             <div className="pledge-container">
@@ -166,6 +172,9 @@ class ProjectPage extends React.Component {
 
           </div>
         </div>
+
+        </div>
+      <Footer />
       </div>
     );
   }

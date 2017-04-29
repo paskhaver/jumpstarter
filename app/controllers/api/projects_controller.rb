@@ -18,7 +18,7 @@ class Api::ProjectsController < ApplicationController
   # Validated
   def show
     sleep(1)
-    @project = Project.includes(:rewards)
+    @project = Project.includes(rewards: :pledges)
                       .includes(:creator)
                       .order("rewards.pledge_amount")
                       .find_by(id: params[:id])
@@ -32,6 +32,7 @@ class Api::ProjectsController < ApplicationController
   end
 
   def edit
+    sleep(1)
     @project = Project.includes(:creator).find_by(id: params[:id])
     if @project
       render :edit
@@ -41,6 +42,7 @@ class Api::ProjectsController < ApplicationController
   end
 
   def update
+    sleep(1)
     @project = Project.includes(:rewards)
                       .includes(:creator)
                       .order("rewards.pledge_amount")
