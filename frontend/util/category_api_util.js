@@ -6,10 +6,9 @@ export const fetchCategories = () => {
 };
 
 export const fetchCategoryProjects = (category) => {
-  debugger
   return $.ajax({
     method: "GET",
     url: `/api/categories`,
-    data: { category }
+    data: `category=${category}`
   });
 };

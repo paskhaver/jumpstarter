@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-class ExploreCategories extends React.Component {
+class CategoriesIndex extends React.Component {
 
   constructor(props) {
     super(props);
@@ -38,15 +38,21 @@ class ExploreCategories extends React.Component {
       return <AJAXLoader />;
     }
 
-    const categoryItems = this.props.categories.map(category => {
+    const categories = Object.keys(this.props.categories);
+          categories.sort();
+          
+    const categoryItems = categories.map(category => {
       return (<li key={category}>
-                <Link to={`/explore/${category}`}>{category}</Link>
+                <Link to={`/explore/${category}`}>
+                  {category}
+                </Link>
+                 <span>{ this.props.categories[category] }</span>
               </li>);
     });
 
     return(
       <div>
-        <div className="explore-categories">
+        <div className="categories-index">
           <div className="categories-inner-container">
             <h1>Categories</h1>
             <ul>
@@ -60,4 +66,4 @@ class ExploreCategories extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExploreCategories);
+export default connect(mapStateToProps, mapDispatchToProps)(CategoriesIndex);

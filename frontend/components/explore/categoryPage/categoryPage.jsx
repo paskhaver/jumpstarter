@@ -22,8 +22,18 @@ class CategoryPage extends React.Component {
     this.state = { loading: true };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.params.category !== nextProps.params.category) {
+      this.setState({ loading: true });
+      const nextCategory = nextProps.params.category;
+      this.props.fetchCategoryProjects(nextCategory)
+                .then(projects => {
+                  this.setState({ loading: false });
+                });
+    }
+  }
+
   componentDidMount() {
-    debugger
     const category = this.props.params.category;
     this.props.fetchCategoryProjects(category)
               .then(projects => {
@@ -32,9 +42,10 @@ class CategoryPage extends React.Component {
   }
 
   render() {
-    debugger;
     return (
-      <div>Category Page</div>
+      <div className="category-page">
+        Category Page
+      </div>
     );
   }
 

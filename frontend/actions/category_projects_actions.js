@@ -11,7 +11,7 @@ export const receiveCategoryProjects = (projects) => {
 };
 
 export const fetchCategoryProjects = (category) => (dispatch) => {
-  return CategoryAPIUtil.fetchCategoryProjects()
+  return CategoryAPIUtil.fetchCategoryProjects(category)
                         .then(
 
                           projects => {

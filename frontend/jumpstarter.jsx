@@ -5,7 +5,7 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 
 import Root from "./components/root";
 
-import ExploreCategories from "./components/explore/categoriesIndex/exploreCategories";
+import CategoriesIndex from "./components/explore/categoriesIndex/categoriesIndex";
 import CategoryPage from "./components/explore/categoryPage/categoryPage";
 
 import LoginForm from "./components/users/login_form";
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <Route path="login"  component={LoginForm} />
           <Route path="signup" component={SignUpForm} />
 
-          <Route path="explore" component={ExploreCategories} >
+          <Route path="explore" component={CategoriesIndex} >
 
           </Route>
 

@@ -1,4 +1,4 @@
-.explore-categories {
+.categories-index {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   width: 100%;
@@ -36,6 +36,13 @@
       line-height: 42px;
       color: #353535;
       text-decoration: none;
+      margin-right: 5px;
+    }
+
+    span {
+      color: #05AF3C;
+      font-size: 14px;
+      line-height: 21px;
     }
 
   }
