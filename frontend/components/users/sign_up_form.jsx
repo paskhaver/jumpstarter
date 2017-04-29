@@ -1,6 +1,27 @@
 import React from "react";
+import { connect } from "react-redux";
 import { hashHistory } from 'react-router';
+
+import { login } from "./../../actions/session_actions";
+import { createUser } from "./../../actions/user_actions";
+import { receiveErrors, clearErrors } from "./../../actions/error_actions";
+
 import Footer from "./../footer/footer";
+
+const mapStateToProps = (state) => {
+  return {
+    errors: state.errors
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createUser: newUser => { return dispatch(createUser(newUser)); },
+    login: user => { return dispatch(login(user)); },
+    receiveErrors: errors => { return dispatch(receiveErrors(errors)); },
+    clearErrors: () => { return dispatch(clearErrors()); }
+  };
+};
 
 class SignUpForm extends React.Component {
 
@@ -195,4 +216,4 @@ class SignUpForm extends React.Component {
   }
 }
 
-export default SignUpForm;
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);

@@ -1,6 +1,27 @@
 import React from "react";
+import { connect } from "react-redux";
 import { hashHistory } from 'react-router';
+
+import { login } from "../../actions/session_actions";
+import { clearErrors, receiveErrors } from "../../actions/error_actions";
+
 import Footer from "./../footer/footer";
+
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.session.currentUser,
+    errors: state.errors
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (user) => { return dispatch(login(user)); },
+    clearErrors: () => { return dispatch(clearErrors()); },
+    receiveErrors: (errors) => { return dispatch(receiveErrors(errors)); }
+  };
+};
 
 class LoginForm extends React.Component {
 
@@ -139,4 +160,4 @@ class LoginForm extends React.Component {
 
 }
 
-export default LoginForm;
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
