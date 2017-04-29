@@ -12,7 +12,7 @@ import CreateProjectPage from "./components/projects/CreateProject/create_projec
 import ShowProjectPage from "./components/projects/ShowProject/project_page_container";
 import EditProjectPage from "./components/projects/EditProject/mainPage/edit_project_page";
 
-import BasicsForm from "./components/projects/EditProject/basics/basics_form_container";
+import BasicsForm from "./components/projects/EditProject/basics/basics_form";
 import RewardForm from "./components/projects/EditProject/rewards/add_reward_form";
 
 import * as RewardAPIUtil from "./util/reward_api_util";

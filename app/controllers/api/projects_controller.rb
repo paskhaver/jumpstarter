@@ -26,7 +26,7 @@ class Api::ProjectsController < ApplicationController
       @number_of_backers = Pledge.find_by_sql("SELECT DISTINCT pledges.user_id FROM pledges JOIN rewards ON pledges.reward_id = rewards.id WHERE rewards.project_id = #{params[:id]}").length
       render :show
     else
-      render json: ["Project with that ID does not exist!"]
+      render json: ["Project with that ID does not exist!"], status: 422
     end
   end
 

@@ -1,5 +1,21 @@
 import React from "react";
+import { connect } from "react-redux";
+import { fetchProject } from "../../../../actions/project_actions";
+
 import SaveBar from "./save_bar";
+
+const mapStateToProps = (state) => {
+  return {
+
+  };
+};
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchProject: projectId => { return dispatch(fetchProject(projectId)); }
+  };
+};
 
 class BasicsForm extends React.Component {
 
@@ -161,4 +177,4 @@ class BasicsForm extends React.Component {
 
 }
 
-export default BasicsForm;
+export default connect(mapStateToProps, mapDispatchToProps)(BasicsForm);

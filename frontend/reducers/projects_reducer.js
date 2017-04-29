@@ -24,7 +24,9 @@ const ProjectReducer = (state = nullProject, action) => {
 
   switch(action.type) {
     case RECEIVE_PROJECT:
-      return action.project;
+      newProject = merge({}, action.project);
+      delete newProject.rewards;
+      return newProject;
 
     case RECEIVE_REWARD:
       newProject = merge({}, state);
