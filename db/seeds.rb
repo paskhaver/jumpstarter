@@ -9,6 +9,11 @@
 ActiveRecord::Base.transaction do
 
   pw = "password"
+  description = "Cronut hexagon hoodie bespoke kogi meditation, mumblecore salvia. Yuccie chia fingerstache retro, shoreditch hexagon PBR&B farm-to-table hella pinterest four loko pug 8-bit kickstarter everyday carry. Blue bottle etsy venmo craft beer tilde. Ugh keffiyeh craft beer plaid, williamsburg lomo paleo pickled. Letterpress hammock church-key live-edge. Keffiyeh kale chips vice, single-origin coffee semiotics small batch wolf tousled pinterest health goth cred vegan biodiesel. Keytar chillwave sustainable woke, bespoke cold-pressed fingerstache marfa dreamcatcher 90's.
+
+  Chambray before they sold out chillwave, +1 gochujang hammock copper mug. Semiotics pug pabst, fixie squid retro farm-to-table. Plaid master cleanse health goth yr coloring book, cornhole asymmetrical. Tattooed irony etsy locavore fam. Art party fingerstache glossier, church-key fixie beard kale chips ramps vice tumblr letterpress chambray cray chillwave. Cliche succulents gochujang gastropub ugh, disrupt +1 authentic actually church-key scenester try-hard cold-pressed franzen. Beard distillery ennui flexitarian, leggings tumblr chicharrones activated charcoal cliche iPhone."
+
+
   User.destroy_all
   Project.destroy_all
   Reward.destroy_all
@@ -19,7 +24,8 @@ ActiveRecord::Base.transaction do
   user4 = User.create(name: "Will Smith", email: "willsmith@example.com", password: pw)
 
   project1 = Project.create(title: "My New Album", category: "Music",
-                            creator: user4, residence: "United States")
+                            creator: user4, residence: "United States",
+                            description: description)
 
   project2 = Project.create(title: "Batman", category: "Comics",
                             creator: user1, residence: "Australia")

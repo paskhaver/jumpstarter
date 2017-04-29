@@ -16,9 +16,11 @@ export const fetchCategories = () => (dispatch) => {
                           categories => {
                             dispatch(clearErrors());
                             dispatch(receiveCategories(categories));
+                            return categories;
                           },
 
                           errors => {
                             dispatch(receiveErrors(errors));
+                            return errors;
                           });
 };

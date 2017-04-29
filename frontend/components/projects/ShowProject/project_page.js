@@ -4,6 +4,7 @@ import { Link, hashHistory } from 'react-router';
 import { fetchProject } from "../../../actions/project_actions";
 
 import YouTube from "react-youtube";
+import AJAXLoader from "./../../ajax-loader/ajax_loader";
 import RewardSidebarIndex from "./reward_sidebar_index";
 import moment from "moment";
 
@@ -33,8 +34,6 @@ class ProjectPage extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-
-    debugger;
     if (this.props.params.id !== nextProps.params.id) {
       const projectId = nextProps.params.id;
       this.props.fetchProject(projectId)
@@ -48,7 +47,6 @@ class ProjectPage extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     const projectId = this.props.params.id;
     this.props.fetchProject(projectId)
               .then(project => {
@@ -82,14 +80,7 @@ class ProjectPage extends React.Component {
     }
 
     if (this.state.loading) {
-      return (
-        <div className="cssload-tetrominos">
-        	<div className="cssload-tetromino cssload-box1"></div>
-        	<div className="cssload-tetromino cssload-box2"></div>
-        	<div className="cssload-tetromino cssload-box3"></div>
-        	<div className="cssload-tetromino cssload-box4"></div>
-        </div>
-      );
+      return <AJAXLoader />;
     }
 
     const endDateMoment = moment(this.props.project.end_date);

@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchProject } from "../../../../actions/project_actions";
 
+import AJAXLoader from "./../../../ajax-loader/ajax_loader";
 import SaveBar from "./save_bar";
 
 const mapStateToProps = (state) => {
@@ -45,14 +46,7 @@ class BasicsForm extends React.Component {
   render() {
 
     if (this.state.loading) {
-      return (
-        <div className="cssload-tetrominos">
-        	<div className="cssload-tetromino cssload-box1"></div>
-        	<div className="cssload-tetromino cssload-box2"></div>
-        	<div className="cssload-tetromino cssload-box3"></div>
-        	<div className="cssload-tetromino cssload-box4"></div>
-        </div>
-      );
+      return <AJAXLoader />;
     }
 
     return (
