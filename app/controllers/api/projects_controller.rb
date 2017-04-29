@@ -41,8 +41,14 @@ class Api::ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find(params[:id])
+    @project = Project.includes(:rewards)
+                      .includes(:creator)
+                      .order("rewards.pledge_amount")
+                      .find_by(id: params[:id])
+
     if @project.update(project_params)
+      @amount_raised = Reward.find_by_sql("SELECT rewards.pledge_amount FROM rewards JOIN pledges ON pledges.reward_id = rewards.id WHERE rewards.project_id = #{params[:id]}").pluck(:pledge_amount).reduce(:+)
+      @number_of_backers = Pledge.find_by_sql("SELECT DISTINCT pledges.user_id FROM pledges JOIN rewards ON pledges.reward_id = rewards.id WHERE rewards.project_id = #{params[:id]}").length
       render :show
     else
       render json: @project.errors.full_messages, status: 422
