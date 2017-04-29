@@ -76,6 +76,10 @@ class ProjectPage extends React.Component {
 
   render() {
 
+    if (this.props.children) {
+      return this.props.children;
+    }
+
     if (this.state.loading) {
       return (
         <div className="cssload-tetrominos">
@@ -84,15 +88,16 @@ class ProjectPage extends React.Component {
         	<div className="cssload-tetromino cssload-box3"></div>
         	<div className="cssload-tetromino cssload-box4"></div>
         </div>
-      )
-    }
-
-    if (this.props.children) {
-      return this.props.children;
+      );
     }
 
     const endDateMoment = moment(this.props.project.end_date);
-    const remainingDays = endDateMoment.diff(moment(), "days");
+    const remainingDays = endDateMoment.diff(moment(), "days") || 0;
+
+    // editButton only appears if the project creator is the current user
+    const editButton = this.props.currentUser.id === this.props.project.creator_id ?
+                       (<button onClick={ this.handleRedirectToEdit }>Edit This Project</button>) :
+                       "";
 
     return (
 
@@ -121,8 +126,8 @@ class ProjectPage extends React.Component {
             </div>
 
             <div className="fundraising-box">
-              <span className="pledge-amount">${this.props.project.amount_raised}</span>
-              <span className="statistic-category">pledged of ${this.props.project.funding_goal} goal</span>
+              <span className="pledge-amount">${this.props.project.amount_raised || 0}</span>
+              <span className="statistic-category">pledged of ${this.props.project.funding_goal || 0} goal</span>
 
               <span className="statistic">{this.props.project.number_of_backers}</span>
               <span className="statistic-category">backers</span>
@@ -131,7 +136,7 @@ class ProjectPage extends React.Component {
               <span className="statistic-category">days to go</span>
 
               <button>Back this Project</button>
-              <button onClick={ this.handleRedirectToEdit }>Edit This Project</button>
+              {editButton}
 
               <div className="social-stuff">
                 <div className="social-button">Remind Me</div>
