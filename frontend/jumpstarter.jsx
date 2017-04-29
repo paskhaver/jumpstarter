@@ -15,9 +15,7 @@ import EditProjectPage from "./components/projects/EditProject/mainPage/edit_pro
 import BasicsForm from "./components/projects/EditProject/basics/basics_form";
 import RewardForm from "./components/projects/EditProject/rewards/add_reward_form";
 
-import * as RewardAPIUtil from "./util/reward_api_util";
-import * as RewardActions from "./actions/reward_actions";
-import * as SessionActions from "./actions/session_actions";
+import * as CategoryActions from "./actions/category_actions";
 
 import configureStore from "./store/store";
 
@@ -36,9 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.store = store;
-  window.RewardAPIUtil = RewardAPIUtil;
-  window.RewardActions = RewardActions;
-  window.SessionActions = SessionActions;
+  window.CategoryActions = CategoryActions;
 
   const rootDOMElement = document.getElementById("root");
 
