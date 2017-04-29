@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router";
 
 import AJAXLoader from "./../../ajax-loader/ajax_loader";
 import Footer from "./../../footer/footer";
@@ -37,17 +38,21 @@ class ExploreCategories extends React.Component {
       return <AJAXLoader />;
     }
 
-    debugger
     const categoryItems = this.props.categories.map(category => {
-      return (<li key={category}>{category}</li>);
+      return (<li key={category}>
+                <Link to={`/explore/${category}`}>{category}</Link>
+              </li>);
     });
 
     return(
       <div>
         <div className="explore-categories">
-          <ul>
-            {categoryItems}
-          </ul>
+          <div className="categories-inner-container">
+            <h1>Categories</h1>
+            <ul>
+              {categoryItems}
+            </ul>
+          </div>
         </div>
         <Footer />
       </div>

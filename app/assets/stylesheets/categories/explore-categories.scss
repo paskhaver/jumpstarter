@@ -1,5 +1,42 @@
 .explore-categories {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
   width: 100%;
-  height: 500px;
+  box-sizing: border-box;
   background-color: #FBFBFA;
+  padding-top: 40px auto;
+
+  display: flex;
+
+  .categories-inner-container {
+
+    margin: 40px auto;
+    width: 90%;
+    background: #FBFBFA;
+
+    h1 {
+      color: #05AF3C;
+      font-size: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgb(206, 235, 215);
+    }
+
+    ul {
+      padding-top: 18px;
+    }
+
+    li {
+      box-sizing: border-box;
+      list-style-type: none;
+      height: 54px;
+    }
+
+    a {
+      font-size: 34px;
+      line-height: 42px;
+      color: #353535;
+      text-decoration: none;
+    }
+
+  }
 }
