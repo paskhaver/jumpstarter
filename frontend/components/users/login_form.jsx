@@ -72,7 +72,11 @@ class LoginForm extends React.Component {
 
     if (!errors) {
         const user = this.state;
-        this.props.login(user);
+        this.props.login(user)
+                  .then(currentUser => {
+                    hashHistory.push("/start");
+                  });
+
     }
   }
 
@@ -87,7 +91,10 @@ class LoginForm extends React.Component {
       password: "password"
     };
 
-    this.props.login(guestUser);
+    this.props.login(guestUser)
+              .then(currentUser => {
+                hashHistory.push("/start");
+              });
   }
 
   render() {

@@ -25,15 +25,6 @@ const mapDispatchToProps = (dispatch) => {
 
 class SignUpForm extends React.Component {
 
-  // STATE
-  // this.props.errors
-
-  // DISPATCH
-  // this.props.createUser(user)
-  // this.props.login(user)
-  // this.props.receiveErrors(errors)
-  // this.props.clearErrors()
-
   constructor(props) {
     super(props);
     this.state = { name: "",
@@ -102,7 +93,7 @@ class SignUpForm extends React.Component {
       const properUser = { name, email, password };
       this.props.createUser(properUser)
                 .then(success => {
-                  hashHistory.push("/");
+                  hashHistory.push("/start");
                 }, failure => {
                   console.log(failure);
                 });
