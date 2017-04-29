@@ -38,6 +38,10 @@ class LoginForm extends React.Component {
     this.handleGuestLogin   = this.handleGuestLogin.bind(this);
   }
 
+  componentWillMount() {
+    this.props.clearErrors();
+  }
+
   componentWillUnmount() {
     this.props.clearErrors();
   }
