@@ -5,7 +5,7 @@ import { fetchCategoryProjects } from "./../../../actions/category_projects_acti
 
 const mapStateToProps = (state) => {
   return {
-
+    projects: state.categoryProjects
   };
 };
 
@@ -42,9 +42,22 @@ class CategoryPage extends React.Component {
   }
 
   render() {
+
+    const projectItems = this.props.projects.map((project, idx) => {
+      return (
+        <div className="category-project"
+             key={idx}>
+          <p>{project.title}</p>
+          <p>{project.blurb}</p>
+          <p>{project.end_date}</p>
+          <p>{project.funding_goal}</p>
+        </div>
+      );
+    });
+
     return (
       <div className="category-page">
-        Category Page
+        {projectItems}
       </div>
     );
   }

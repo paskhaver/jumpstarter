@@ -22,8 +22,17 @@ class NavBar extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = { randomNumber: Math.floor(Math.random() * 299) + 1 };
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({
+        randomNumber: Math.floor(Math.random() * 299) + 1
+      });
+    }, 1000);
   }
 
   handleLogin(event) {
@@ -39,6 +48,7 @@ class NavBar extends React.Component {
 
   render() {
 
+    const randomId  = this.state.randomNumber;
     const logStatus = this.props.currentUser ? "Log out" : "Log In";
     const action    = this.props.currentUser ? this.handleLogout : this.handleLogin;
     const signUp    = this.props.currentUser ? "" : (
@@ -48,6 +58,7 @@ class NavBar extends React.Component {
     );
 
     return (
+
       <nav>
 
         <div className="left-nav">
@@ -56,7 +67,7 @@ class NavBar extends React.Component {
             </Link>
 
             <Link to="start"><span>Start a Project</span></Link>
-            <Link to="projects/1"><span>Sample Project</span></Link>
+            <Link to={`projects/${randomId}`}><span>Sample Project</span></Link>
         </div>
 
           <div className="center-nav">

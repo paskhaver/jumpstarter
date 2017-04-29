@@ -1,3 +1,23 @@
 .category-page {
-  
+  box-sizing: border-box;
+  width: 1040px;
+  margin: 20px auto;
+
+  background-color: lightblue;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .category-project {
+    box-sizing: border-box;
+    border-color: 2px solid pink;
+    border-radius: 6px;
+    background-color: lightyellow;
+    width: 31%;
+    height: 220px;
+    margin: 18px 6px;
+  }
+
 }
