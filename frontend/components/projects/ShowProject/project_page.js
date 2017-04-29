@@ -34,6 +34,7 @@ class ProjectPage extends React.Component {
 
   componentWillReceiveProps(nextProps) {
 
+    debugger;
     if (this.props.params.id !== nextProps.params.id) {
       const projectId = nextProps.params.id;
       this.props.fetchProject(projectId)
@@ -47,6 +48,7 @@ class ProjectPage extends React.Component {
   }
 
   componentDidMount() {
+    debugger;
     const projectId = this.props.params.id;
     this.props.fetchProject(projectId)
               .then(project => {
@@ -94,9 +96,13 @@ class ProjectPage extends React.Component {
     const remainingDays = endDateMoment.diff(moment(), "days") || 0;
 
     // editButton only appears if the project creator is the current user
-    const editButton = this.props.currentUser.id === this.props.project.creator_id ?
-                       (<button onClick={ this.handleRedirectToEdit }>Edit This Project</button>) :
-                       "";
+    let editButton = "";
+
+    if (this.props.currentUser) {
+      editButton = this.props.currentUser.id === this.props.project.creator_id ?
+                   (<button onClick={ this.handleRedirectToEdit }>Edit This Project</button>) :
+                   "";
+    }
 
     return (
 
