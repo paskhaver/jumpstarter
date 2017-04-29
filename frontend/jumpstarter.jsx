@@ -15,6 +15,10 @@ import EditProjectPage from "./components/projects/EditProject/mainPage/edit_pro
 import BasicsForm from "./components/projects/EditProject/basics/basics_form";
 import RewardForm from "./components/projects/EditProject/rewards/add_reward_form";
 
+import ExploreCategories from "./components/explore/categoriesIndex/exploreCategories";
+
+
+
 import * as CategoryActions from "./actions/category_actions";
 
 import configureStore from "./store/store";
@@ -48,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <Route path="login"  component={LoginForm} />
           <Route path="signup" component={SignUpForm} />
 
+          <Route path="explore" component={ExploreCategories} />
           <Route path="start" component={CreateProjectPage} />
 
           <Route path="projects/:id" component={ShowProjectPage}>

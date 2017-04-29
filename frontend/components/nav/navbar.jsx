@@ -1,11 +1,24 @@
 import React from "react";
-import { Link } from 'react-router';
-import { hashHistory } from 'react-router';
+import { connect } from "react-redux";
+import { Link, hashHistory } from 'react-router';
+
+import { logout } from "../../actions/session_actions";
+import { clearErrors } from "./../../actions/error_actions";
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.session.currentUser
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => { return dispatch(logout()); },
+    clearErrors: () => { return dispatch(clearErrors()); }
+  };
+};
 
 class NavBar extends React.Component {
-
-  // this.props.currentUser - State property received from container
-  // this.props.logout      - Method received from container
 
   constructor(props) {
     super(props);
@@ -38,7 +51,10 @@ class NavBar extends React.Component {
       <nav>
 
         <div className="left-nav">
-            <a><span><i className="fa fa-compass fa-1x" aria-hidden="true"></i>  Explore</span></a>
+            <Link to="explore">
+              <span><i className="fa fa-compass fa-1x" aria-hidden="true"></i>Explore</span>
+            </Link>
+
             <Link to="start"><span>Start a Project</span></Link>
             <Link to="projects/1"><span>Sample Project</span></Link>
         </div>
@@ -66,4 +82,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

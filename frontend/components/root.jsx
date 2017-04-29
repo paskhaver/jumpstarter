@@ -1,12 +1,12 @@
 import React from "react";
 
-import NavBarContainer from "./nav/navbar_container";
+import NavBar from "./nav/navbar";
 import Footer from "./footer/footer";
 
 const Root = (props) => {
   return (
     <div>
-      <NavBarContainer />
+      <NavBar />
       { props.children }
     </div>
   );
