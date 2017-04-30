@@ -18,6 +18,7 @@ import EditProjectPage from "./components/projects/EditProject/mainPage/edit_pro
 import BasicsForm from "./components/projects/EditProject/basics/basics_form";
 import RewardForm from "./components/projects/EditProject/rewards/add_reward_form";
 
+import SearchBar from "./components/search/search_bar";
 
 
 
@@ -53,6 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <IndexRoute component={SignUpForm} />
           <Route path="login"  component={LoginForm} />
           <Route path="signup" component={SignUpForm} />
+
+          <Route path="search" component={SearchBar} />
 
           <Route path="explore" component={CategoriesIndex} >
 

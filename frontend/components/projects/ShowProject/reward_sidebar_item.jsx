@@ -25,6 +25,7 @@ class RewardSidebarItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     const remaining_pledges = this.props.reward.max_backers - this.props.reward.pledge_count;
     this.state = { remaining_pledges };
+    debugger
   }
 
   handleClick(event) {
@@ -47,7 +48,12 @@ class RewardSidebarItem extends React.Component {
     const reward_id = this.props.reward.id;
     const pledge = { user_id, reward_id, project_id };
     createPledge(pledge);
-    this.setState({ remaining_pledges: this.state.remaining_pledges - 1});
+
+    debugger
+    const remaining_pledges = this.state.remaining_pledges - 1
+    this.setState({ remaining_pledges });
+
+    debugger
     pledge.amount = this.props.reward.pledge_amount;
     this.props.receivePledge(pledge);
   }
