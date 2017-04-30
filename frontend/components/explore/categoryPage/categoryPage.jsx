@@ -48,9 +48,9 @@ class CategoryPage extends React.Component {
         <div className="category-project"
              key={idx}>
           <Link to={`/projects/${project.id}`}>{project.title}</Link>
-          <p>{project.blurb}</p>
-          <p>{project.end_date}</p>
-          <p>{project.funding_goal}</p>
+          <p className="byline-blurb">{project.creator}</p>
+          <p className="byline-blurb">{project.blurb}</p>
+          <progress value={project.percent_funded} max="100"></progress>
         </div>
       );
     });

@@ -16,7 +16,7 @@ ActiveRecord::Base.transaction do
                   "TV pilot", "ego"]
 
   categories = ["Art", "Comics", "Crafts", "Dance", "Design", "Fashion",
-                "Film & Video", "Food", "Games", "Journalism", "Music",
+                "Film", "Food", "Games", "Journalism", "Music",
                 "Photography", "Publishing", "Technology", "Theater"]
 
   residencies = ["Australia", "Austria", "Belgium", "Canada", "Denmark",

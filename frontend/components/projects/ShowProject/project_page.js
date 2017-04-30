@@ -42,6 +42,8 @@ class ProjectPage extends React.Component {
                 .then(project => {
                   this.setState(project);
                 });
+
+      this.updateProfilePicture();
     }
   }
 
@@ -52,7 +54,11 @@ class ProjectPage extends React.Component {
                 this.setState({ loading: false });
               });
 
-    const profile = fetchProfilePicture().then(
+    this.updateProfilePicture();
+  }
+
+  updateProfilePicture() {
+    fetchProfilePicture().then(
                       data => {
                         const profile_picture_url = data.results[0].picture.thumbnail;
                         this.setState({profile_picture_url});
@@ -156,9 +162,9 @@ class ProjectPage extends React.Component {
 
             <div className="description-container">
               <h3>About this Project</h3>
-              <img src="http://lorempixel.com/700/400/business/" />
+              <img src="http://lorempixel.com/500/400/business/" />
               <p>{this.props.project.description}</p>
-              <img src="http://lorempixel.com/700/400/city/" />
+              <img src="http://lorempixel.com/500/400/city/" />
             </div>
 
             <div className="pledge-container">

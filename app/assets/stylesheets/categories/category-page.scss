@@ -3,7 +3,7 @@
   width: 1040px;
   margin: 20px auto;
 
-  background-color: lightblue;
+  // background-color: lightblue;
 
   display: flex;
   flex-direction: row;
@@ -12,12 +12,43 @@
 
   .category-project {
     box-sizing: border-box;
-    border-color: 2px solid pink;
     border-radius: 6px;
-    background-color: lightyellow;
+    border: 1px solid rgb(241, 238, 234);
+    // background-color: #ffffff;
     width: 31%;
-    height: 220px;
+    // height: 220px;
     margin: 18px 6px;
+
+    a {
+      box-sizing: border-box;
+      padding-left: 10px;
+      cursor: pointer;
+      font-size: 12px;
+      text-decoration: none;
+      line-height: 15px;
+      color: #020621;
+      font-weight: bold;
+    }
+
+    .byline-blurb {
+      margin-top: 0px;
+      margin-left: 10px;
+      font-size: 12px;
+      line-height: 18px;
+      color: #3D3D66;
+    }
+
+    progress {
+      margin-left: 10px;
+    }
+
+    progress::-webkit-progress-value {
+      background-color: black;
+    }
+
+
+
+
   }
 
 }

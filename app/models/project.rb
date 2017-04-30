@@ -21,7 +21,7 @@ class Project < ApplicationRecord
     through: :pledges,
     source: :user
 
-  attr_reader :amount_raised, :number_of_supporters, :days_remaining
+  attr_reader :amount_raised, :number_of_supporters, :days_remaining, :percent_funded
 
   def amount_raised
     reward_values = rewards.group(:id).sum(:pledge_amount)
@@ -40,6 +40,10 @@ class Project < ApplicationRecord
 
   def days_remaining
     (end_date - Date.today).to_i
+  end
+
+  def percent_funded
+    ((amount_raised.to_f / funding_goal) * 100).round(1)
   end
 
 

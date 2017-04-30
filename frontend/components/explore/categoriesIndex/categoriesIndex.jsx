@@ -40,7 +40,7 @@ class CategoriesIndex extends React.Component {
 
     const categories = Object.keys(this.props.categories);
           categories.sort();
-          
+
     const categoryItems = categories.map(category => {
       return (<li key={category}>
                 <Link to={`/explore/${category}`}>
