@@ -80,6 +80,13 @@ class ProjectPage extends React.Component {
       };
   }
 
+  chooseYouTubeVideoID() {
+    const videoIDs = ["FzKppEZ7sfs", "MXKEccRiMeQ", "ARe9FupzuOA",
+                      "UtVjRG7PB_4", "KM2K7sV-K74", "YkTHtWX7CCY",
+                      "7zkX6kfnWbk"];
+    return videoIDs[Math.floor(Math.random() * videoIDs.length)];
+  }
+
   render() {
 
     // Load nested children (edit pages) if it's a nested route
@@ -124,7 +131,7 @@ class ProjectPage extends React.Component {
           <div className="primary-info">
             <div className="project-page-video">
               <YouTube
-                videoId="MXKEccRiMeQ"
+                videoId={this.chooseYouTubeVideoID()}
                 onEnd={event => { event.target.pauseVideo(); }}
                 opts={this.videoOptions()}
               />
