@@ -39,7 +39,11 @@ class Project < ApplicationRecord
   end
 
   def days_remaining
-    (end_date - Date.today).to_i
+    if self.end_date.nil?
+      0
+    else
+      (end_date - Date.today).to_i
+    end
   end
 
   def percent_funded
