@@ -37,10 +37,9 @@ class RewardSidebarItem extends React.Component {
       return;
     }
 
+    // Add alert / CSS to alert user that they can no longer pledge
     if (this.state.remaining_pledges <= 0) {
-      this.props.receiveErrors(["That reward is exhausted."]);
-      console.log("You cannot pledge to that reward");
-      return;
+      this.props.receiveErrors(["That reward is exhausted."]);      return;
     }
 
     const user_id = this.props.currentUser.id;
