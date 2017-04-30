@@ -1,8 +1,8 @@
 # Jumpstarter
 
 **Jumpstarter** is a clone of the popular crowdfunding site
-[Kickstarter](http://www.kickstarter.com). Kickstarter allows users to
-raise funds for projects by exchanging rewards for donations.
+[Kickstarter](http://www.kickstarter.com). The app allows users to
+raise funds for projects by exchanging rewards for monetary donations.
 
 The app operates as follows:
 
@@ -41,4 +41,7 @@ The Jumpstarter app can be found [here](https://aa-jumpstarter.herokuapp.com/)
 
 ## Screenshots
 
-![Sign up](/docs/screenshots/ShowProjectPage.png)
+![Project Page](/docs/screenshots/ShowProjectPage.png)
+![Project Rewards](/docs/screenshots/ProjectRewards.png)
+![Add Reward](/docs/screenshots/AddReward.png)
+![Sign Up](/docs/screenshots/SignUp.png)
