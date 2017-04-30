@@ -67,7 +67,7 @@ class NavBar extends React.Component {
             </Link>
 
             <Link to="start"><span>Start a Project</span></Link>
-            <Link to={`projects/${randomId}`}><span>Sample Project</span></Link>
+            <Link to={`projects/${randomId}`}><span>Random Project</span></Link>
         </div>
 
           <div className="center-nav">

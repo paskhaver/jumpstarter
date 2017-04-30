@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link, hashHistory } from 'react-router';
-import { fetchProject } from "../../../actions/project_actions";
+import { fetchProject } from "./../../../actions/project_actions";
+import { fetchProfilePicture } from "./../../../util/profile_picture_api_util";
 
 import YouTube from "react-youtube";
 import AJAXLoader from "./../../ajax-loader/ajax_loader";
@@ -28,7 +29,8 @@ class ProjectPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true
+      loading: true,
+      profile_picture_url: ""
     };
     this.handleRedirectToEdit = this.handleRedirectToEdit.bind(this);
   }
@@ -49,6 +51,13 @@ class ProjectPage extends React.Component {
               .then(project => {
                 this.setState({ loading: false });
               });
+
+    const profile = fetchProfilePicture().then(
+                      data => {
+                        const profile_picture_url = data.results[0].picture.thumbnail;
+                        this.setState({profile_picture_url});
+                       }
+                     );
   }
 
   handleRedirectToEdit(event) {
@@ -94,7 +103,9 @@ class ProjectPage extends React.Component {
 
           <header className="header">
             <div className="creator-info">
-              <div className="creator-image"></div>
+              <img className="creator-image" src={this.state.profile_picture_url}>
+
+              </img>
               <span>By {this.props.project.creator_name}</span>
             </div>
 
