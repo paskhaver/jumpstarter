@@ -42,6 +42,6 @@ The Jumpstarter app can be found [here](https://aa-jumpstarter.herokuapp.com/)
 ## Screenshots
 
 ![Project Page](/docs/screenshots/ShowProjectPage.png)
-![Project Rewards](/docs/screenshots/ProjectRewards.png =500x)
-![Add Reward](/docs/screenshots/AddReward.png =500x)
-![Sign Up](/docs/screenshots/SignUp.png =500x)
+![Project Rewards](/docs/screenshots/ProjectRewards.png =500)
+![Add Reward](/docs/screenshots/AddReward.png =500)
+![Sign Up](/docs/screenshots/SignUp.png =500)
