@@ -27,6 +27,7 @@ class RewardSidebarItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.state = { pledge_count: this.props.reward.pledge_count };
   }
 
   handleClick(event) {
@@ -39,12 +40,19 @@ class RewardSidebarItem extends React.Component {
       return;
     }
 
+    if (this.state.pledge_count === 0) {
+      this.props.receiveErrors(["That reward is exhausted."]);
+      console.log("You cannot pledge to that reward");
+      return;
+    }
+
     const user_id = this.props.currentUser.id;
     const project_id = this.props.params.id;
     const reward_id = this.props.reward.id;
     const pledge = { user_id, reward_id, project_id };
     createPledge(pledge);
 
+    this.setState({ pledge_count: this.state.pledge_count + 1});
     pledge.amount = this.props.reward.pledge_amount;
     this.props.receivePledge(pledge);
   }
@@ -68,7 +76,7 @@ class RewardSidebarItem extends React.Component {
           </span>
 
           <span className="pledge-limit">
-            Limited ({this.props.reward.max_backers - this.props.reward.pledge_count} left of {this.props.reward.max_backers})
+            Limited ({this.props.reward.max_backers - this.state.pledge_count} left of {this.props.reward.max_backers})
           </span>
 
 

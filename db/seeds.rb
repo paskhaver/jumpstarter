@@ -8,8 +8,12 @@
 
 ActiveRecord::Base.transaction do
 
-  title_options = ["Startup", "Cookbook", "Fashion Item",
-                   "Film", "Album", "Novel"]
+  title_options = ["startup", "cookbook", "fashion Item",
+                   "film", "album", "novel", "video game", "artistic endeavor",
+                  "charity", "political candidacy", "vacation", "meal",
+                  "dentist visit", "restaurant bill", "shopping spree",
+                  "business venture", "multinational corporation",
+                  "TV pilot", "ego"]
 
   categories = ["Art", "Comics", "Crafts", "Dance", "Design", "Fashion",
                 "Film & Video", "Food", "Games", "Journalism", "Music",
@@ -21,7 +25,7 @@ ActiveRecord::Base.transaction do
                  "Norway", "Singapore", "Spain", "Sweden", "Switzerland",
                  "United Kingdom", "United States"]
 
-  blurb = "Random blurb"
+  blurb = ""
 
   description = "Cronut hexagon hoodie bespoke kogi meditation, mumblecore salvia. Yuccie chia fingerstache retro, shoreditch hexagon PBR&B farm-to-table hella pinterest four loko pug 8-bit kickstarter everyday carry. Blue bottle etsy venmo craft beer tilde. Ugh keffiyeh craft beer plaid, williamsburg lomo paleo pickled. Letterpress hammock church-key live-edge. Keffiyeh kale chips vice, single-origin coffee semiotics small batch wolf tousled pinterest health goth cred vegan biodiesel. Keytar chillwave sustainable woke, bespoke cold-pressed fingerstache marfa dreamcatcher 90's.
 
@@ -38,22 +42,15 @@ ActiveRecord::Base.transaction do
   1000.times do
     User.create(name: Faker::Name.name,
                 email: Faker::Internet.unique.email,
-                password: Faker::Pokemon.name)
+                password: Faker::Internet.password)
   end
-
-  #
-  # project1 = Project.create(title: "My New Album", category: "Music",
-  #                           creator: user4, residence: "United States",
-  #                           description: description, blurb: "Fund the
-  #                           new record from America's favorite folk hero")
-  #
 
   300.times do
     Project.create(title: "Help fund my #{title_options.sample}",
                    category: categories.sample,
                    creator: User.order("RANDOM()").first,
                    residence: residencies.sample,
-                   blurb: blurb,
+                   blurb: "An incredible new project that will help us to " + Faker::Company.bs,
                    description: description,
                    funding_goal: rand(100...100000) / 100 * 100,
                    end_date: rand(30..500).days.from_now
@@ -68,7 +65,7 @@ ActiveRecord::Base.transaction do
                   pledge_amount: rand(1..1000),
                   description: "Description",
                   delivery_date: (random_project_end_date + rand(1...366).days),
-                  max_backers: rand(1..1000)
+                  max_backers: rand(1..1000) / 10 * 10
                   )
   end
 
