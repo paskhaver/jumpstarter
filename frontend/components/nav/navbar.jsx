@@ -30,7 +30,7 @@ class NavBar extends React.Component {
   componentDidMount() {
     setInterval(() => {
       this.setState({
-        randomNumber: Math.floor(Math.random() * 299) + 1
+        randomNumber: Math.floor(Math.random() * 249) + 1
       });
     }, 1000);
   }
