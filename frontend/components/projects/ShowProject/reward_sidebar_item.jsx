@@ -5,17 +5,13 @@ import { createPledge } from "./../../../util/pledge_api_util";
 import { receivePledge } from "./../../../actions/pledge_actions";
 import { clearErrors, receiveErrors } from "./../../../actions/error_actions";
 
-const mapStateToProps = (state) => {
-  return {
-    currentUser: state.session.currentUser
-  };
-};
+const mapStateToProps = state => ({ currentUser: state.session.currentUser});
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    receivePledge: (pledge) => { return dispatch(receivePledge(pledge)); },
+    receivePledge: pledge => { return dispatch(receivePledge(pledge)); },
     clearErrors: () => { return dispatch(clearErrors()); },
-    receiveErrors: (errors) => { return dispatch(receiveErrors(errors)); }
+    receiveErrors: errors => { return dispatch(receiveErrors(errors)); }
   };
 };
 
@@ -27,7 +23,8 @@ class RewardSidebarItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    this.state = { pledge_count: this.props.reward.pledge_count };
+    const remaining_pledges = this.props.reward.max_backers - this.props.reward.pledge_count;
+    this.state = { remaining_pledges };
   }
 
   handleClick(event) {
@@ -40,7 +37,7 @@ class RewardSidebarItem extends React.Component {
       return;
     }
 
-    if (this.state.pledge_count === 0) {
+    if (this.state.remaining_pledges <= 0) {
       this.props.receiveErrors(["That reward is exhausted."]);
       console.log("You cannot pledge to that reward");
       return;
@@ -51,8 +48,7 @@ class RewardSidebarItem extends React.Component {
     const reward_id = this.props.reward.id;
     const pledge = { user_id, reward_id, project_id };
     createPledge(pledge);
-
-    this.setState({ pledge_count: this.state.pledge_count + 1});
+    this.setState({ remaining_pledges: this.state.remaining_pledges - 1});
     pledge.amount = this.props.reward.pledge_amount;
     this.props.receivePledge(pledge);
   }
@@ -76,7 +72,7 @@ class RewardSidebarItem extends React.Component {
           </span>
 
           <span className="pledge-limit">
-            Limited ({this.props.reward.max_backers - this.state.pledge_count} left of {this.props.reward.max_backers})
+            Limited ({this.state.remaining_pledges} left of {this.props.reward.max_backers})
           </span>
 
 

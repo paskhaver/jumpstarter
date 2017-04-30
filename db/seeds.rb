@@ -63,10 +63,10 @@ ActiveRecord::Base.transaction do
     random_project_end_date = random_project.end_date
     Reward.create(project: random_project,
                   title: "Reward #{('A'..'Z').to_a.sample}",
-                  pledge_amount: rand(1..1000),
+                  pledge_amount: rand(1..1000) / 10 * 10,
                   description: "Description",
                   delivery_date: (random_project_end_date + rand(1...366).days),
-                  max_backers: rand(1..1000) / 10 * 10
+                  max_backers: rand(1..100) / 10 * 10
                   )
   end
 
