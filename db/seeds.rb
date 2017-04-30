@@ -40,13 +40,13 @@ ActiveRecord::Base.transaction do
 
   user1 = User.create(name: "Guest", email: "guest@example.com", password: "password")
 
-  1000.times do
+  500.times do
     User.create(name: Faker::Name.name,
                 email: Faker::Internet.unique.email,
                 password: Faker::Internet.password)
   end
 
-  300.times do
+  250.times do
     Project.create(title: "Help fund my #{title_options.sample}",
                    category: categories.sample,
                    creator: User.order("RANDOM()").first,
@@ -58,7 +58,7 @@ ActiveRecord::Base.transaction do
                   )
   end
 
-  1500.times do
+  1000.times do
     random_project = Project.order("RANDOM()").first
     random_project_end_date = random_project.end_date
     Reward.create(project: random_project,
@@ -70,7 +70,7 @@ ActiveRecord::Base.transaction do
                   )
   end
 
-  10000.times do
+  5000.times do
     Pledge.create(reward: Reward.order("RANDOM()").first,
                   user: User.order("RANDOM()").first
                  )
