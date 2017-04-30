@@ -61,30 +61,24 @@ class ProjectPage extends React.Component {
   }
 
   videoOptions() {
-    const videoOptions = {
+    return {
         height: "100%",
         width: "100%",
-        playerVars: {
-          autoplay: 0
-        }
+        playerVars: { autoplay: 0 }
       };
-
-    return videoOptions;
-
   }
 
   render() {
 
+    // Load nested children (edit pages) if it's a nested route
     if (this.props.children) {
       return this.props.children;
     }
 
+    // Load AJAX loader (cube transition) if fetching data from DB
     if (this.state.loading) {
       return <AJAXLoader />;
     }
-
-    const endDateMoment = moment(this.props.project.end_date);
-    const remainingDays = endDateMoment.diff(moment(), "days") || 0;
 
     // editButton only appears if the project creator is the current user
     let editButton = "";
@@ -126,10 +120,10 @@ class ProjectPage extends React.Component {
               <span className="pledge-amount">${this.props.project.amount_raised || 0}</span>
               <span className="statistic-category">pledged of ${this.props.project.funding_goal || 0} goal</span>
 
-              <span className="statistic">{this.props.project.number_of_backers || 0}</span>
+              <span className="statistic">{this.props.project.number_of_supporters || 0}</span>
               <span className="statistic-category">backers</span>
 
-              <span className="statistic">{remainingDays}</span>
+              <span className="statistic">{this.props.project.days_remaining}</span>
               <span className="statistic-category">days to go</span>
 
               <button>Back this Project</button>
@@ -154,17 +148,14 @@ class ProjectPage extends React.Component {
 
             <div className="description-container">
               <h3>About this Project</h3>
-
               <img src="http://lorempixel.com/700/400/business/" />
-              <p>{this.props.project.description}
-              </p>
+              <p>{this.props.project.description}</p>
               <img src="http://lorempixel.com/700/400/city/" />
             </div>
 
             <div className="pledge-container">
               <h3>Support this Project</h3>
-
-            <RewardSidebarIndex rewards={this.props.rewards}/>
+              <RewardSidebarIndex rewards={this.props.rewards}/>
             </div>
 
           </div>

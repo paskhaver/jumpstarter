@@ -1,8 +1,7 @@
 json.extract! @project, :id, :creator_id, :title, :category, :residence,
-                        :blurb, :end_date, :funding_goal, :description
+                        :blurb, :end_date, :funding_goal, :description,
+                        :amount_raised, :number_of_supporters, :days_remaining
 
-json.amount_raised @amount_raised
-json.number_of_backers @number_of_backers
 json.creator_name @project.creator.name
 
 json.set! :rewards do
