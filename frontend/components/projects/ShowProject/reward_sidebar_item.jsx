@@ -16,6 +16,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 
+// Issue here is the state persists as new project is loaded
 class RewardSidebarItem extends React.Component {
 
   // this.props.reward  -- FROM parent
@@ -25,7 +26,6 @@ class RewardSidebarItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     const remaining_pledges = this.props.reward.max_backers - this.props.reward.pledge_count;
     this.state = { remaining_pledges };
-    debugger
   }
 
   handleClick(event) {
@@ -49,11 +49,9 @@ class RewardSidebarItem extends React.Component {
     const pledge = { user_id, reward_id, project_id };
     createPledge(pledge);
 
-    debugger
     const remaining_pledges = this.state.remaining_pledges - 1
     this.setState({ remaining_pledges });
 
-    debugger
     pledge.amount = this.props.reward.pledge_amount;
     this.props.receivePledge(pledge);
   }
