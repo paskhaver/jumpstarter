@@ -8,9 +8,6 @@ import AJAXLoader from "./../../ajax-loader/ajax_loader";
 import RewardSidebarIndex from "./reward_sidebar_index";
 import Footer from "./../../footer/footer";
 
-import moment from "moment";
-
-
 const mapStateToProps = (state) => {
   return {
     currentUser: state.session.currentUser,
