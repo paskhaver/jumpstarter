@@ -30,7 +30,9 @@ class ProjectPage extends React.Component {
     super(props);
     this.state = {
       loading: true,
-      profile_picture_url: ""
+      profile_picture_url: "",
+      youTubeVideoID: this.chooseYouTubeVideoID(),
+      videoOptions: this.generateVideoOptions()
     };
     this.handleRedirectToEdit = this.handleRedirectToEdit.bind(this);
   }
@@ -41,9 +43,9 @@ class ProjectPage extends React.Component {
       this.props.fetchProject(projectId)
                 .then(project => {
                   this.setState(project);
+                  this.updateProfilePicture();
+                  this.setState({ youTubeVideoID: this.chooseYouTubeVideoID() });
                 });
-
-      this.updateProfilePicture();
     }
   }
 
@@ -72,7 +74,7 @@ class ProjectPage extends React.Component {
     hashHistory.push(`/projects/${projectId}/edit/basics`);
   }
 
-  videoOptions() {
+  generateVideoOptions() {
     return {
         height: "100%",
         width: "100%",
@@ -131,9 +133,9 @@ class ProjectPage extends React.Component {
           <div className="primary-info">
             <div className="project-page-video">
               <YouTube
-                videoId={this.chooseYouTubeVideoID()}
+                videoId={this.state.youTubeVideoID}
                 onEnd={event => { event.target.pauseVideo(); }}
-                opts={this.videoOptions()}
+                opts={this.state.videoOptions}
               />
             </div>
 
