@@ -44,9 +44,6 @@ class ProjectPage extends React.Component {
                   this.setState(project);
                 });
     }
-    // else {
-    //   this.setState(this.props.project);
-    // }
   }
 
   componentDidMount() {
@@ -158,10 +155,10 @@ class ProjectPage extends React.Component {
             <div className="description-container">
               <h3>About this Project</h3>
 
-              <img src="http://lorempixel.com/500/400/business/" />
+              <img src="http://lorempixel.com/700/400/business/" />
               <p>{this.props.project.description}
               </p>
-              <img src="http://lorempixel.com/500/400/city/" />
+              <img src="http://lorempixel.com/700/400/city/" />
             </div>
 
             <div className="pledge-container">

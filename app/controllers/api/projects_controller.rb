@@ -24,7 +24,8 @@ class Api::ProjectsController < ApplicationController
                       .find_by(id: params[:id])
     if @project
       @amount_raised = Reward.find_by_sql("SELECT rewards.pledge_amount FROM rewards JOIN pledges ON pledges.reward_id = rewards.id WHERE rewards.project_id = #{params[:id]}").pluck(:pledge_amount).reduce(:+)
-      @number_of_backers = Pledge.find_by_sql("SELECT DISTINCT pledges.user_id FROM pledges JOIN rewards ON pledges.reward_id = rewards.id WHERE rewards.project_id = #{params[:id]}").length
+      @number_of_backers = Reward.includes(:pledges).where("rewards.project_id = ?", params[:id]).pluck("pledges.user_id").uniq.length
+
       render :show
     else
       render json: ["Project with that ID does not exist!"], status: 422

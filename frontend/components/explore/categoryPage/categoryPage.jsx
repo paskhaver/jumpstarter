@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router";
+import { withRouter, Link } from "react-router";
 import { connect } from "react-redux";
 import { fetchCategoryProjects } from "./../../../actions/category_projects_actions";
 
@@ -47,7 +47,7 @@ class CategoryPage extends React.Component {
       return (
         <div className="category-project"
              key={idx}>
-          <p>{project.title}</p>
+          <Link to={`/projects/${project.id}`}>{project.title}</Link>
           <p>{project.blurb}</p>
           <p>{project.end_date}</p>
           <p>{project.funding_goal}</p>
