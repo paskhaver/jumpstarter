@@ -64,9 +64,9 @@ ActiveRecord::Base.transaction do
     random_project = Project.order("RANDOM()").first
     random_project_end_date = random_project.end_date
     Reward.create(project: random_project,
-                  title: Faker::Dessert.variety,
+                  title: Faker::Commerce.department,
                   pledge_amount: rand(10..1000) / 10 * 10,
-                  description: "Topped with #{Faker::Dessert.topping}",
+                  description: Faker::Commerce.product_name,
                   delivery_date: (random_project_end_date + rand(1...366).days),
                   max_backers: rand(1..100) / 10 * 10
                   )
