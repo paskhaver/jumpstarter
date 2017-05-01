@@ -8,12 +8,14 @@
 
 ActiveRecord::Base.transaction do
 
-  title_options = ["startup", "cookbook", "fashion Item",
+  title_options = ["startup", "cookbook", "fashion item",
                    "film", "album", "novel", "video game", "artistic endeavor",
                   "charity", "political candidacy", "vacation", "meal",
                   "dentist visit", "restaurant bill", "shopping spree",
-                  "business venture", "multinational corporation",
-                  "TV pilot", "ego"]
+                  "shady business venture", "multinational corporation",
+                  "TV pilot", "ego", "summer vacation", "school supply list",
+                  "Ponzi scheme", "bank account", "marketing promotion",
+                  "ransom", "Indiegogo project"]
 
   categories = ["Art", "Comics", "Crafts", "Dance", "Design", "Fashion",
                 "Film", "Food", "Games", "Journalism", "Music",
@@ -62,9 +64,9 @@ ActiveRecord::Base.transaction do
     random_project = Project.order("RANDOM()").first
     random_project_end_date = random_project.end_date
     Reward.create(project: random_project,
-                  title: "Reward #{('A'..'Z').to_a.sample}",
+                  title: Faker::Dessert.variety,
                   pledge_amount: rand(10..1000) / 10 * 10,
-                  description: "Description",
+                  description: "Topped with #{Faker::Dessert.topping}",
                   delivery_date: (random_project_end_date + rand(1...366).days),
                   max_backers: rand(1..100) / 10 * 10
                   )
