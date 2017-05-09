@@ -21,34 +21,22 @@ class Project < ApplicationRecord
     through: :pledges,
     source: :user
 
-  attr_reader :amount_raised, :number_of_supporters, :days_remaining, :percent_funded
-
-  def amount_raised
-    reward_values = rewards.group(:id).sum(:pledge_amount)
-    reward_counts = pledges.group(:reward_id).count
+  def self.amount_raised(rewards, pledges)
     amount_raised = 0
-
-    reward_counts.each do |reward_id, reward_count|
-      amount_raised += reward_count * reward_values[reward_id]
+    rewards.each do |reward|
+      reward_value = reward.pledge_amount
+      reward_count = pledges.count { |pledge| pledge.reward_id == reward.id }
+      amount_raised = reward_value * reward_count
     end
     amount_raised
   end
 
-  def number_of_supporters
-    supporters.uniq.length
-  end
-
-  def days_remaining
-    if self.end_date.nil?
+  def self.days_remaining(project)
+    if project.end_date.nil?
       0
     else
-      (end_date - Date.today).to_i
+      (project.end_date - Date.today).to_i
     end
   end
-
-  def percent_funded
-    ((amount_raised.to_f / funding_goal) * 100).round(1)
-  end
-
 
 end

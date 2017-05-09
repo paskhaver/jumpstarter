@@ -17,11 +17,16 @@ class Api::ProjectsController < ApplicationController
 
   # Validated
   def show
-    @project = Project.includes(rewards: :pledges)
+    @project = Project.includes(rewards: [:pledges])
                       .includes(:creator)
+                      .includes(:supporters)
                       .order("rewards.pledge_amount")
                       .find_by(id: params[:id])
     if @project
+      @amount_raised = Project.amount_raised(@project.rewards, @project.pledges)
+      @number_of_supporters = @project.supporters.uniq.length
+      @days_remaining = Project.days_remaining(@project)
+      @percent_funded = ((@amount_raised.to_f /  @project.funding_goal) * 100).round(1)
       render :show
     else
       render json: ["Project with that ID does not exist!"], status: 422
