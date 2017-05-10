@@ -1,5 +1,5 @@
-const webpack = require('webpack');
-const prod = process.argv.indexOf('-p') !== -1;
+// const webpack = require('webpack');
+// const prod = process.argv.indexOf('-p') !== -1;
 var path = require('path');
 
 module.exports = {
@@ -20,14 +20,14 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin()
-  ],
+  // plugins: [
+  //   new webpack.DefinePlugin({
+  //     'process.env': {
+  //       NODE_ENV: JSON.stringify('production')
+  //     }
+  //   }),
+  //   new webpack.optimize.UglifyJsPlugin()
+  // ],
   devtool: 'source-map',
   resolve: {
     extensions: ['.js', '.jsx', '*']

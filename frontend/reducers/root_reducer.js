@@ -15,5 +15,5 @@ export default combineReducers({
   rewards: RewardsReducer,
   categories: CategoriesReducer,
   categoryProjects: CategoryProjectsReducer,
-  search: SearchReducer
+  searchResults: SearchReducer
 });

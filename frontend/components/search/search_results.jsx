@@ -1,42 +1,28 @@
 import React from "react";
-import Slider from "react-slick";
-import { Link } from "react-router";
+import SearchResultItem from "./search_result_item";
 
-class SimpleSlider extends React.Component {
+class SearchResults extends React.Component {
 
   constructor(props) {
     super(props);
   }
 
   render() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 1
-    };
+    const { searchResults } = this.props;
+    const projectsArray = Object.keys(searchResults);
 
-    const { results } = this.props;
 
-    const projectsArray = Object.keys(results);
     const projectItems = projectsArray.map(projectId => {
-      const project = results[projectId];
-      return (<div key={projectId}>
-        <h3>
-            <Link to={`/projects/${projectId}`}>{project.title}
-            </Link>
-        </h3>
-        <p>{project.blurb}</p>
-      </div>);
+      const project = searchResults[projectId];
+      return <SearchResultItem key={project.id} project={project} />;
     });
 
     return (
-      <Slider {...settings}>
-        {projectItems}
-      </Slider>
+      <ul>
+        { projectItems }
+      </ul>
     );
   }
 }
 
-export default SimpleSlider;
+export default SearchResults;
