@@ -5,10 +5,11 @@ class ProjectCarousel extends React.Component {
 
   render() {
     return (
-      <Carousel className="project-carousel" autoplay={true} wrapAround={true}>
+      <Carousel className="project-carousel" autoplay={false} wrapAround={true}>
 
         <div className="project-carousel-slide">
-          <h1>Slide 1</h1>
+          <h1>Triangle Madness</h1>
+          <h2>Test h2</h2>
           <img src={window.images.carousel_triangle_bg} />
         </div>
 

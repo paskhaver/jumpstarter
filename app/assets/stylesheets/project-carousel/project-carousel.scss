@@ -1,5 +1,5 @@
 .project-carousel {
-  // background-color: orange;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: 100%;
   height: 700px;
   max-height: 700px;
@@ -10,10 +10,25 @@
 
   h1 {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    font-size: 40px;
+    left: 46%;
+    top: 20%;
     z-index: 2;
+
+    color: #ffffff;
+    font-size: 56px;
+    line-height: 56px;
+    // text-align: center;
+
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+
+    font-size: 22px;
+    color: #ffffff;
     text-align: center;
   }
 }
