@@ -21,22 +21,26 @@ class Project < ApplicationRecord
     through: :pledges,
     source: :user
 
-  def self.amount_raised(rewards, pledges)
+  def number_of_supporters
+    self.pledges.pluck(:user_id).uniq.length
+  end
+
+  def percent_funded
+    ((self.amount_raised.to_f / self.funding_goal) * 100).round(1)
+  end
+
+  def days_remaining
+    self.end_date.nil? ? 0 : (self.end_date - Date.today).to_i
+  end
+
+  def amount_raised
     amount_raised = 0
-    rewards.each do |reward|
+    self.rewards.each do |reward|
       reward_value = reward.pledge_amount
-      reward_count = pledges.count { |pledge| pledge.reward_id == reward.id }
+      reward_count = self.pledges.select { |pledge| pledge.reward_id == reward.id}.length
       amount_raised = reward_value * reward_count
     end
     amount_raised
-  end
-
-  def self.days_remaining(project)
-    if project.end_date.nil?
-      0
-    else
-      (project.end_date - Date.today).to_i
-    end
   end
 
 end
