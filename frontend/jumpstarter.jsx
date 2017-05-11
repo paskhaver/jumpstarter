@@ -8,7 +8,7 @@ import Root from "./components/root";
 import CategoriesIndex from "./components/explore/categoriesIndex/categoriesIndex";
 import CategoryPage from "./components/explore/categoryPage/categoryPage";
 
-import ProjectCarousel from "./components/project-carousel/project-carousel";
+import MainPage from "./components/main-page/main-page"
 
 import LoginForm from "./components/users/login_form";
 import SignUpForm from "./components/users/sign_up_form";
@@ -52,8 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
       <Router history={hashHistory}>
 
         <Route path="/" component={Root} >
+          <IndexRoute component={MainPage} />
 
-          <IndexRoute component={ProjectCarousel} />
           <Route path="login"  component={LoginForm} />
           <Route path="signup" component={SignUpForm} />
 

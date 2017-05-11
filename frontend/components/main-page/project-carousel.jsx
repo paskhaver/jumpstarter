@@ -5,7 +5,7 @@ class ProjectCarousel extends React.Component {
 
   render() {
     return (
-      <Carousel className="project-carousel" autoplay={true} autoplayInterval={4000} wrapAround={true}>
+      <Carousel className="project-carousel" autoplay={true} autoplayInterval={3000} wrapAround={true}>
 
         <div className="project-carousel-slide">
           <h1>Dice Dice Baby</h1>

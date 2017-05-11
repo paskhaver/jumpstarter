@@ -80,7 +80,9 @@ class NavBar extends React.Component {
 
           <div className="right-nav">
 
-            <i className="fa fa-search fa-1x" aria-hidden="true"></i>
+            <Link to="/search">
+              <i className="fa fa-search fa-1x" aria-hidden="true"></i>
+            </Link>
 
             <a onClick={ action }>
               <span>{logStatus}</span>

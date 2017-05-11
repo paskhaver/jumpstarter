@@ -1,5 +1,6 @@
 import React from "react";
 import SearchResultItem from "./search_result_item";
+import Carousel from "nuka-carousel";
 
 class SearchResults extends React.Component {
 
@@ -18,9 +19,9 @@ class SearchResults extends React.Component {
     });
 
     return (
-      <ul>
+      <Carousel className="project-carousel">
         { projectItems }
-      </ul>
+      </Carousel>
     );
   }
 }
