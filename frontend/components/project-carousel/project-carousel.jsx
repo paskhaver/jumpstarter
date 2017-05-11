@@ -5,19 +5,28 @@ class ProjectCarousel extends React.Component {
 
   render() {
     return (
-      <Carousel className="project-carousel" autoplay={false} wrapAround={true}>
+      <Carousel className="project-carousel" autoplay={true} autoplayInterval={4000} wrapAround={true}>
 
         <div className="project-carousel-slide">
-          <h1>Triangle Madness</h1>
-          <h2>Test h2</h2>
-          <img src={window.images.carousel_triangle_bg} />
+          <h1>Dice Dice Baby</h1>
+          <h2>An incredible new project from the creator of the ShamWow</h2>
+          <button>View project</button>
+          <img src={window.images.carousel_dice} />
         </div>
 
-        <img src={window.images.carousel_dice} />
-        <img src={window.images.carousel_kids_running} />
-        <img src={window.images.carousel_telemarketers} />
-        <img src={window.images.carousel_tomcar} />
-        <img src={window.images.carousel_wolves} />
+        <div className="project-carousel-slide">
+          <h1>New Horror Movie</h1>
+          <h2>Guaranteed to scare the kids away</h2>
+          <button>View project</button>
+          <img src={window.images.carousel_kids_running} />
+        </div>
+
+        <div className="project-carousel-slide">
+          <h1>Tomcar</h1>
+          <h2>Get around in style (and utility) with the Tomcar</h2>
+          <button>View project</button>
+          <img src={window.images.carousel_tomcar} />
+        </div>
 
       </Carousel>
     );

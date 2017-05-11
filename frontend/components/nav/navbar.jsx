@@ -72,7 +72,9 @@ class NavBar extends React.Component {
 
           <div className="center-nav">
             <div className="center">
-                <img src={window.images.logo}></img>
+                <Link to="/">
+                  <img src={window.images.logo} />
+                </Link>
             </div>
           </div>
 

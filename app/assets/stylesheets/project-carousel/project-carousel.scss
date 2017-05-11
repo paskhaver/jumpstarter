@@ -8,27 +8,48 @@
 
 .project-carousel-slide {
 
+  text-align: center;
+
   h1 {
+    margin-top: 0px;
+    margin-bottom: 20px;
     position: absolute;
-    left: 46%;
-    top: 20%;
+    left: 50%;
+    top: 30%;
+    text-align: center;
+    transform: translateX(-50%) translateY(-50%);
     z-index: 2;
 
     color: #ffffff;
     font-size: 56px;
     line-height: 56px;
-    // text-align: center;
 
-    margin-bottom: 20px;
   }
 
   h2 {
+    margin: 0px;
     position: absolute;
     left: 50%;
-    top: 30%;
+    top: 40%;
+    text-align: center;
+    transform: translateX(-50%) translateY(-50%);
 
     font-size: 22px;
     color: #ffffff;
+
+  }
+
+  button {
+    position: absolute;
+    left: 50%;
+    top: 50%;
     text-align: center;
+    transform: translateX(-50%) translateY(-50%);
+
+    width: 158px;
+    height: 56px;
+    background-color: #25CB68;
+    border-radius: 6px;
+    color: #ffffff;
   }
 }
