@@ -9,7 +9,35 @@
 
   h2 {
     margin-top: 60px;
+    margin-bottom: 20px;
     font-size: 32px;
     color: #353535;
+  }
+
+  p {
+    color: #3D3D66;
+    font-size: 16px;
+    margin: 0px 0px 5px 0px;
+  }
+
+  button {
+    margin-top: 18px;
+    width: 150px;
+    height: 48px;
+    text-align: center;
+
+    cursor: pointer;;
+
+    color: #ffffff;
+    background-color: #25CB68;
+    border-radius: 6px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  button:hover {
+    background-color: #05AF3C;
   }
 }
