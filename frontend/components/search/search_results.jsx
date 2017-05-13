@@ -18,7 +18,7 @@ class SearchResults extends React.Component {
     });
 
     return (
-      <Carousel className="search-results" slidesToShow={4}>
+      <Carousel className="search-results" slidesToShow={4} slidesToScroll={4}>
         { projectItems }
       </Carousel>
     );

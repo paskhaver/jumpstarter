@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+
 import { fetchSearchResults } from "./../../actions/search_actions";
 import SearchResults from "./search_results.jsx";
 import Footer from "./../footer/footer";

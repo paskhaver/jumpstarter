@@ -7,7 +7,7 @@ const SearchResultItem = ({ project }) => {
 
   return (
     <div className="search-result-item">
-      <p>{project.title}</p>
+      <h3>{project.title}</h3>
       <p>{project.blurb}</p>
       <Link to={`/projects/${project.id}`}>
         <button>View Project</button>
