@@ -12,14 +12,13 @@ class SearchResults extends React.Component {
     const { searchResults } = this.props;
     const projectsArray = Object.keys(searchResults);
 
-
     const projectItems = projectsArray.map(projectId => {
       const project = searchResults[projectId];
       return <SearchResultItem key={project.id} project={project} />;
     });
 
     return (
-      <Carousel className="project-carousel">
+      <Carousel className="project-carousel" slidesToShow={4}>
         { projectItems }
       </Carousel>
     );

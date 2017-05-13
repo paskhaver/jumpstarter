@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchSearchResults } from "./../../actions/search_actions";
-
 import SearchResults from "./search_results.jsx";
+import Footer from "./../footer/footer";
 
 const mapStateToProps = state => ({
   searchResults: state.searchResults
@@ -18,7 +18,6 @@ class SearchBar extends React.Component {
 
   constructor(props) {
     super(props);
-    // this.state = { searchTerm: "" };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
@@ -30,13 +29,15 @@ class SearchBar extends React.Component {
   render() {
     const { searchResults } = this.props;
     return (
-      <div className="search-container">
-        <h1>Search Container</h1>
-        <input onChange={ this.handleInputChange } type="text" />
-        <SearchResults searchResults={searchResults} />
+      <div>
+        <div className="search-container">
+          <h1>Search Container</h1>
+          <input onChange={ this.handleInputChange } type="text" />
+          <SearchResults searchResults={searchResults} />
+        </div>
+        <Footer />
       </div>
     );
-
   }
 
 }
