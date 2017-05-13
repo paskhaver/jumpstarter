@@ -31,9 +31,10 @@ class SearchBar extends React.Component {
     return (
       <div>
         <div className="search-container">
-          <h1>Search Container</h1>
+          <h2>Search for Projects</h2>
           <input onChange={ this.handleInputChange } type="text" />
-          <SearchResults searchResults={searchResults} />
+          <SearchResults className="search-results"
+                          searchResults={searchResults} />
         </div>
         <Footer />
       </div>
