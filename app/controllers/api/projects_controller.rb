@@ -2,7 +2,7 @@ class Api::ProjectsController < ApplicationController
 
   # Validated
   def index
-    @projects = Project.all
+    @projects = Project.order("RAND()").first(6)
     render :index
   end
 
