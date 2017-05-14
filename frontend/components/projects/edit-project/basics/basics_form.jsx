@@ -3,30 +3,40 @@ import { connect } from "react-redux";
 import { fetchProject } from "../../../../actions/project_actions";
 
 import AJAXLoader from "./../../../ajax-loader/ajax_loader";
+import BasicsHeader from "./basics_header";
 import BasicsSidebar from "./basics_sidebar";
 import SaveBar from "./save_bar";
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  project: state.project,
+  rewards: state.rewards
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchProject: projectId => { return dispatch(fetchProject(projectId)); }
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     fetchProject: projectId => { return dispatch(fetchProject(projectId)); }
+//   };
+// };
 
 class BasicsForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { loading: true };
+    const { title, description, blurb, category,
+            end_date, funding_goal } = props.project;
+    this.state = {
+      loading: true,
+      title, description, blurb, category, end_date, funding_goal
+    };
   }
 
-  componentDidMount() {
-    const { id } = this.props.params;
-    this.props.fetchProject(id)
-              .then(project => {
-                this.setState({ loading: false, project});
-              });
+  componentWillReceiveProps(nextProps) {
+    const { title, description, blurb, category,
+            end_date, funding_goal, id } = nextProps.project;
+    this.setState({
+      loading: false,
+      title, description, blurb, category, end_date, funding_goal
+    });
   }
 
   handleEdit(field) {
@@ -37,19 +47,28 @@ class BasicsForm extends React.Component {
     };
   }
 
+  wrapProject() {
+    const { title, description, blurb, category,
+            end_date, funding_goal, id } = this.state;
+    return {
+      project: {
+        title, description, blurb, category, end_date,
+        funding_goal, id
+      }
+    };
+  }
+
 
   render() {
     if (this.state.loading) { return <AJAXLoader />; }
+    const { title, description, blurb,
+            category, end_date, funding_goal } = this.state;
 
     return (
 
       <div>
         <div className="basics">
-
-          <div className="basics-header">
-            <h2>Let’s get started.</h2>
-            <p>Make a great first impression with your project’s title and image, and set your funding goal, campaign duration, and project category.</p>
-          </div>
+          <BasicsHeader />
 
           <div className="basics-form">
             <div className="basics-main-content">
@@ -62,7 +81,7 @@ class BasicsForm extends React.Component {
                 <div className="answer">
                   <input type="text"
                          onChange={this.handleEdit("title")}
-                         value={this.state.title}
+                         value={title}
                          />
 
                   <p>Our search looks through words from your project title and blurb, so make them clear and descriptive of what you’re making. Your profile name will be searchable, too.</p>
@@ -78,7 +97,7 @@ class BasicsForm extends React.Component {
                 <div className="answer">
                   <textarea
                       onChange={this.handleEdit("description")}
-                      value={this.state.description}>
+                      value={description}>
                   </textarea>
                   <p>This will appear immediately below the project image.</p>
                 </div>
@@ -92,7 +111,7 @@ class BasicsForm extends React.Component {
                 <div className="answer">
                   <textarea
                       onChange={this.handleEdit("blurb")}
-                      value={this.state.blurb}>
+                      value={blurb}>
                   </textarea>
                   <p>Give people a sense of what you’re doing. Skip “Help me” and focus on what you’re making.</p>
                 </div>
@@ -105,7 +124,7 @@ class BasicsForm extends React.Component {
 
                 <div className="answer">
                   <select onChange={this.handleEdit("category")}
-                          value={this.state.category} >
+                          value={category} >
                     <option value={"Art"}>Art</option>
                     <option value={"Comics"}>Comics</option>
                     <option value={"Crafts"}>Crafts</option>
@@ -122,7 +141,7 @@ class BasicsForm extends React.Component {
                 <div className="answer">
                   <input type="date"
                          onChange={this.handleEdit("end_date")}
-                         value={this.state.end_date}>
+                         value={end_date}>
                   </input>
                   <p>
                     Projects with shorter durations have higher success rates. You won’t be able to adjust your duration after you launch.
@@ -138,7 +157,7 @@ class BasicsForm extends React.Component {
                 <div className="answer">
                   <input type="text"
                          onChange={this.handleEdit("funding_goal")}
-                         value={this.state.funding_goal} >
+                         value={funding_goal} >
                   </input>
                   <p>
                     Funding on Kickstarter is all-or-nothing. It’s okay to raise more than your goal, but if your goal isn’t met, no money will be collected. Your goal should reflect the minimum amount of funds you need to complete your project and send out rewards, and include a buffer for payments processing fees.</p>
@@ -158,11 +177,11 @@ class BasicsForm extends React.Component {
 
         </div>
 
-      <SaveBar project={this.state.project} />
+      <SaveBar project={this.wrapProject()} />
       </div>
     );
   }
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BasicsForm);
+export default connect(mapStateToProps)(BasicsForm);

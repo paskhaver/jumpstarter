@@ -8,17 +8,17 @@ import Root from "./components/root";
 import CategoriesIndex from "./components/explore/categoriesIndex/categoriesIndex";
 import CategoryPage from "./components/explore/categoryPage/categoryPage";
 
-import MainPage from "./components/main-page/main-page"
+import HomePage from "./components/home-page/home-page";
 
 import LoginForm from "./components/users/login_form";
 import SignUpForm from "./components/users/sign_up_form";
 
 import CreateProjectPage from "./components/projects/CreateProject/create_project_page";
 import ShowProjectPage from "./components/projects/ShowProject/project_page";
-import EditProjectPage from "./components/projects/EditProject/mainPage/edit_project_page";
+import EditProjectPage from "./components/projects/edit-project/edit_project_page";
 
-import BasicsForm from "./components/projects/EditProject/basics/basics_form";
-import RewardForm from "./components/projects/EditProject/rewards/add_reward_form";
+import BasicsForm from "./components/projects/edit-project/basics/basics_form";
+import RewardForm from "./components/projects/edit-project/rewards/add_reward_form";
 
 import SearchBar from "./components/search/search_bar";
 
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <Router history={hashHistory}>
 
         <Route path="/" component={Root} >
-          <IndexRoute component={MainPage} />
+          <IndexRoute component={HomePage} />
 
           <Route path="login"  component={LoginForm} />
           <Route path="signup" component={SignUpForm} />
@@ -67,16 +67,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <Route path="start" component={CreateProjectPage} />
 
-          <Route path="projects/:id" component={ShowProjectPage}>
+          <Route path="projects/:id"  component={ShowProjectPage}>
             <Route path="edit" component={EditProjectPage}>
               <Route path="basics" component={BasicsForm} />
               <Route path="rewards" component={RewardForm} />
             </Route>
           </Route>
 
-
-
         </Route>
+
       </Router>
     </Provider>,
     rootDOMElement);

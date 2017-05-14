@@ -11,9 +11,10 @@ const mapDispatchToProps = dispatch => {
 
 class SaveBar extends React.Component {
 
-  // this.props.project  --> Passed form parent BasicsForm component
+  // this.props.project  --> Passed from parent BasicsForm component
 
   constructor(props) {
+    debugger
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -22,7 +23,7 @@ class SaveBar extends React.Component {
     event.preventDefault();
     const { project } = this.props;
     const id = project.id;
-    
+
     this.props.updateProject(project)
               .then(updatedProject => {
                 hashHistory.push(`/projects/${id}`);

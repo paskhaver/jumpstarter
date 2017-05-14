@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter, hashHistory } from "react-router";
-import { editProject, fetchProject } from "./../../../../util/project_api_util";
-import { clearErrors, receiveErrors } from "./../../../../actions/error_actions";
+import { editProject, fetchProject } from "./../../../util/project_api_util";
+import { clearErrors, receiveErrors } from "./../../../actions/error_actions";
 
 import Menu from "./menu";
 
