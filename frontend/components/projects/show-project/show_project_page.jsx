@@ -4,24 +4,20 @@ import { Link, hashHistory } from 'react-router';
 import { fetchProject } from "./../../../actions/project_actions";
 import { fetchProfilePicture } from "./../../../util/profile_picture_api_util";
 
-import YouTube from "react-youtube";
 import AJAXLoader from "./../../ajax-loader/ajax_loader";
+import YouTube from "react-youtube";
 import RewardSidebarIndex from "./reward_sidebar_index";
 import Footer from "./../../footer/footer";
 
-const mapStateToProps = (state) => {
-  return {
-    currentUser: state.session.currentUser,
-    project: state.project,
-    rewards: state.rewards
-  };
-};
+const mapStateToProps = state => ({
+  currentUser: state.session.currentUser,
+  project: state.project,
+  rewards: state.rewards
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchProject: (projectId) => { return dispatch(fetchProject(projectId)); },
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  fetchProject: projectId => (dispatch(fetchProject(projectId))),
+});
 
 
 class ProjectPage extends React.Component {
@@ -75,27 +71,19 @@ class ProjectPage extends React.Component {
   }
 
   generateVideoOptions() {
-    return {
-        height: "100%",
-        width: "100%",
-        playerVars: { autoplay: 0 }
-      };
+    return { height: "100%", width: "100%", playerVars: { autoplay: 0 }};
   }
 
   chooseYouTubeVideoID() {
     const videoIDs = ["FzKppEZ7sfs", "MXKEccRiMeQ", "ARe9FupzuOA",
                       "UtVjRG7PB_4", "KM2K7sV-K74", "YkTHtWX7CCY",
                       "7zkX6kfnWbk"];
+
     return videoIDs[Math.floor(Math.random() * videoIDs.length)];
   }
 
   render() {
-
-    // Load nested children (edit pages) if it's a nested route
-    if (this.props.children) {
-      return this.props.children;
-    }
-
+    
     // Load AJAX loader (cube transition) if fetching data from DB
     if (this.state.loading) {
       return <AJAXLoader />;
@@ -106,7 +94,7 @@ class ProjectPage extends React.Component {
 
     if (this.props.currentUser) {
       editButton = this.props.currentUser.id === this.props.project.creator_id ?
-                   (<button onClick={ this.handleRedirectToEdit }>Edit This Project</button>) :
+                   (<button onClick={ this.handleRedirectToEdit }>Edit Your Project</button>) :
                    "";
     }
 
