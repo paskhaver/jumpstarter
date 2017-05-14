@@ -14,7 +14,6 @@ class SaveBar extends React.Component {
   // this.props.project  --> Passed from parent BasicsForm component
 
   constructor(props) {
-    debugger
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }

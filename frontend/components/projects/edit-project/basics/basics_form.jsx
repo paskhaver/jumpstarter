@@ -1,68 +1,56 @@
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 import { fetchProject } from "../../../../actions/project_actions";
 
 import AJAXLoader from "./../../../ajax-loader/ajax_loader";
 import BasicsHeader from "./basics_header";
+import Question from "./question";
 import BasicsSidebar from "./basics_sidebar";
 import SaveBar from "./save_bar";
 
 const mapStateToProps = state => ({
-  project: state.project,
-  rewards: state.rewards
+  project: state.project
 });
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     fetchProject: projectId => { return dispatch(fetchProject(projectId)); }
-//   };
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchProject: projectId => { return dispatch(fetchProject(projectId)); }
+  };
+};
 
 class BasicsForm extends React.Component {
 
   constructor(props) {
     super(props);
-    const { title, description, blurb, category,
-            end_date, funding_goal } = props.project;
     this.state = {
       loading: true,
-      title, description, blurb, category, end_date, funding_goal
+      project: {}
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { title, description, blurb, category,
-            end_date, funding_goal, id } = nextProps.project;
-    this.setState({
-      loading: false,
-      title, description, blurb, category, end_date, funding_goal
-    });
+  componentDidMount() {
+    const { id } = this.props.params;
+    this.props.fetchProject(id)
+              .then(project => {
+                this.setState({ loading: false, project });
+              });
   }
 
   handleEdit(field) {
     return event => {
-      this.setState({
-        [field]: event.target.value
-      });
+      event.preventDefault();
+      const project = Object.assign(this.state.project);
+      project[field] = event.target.value;
+      this.setState({ project });
     };
   }
-
-  wrapProject() {
-    const { title, description, blurb, category,
-            end_date, funding_goal, id } = this.state;
-    return {
-      project: {
-        title, description, blurb, category, end_date,
-        funding_goal, id
-      }
-    };
-  }
-
 
   render() {
     if (this.state.loading) { return <AJAXLoader />; }
+
     const { title, description, blurb,
-            category, end_date, funding_goal } = this.state;
+            category, end_date, funding_goal } = this.state.project;
 
     return (
 
@@ -74,9 +62,7 @@ class BasicsForm extends React.Component {
             <div className="basics-main-content">
 
               <div className="question-box">
-                <div className="question">
-                  <p>Project title</p>
-                </div>
+                <Question text={"Project title"} />
 
                 <div className="answer">
                   <input type="text"
@@ -90,9 +76,7 @@ class BasicsForm extends React.Component {
               </div>
 
               <div className="question-box">
-                <div className="question">
-                  <p>Description</p>
-                </div>
+                <Question text={"Description"} />
 
                 <div className="answer">
                   <textarea
@@ -104,9 +88,7 @@ class BasicsForm extends React.Component {
               </div>
 
               <div className="question-box">
-                <div className="question">
-                  <p>Short blurb</p>
-                </div>
+                <Question text={"Short blurb"} />
 
                 <div className="answer">
                   <textarea
@@ -118,9 +100,7 @@ class BasicsForm extends React.Component {
               </div>
 
               <div className="question-box">
-                <div className="question">
-                  <p>Category</p>
-                </div>
+                <Question text={"Category"} />
 
                 <div className="answer">
                   <select onChange={this.handleEdit("category")}
@@ -134,9 +114,7 @@ class BasicsForm extends React.Component {
               </div>
 
               <div className="question-box">
-                <div className="question">
-                  <p>End date</p>
-                </div>
+                <Question text={"End date"} />
 
                 <div className="answer">
                   <input type="date"
@@ -150,9 +128,7 @@ class BasicsForm extends React.Component {
               </div>
 
               <div className="question-box">
-                <div className="question">
-                  <p>Funding goal</p>
-                </div>
+                <Question text={"Funding goal"} />
 
                 <div className="answer">
                   <input type="text"
@@ -177,11 +153,11 @@ class BasicsForm extends React.Component {
 
         </div>
 
-      <SaveBar project={this.wrapProject()} />
+      <SaveBar project={this.state.project} />
       </div>
     );
   }
 
 }
 
-export default connect(mapStateToProps)(BasicsForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BasicsForm));

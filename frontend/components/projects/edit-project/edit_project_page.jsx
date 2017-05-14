@@ -43,7 +43,7 @@ class EditProjectPage extends React.Component {
     return (
       <div className="edit-project-page-background">
         <Menu />
-          { this.props.children}
+          { this.props.children }
       </div>
     );
   }
