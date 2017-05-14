@@ -99,8 +99,6 @@ class CreateProjectForm extends React.Component {
     if (title === "") { errors.push("Please enter a valid title"); }
     if (residence === "Select your country") { errors.push("Please select a valid country"); }
 
-    debugger
-
     if (errors.length === 0) {
       hasErrors = false;
     } else {
