@@ -21,11 +21,9 @@ class RewardBox extends React.Component {
   // this.props.reward.delivery_date
   // this.props.reward.max_backers
 
-  // this.props.updateReward(reward)
-
   constructor(props) {
     super(props);
-    this.state = this.props.reward;
+    this.state        = this.props.reward;
     this.handleEdit   = this.handleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -113,7 +111,5 @@ class RewardBox extends React.Component {
     );
   }
 }
-
-
 
 export default withRouter(connect(null, mapDispatchToProps)(RewardBox));

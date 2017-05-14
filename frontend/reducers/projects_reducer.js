@@ -28,11 +28,6 @@ const ProjectReducer = (state = nullProject, action) => {
       delete newProject.rewards;
       return newProject;
 
-    case RECEIVE_REWARD:
-      newProject = merge({}, state);
-      newProject.rewards.push(action.reward);
-      return newProject;
-
     case RECEIVE_PLEDGE:
       newProject = merge({}, state);
       newProject.amount_raised += action.pledge.amount;

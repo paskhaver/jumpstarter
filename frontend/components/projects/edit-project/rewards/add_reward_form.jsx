@@ -7,23 +7,25 @@ import RewardBox from "./reward_box";
 import RewardsSidebar from "./rewards-sidebar";
 
 const mapStateToProps = state => {
-  return {
-    rewards: state.rewards
-  };
+  return { rewards: state.rewards };
 };
 
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getRewardsForProject: projectId => (dispatch(getRewardsForProject(projectId)))
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  getRewardsForProject: projectId => (dispatch(getRewardsForProject(projectId)))
+});
 
 class AddRewardForm extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = { rewards: {} };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.rewards !== nextProps.rewards) {
+      const { rewards } = nextProps;
+      this.setState({ rewards });
+    }
   }
 
   componentDidMount() {
@@ -82,7 +84,7 @@ class AddRewardForm extends React.Component {
             </div>
             <RewardsSidebar />
           </div>
-          
+
         </div>
       </div>
     );

@@ -14,7 +14,7 @@ function Menu(props) {
       <ul className="edit-project-page-menu-ul">
         <MenuListItem url={basicsURL} text={"Basics"} />
         <MenuListItem url={rewardsURL} text={"Rewards"} />
-        <MenuListItem url={previewURL} text={"View Projects"} />
+        <MenuListItem url={previewURL} text={"View Project"} />
       </ul>
     </nav>
   );

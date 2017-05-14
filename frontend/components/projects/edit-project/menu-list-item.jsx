@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router";
 
 function MenuListItem(props) {
-
   const { url, text } = props;
   return (
     <li className="edit-project-page-menu-item">
@@ -13,7 +12,6 @@ function MenuListItem(props) {
       </Link>
     </li>
   );
-
 }
 
 export default MenuListItem;
