@@ -8,6 +8,11 @@
 
 ActiveRecord::Base.transaction do
 
+  User.destroy_all
+  Project.destroy_all
+  Reward.destroy_all
+  Pledge.destroy_all
+
   title_options = ["startup", "cookbook", "fashion item",
                    "film", "album", "novel", "video game", "artistic endeavor",
                   "charity", "political candidacy", "vacation", "meal",
@@ -27,20 +32,30 @@ ActiveRecord::Base.transaction do
                  "Norway", "Singapore", "Spain", "Sweden", "Switzerland",
                  "United Kingdom", "United States"]
 
-  blurb = ""
-
   description = "Hi good people, I'm launching a Jumpstarter for my cool
   new project. I'd greatly appreciate all the support I can get. Check
   out the rewards on the right and click on any of them to donate to the
   project. Make sure you're logged in. Afterwards, watch as my amount
   raised climbs up and up. Hooray!"
 
-  User.destroy_all
-  Project.destroy_all
-  Reward.destroy_all
-  Pledge.destroy_all
-
   user1 = User.create(name: "Guest", email: "guest@example.com", password: "password")
+  Project.create(title: "Dice Dice Baby", category: "Games", creator: user1,
+                 residence: residencies.sample, funding_goal: 10000,
+                 blurb: "An exciting new board game from the creator of Shamwow",
+                 description: description,
+                 end_date: "2017-12-31")
+
+  Project.create(title: "Friday the 13th", category: "Technology", creator: user1,
+                  residence: residencies.sample, funding_goal: 5000000,
+                  blurb: "A remake of the classic slasher flick",
+                  description: description,
+                  end_date: "2017-09-15")
+
+  Project.create(title: "Tomcar", category: "Film", creator: user1,
+                 residence: residencies.sample, funding_goal: 1000000,
+                 blurb: "A powerful utility vehicle for suburban supermarket visits",
+                 description: description,
+                 end_date: "2017-10-31")
 
   500.times do
     User.create(name: Faker::Name.name,
@@ -48,7 +63,7 @@ ActiveRecord::Base.transaction do
                 password: Faker::Internet.password)
   end
 
-  250.times do
+  247.times do
     Project.create(title: "Help fund my #{title_options.sample}",
                    category: categories.sample,
                    creator: User.order("RANDOM()").first,

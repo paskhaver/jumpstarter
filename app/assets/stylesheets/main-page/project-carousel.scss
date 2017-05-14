@@ -40,6 +40,7 @@
   }
 
   button {
+    cursor: pointer;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -51,5 +52,13 @@
     background-color: #25CB68;
     border-radius: 6px;
     color: #ffffff;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  button:hover {
+    background-color: #05AF3C;
   }
 }
