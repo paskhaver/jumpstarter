@@ -13,16 +13,14 @@ import HomePage from "./components/home-page/home-page";
 import LoginForm from "./components/users/login_form";
 import SignUpForm from "./components/users/sign_up_form";
 
-import CreateProjectPage from "./components/projects/CreateProject/create_project_page";
-import ShowProjectPage from "./components/projects/ShowProject/project_page";
+import CreateProjectPage from "./components/projects/create-project/create_project_page";
+import ShowProjectPage from "./components/projects/show-project/project_page.jsx";
 import EditProjectPage from "./components/projects/edit-project/edit_project_page";
 
 import BasicsForm from "./components/projects/edit-project/basics/basics_form";
 import RewardForm from "./components/projects/edit-project/rewards/add_reward_form";
 
 import SearchBar from "./components/search/search_bar";
-
-
 
 import * as CategoryActions from "./actions/category_actions";
 
@@ -59,10 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <Route path="search" component={SearchBar} />
 
-          <Route path="explore" component={CategoriesIndex} >
-
-          </Route>
-
+          <Route path="explore" component={CategoriesIndex} />
           <Route path="explore/:category" component={CategoryPage} />
 
           <Route path="start" component={CreateProjectPage} />
