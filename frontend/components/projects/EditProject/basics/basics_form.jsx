@@ -3,16 +3,12 @@ import { connect } from "react-redux";
 import { fetchProject } from "../../../../actions/project_actions";
 
 import AJAXLoader from "./../../../ajax-loader/ajax_loader";
+import BasicsSidebar from "./basics_sidebar";
 import SaveBar from "./save_bar";
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = state => ({});
 
-  };
-};
-
-
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     fetchProject: projectId => { return dispatch(fetchProject(projectId)); }
   };
@@ -26,16 +22,15 @@ class BasicsForm extends React.Component {
   }
 
   componentDidMount() {
-    const projectId = this.props.params.id;
-    this.props.fetchProject(projectId)
+    const { id } = this.props.params;
+    this.props.fetchProject(id)
               .then(project => {
-                this.setState({ loading: false});
-                this.setState(project);
+                this.setState({ loading: false, project});
               });
   }
 
   handleEdit(field) {
-    return (event) => {
+    return event => {
       this.setState({
         [field]: event.target.value
       });
@@ -44,15 +39,11 @@ class BasicsForm extends React.Component {
 
 
   render() {
-
-    if (this.state.loading) {
-      return <AJAXLoader />;
-    }
+    if (this.state.loading) { return <AJAXLoader />; }
 
     return (
 
       <div>
-
         <div className="basics">
 
           <div className="basics-header">
@@ -62,17 +53,6 @@ class BasicsForm extends React.Component {
 
           <div className="basics-form">
             <div className="basics-main-content">
-
-              <div className="question-box">
-                <div className="question">
-                  <p>Project image</p>
-                </div>
-
-                <div className="answer">
-                  <input type="file" />
-                  <p>This is the first thing that people will see when they come across your project. Choose an image that’s crisp and text-free. Here are some tips.</p>
-                </div>
-              </div>
 
               <div className="question-box">
                 <div className="question">
@@ -172,12 +152,7 @@ class BasicsForm extends React.Component {
 
             </div>
 
-            <div className="basics-sidebar">
-              <h5>Need advice?</h5>
-              <p>Ahoy handsomely scuttle tender reef sails walk the plank warp brigantine Nelsons folly sutler. Cat o'nine tails tackle scurvy gun rum ye flogging sutler maroon hang the jib. Jack Ketch matey Jolly Roger warp chase prow Blimey bilge crow's nest transom.</p>
-              <p>Bring a spring upon her cable Nelsons folly fathom spanker pressgang spike ye quarter clap of thunder matey. Spanish Main long boat dance the hempen jig sloop heave down grog draft weigh anchor loaded to the gunwalls lugger. Quarter parrel furl sheet landlubber or just lubber trysail transom dance the hempen jig gangway cackle fruit.</p>
-              <p>Scallywag stern bounty sheet measured fer yer chains parley American Main topmast Shiver me timbers list. Sloop line Privateer sutler lugger transom yardarm fore American Main chantey. Walk the plank splice the main brace Blimey me line mizzen fire ship scuppers log tackle.</p>
-            </div>
+            <BasicsSidebar />
 
           </div>
 

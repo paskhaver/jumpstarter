@@ -10,7 +10,7 @@ The app operates as follows:
   - Users attach limited **rewards** to the projects, each with a mimimum pledge amount
   - Other users make **pledges** to the project and receive the rewards in exchange for their financial support.
 
-The Jumpstarter app can be found [here](https://aa-jumpstarter.herokuapp.com/)/
+The Jumpstarter app can be found [here](https://aa-jumpstarter.herokuapp.com/).
 
 ## Features
 
