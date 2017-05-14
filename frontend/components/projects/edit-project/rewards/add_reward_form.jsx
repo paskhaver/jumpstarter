@@ -1,9 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 import { getRewardsForProject } from "./../../../../actions/reward_actions";
 
 import RewardBox from "./reward_box";
 import RewardsSidebar from "./rewards-sidebar";
+
+const mapStateToProps = state => {
+  return {
+    rewards: state.rewards
+  };
+};
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getRewardsForProject: projectId => (dispatch(getRewardsForProject(projectId)))
+  };
+};
 
 class AddRewardForm extends React.Component {
 
@@ -13,35 +27,39 @@ class AddRewardForm extends React.Component {
   }
 
   componentDidMount() {
+    const { id } = this.props.params;
+    this.props.getRewardsForProject(id)
+        .then(rewards => { this.setState({ rewards }); });
+  }
 
-    const projectId = this.props.params.id;
-    this.props.getRewardsForProject(projectId)
-        .then(rewards => {
-          this.setState({ rewards });
-        });
+  createBoxesForExistingRewards() {
+    const existingRewards = Object.values(this.state.rewards);
+
+    return existingRewards.map((reward, idx) => {
+      return <RewardBox key={idx}
+                        reward={reward}
+                        responsibility={"Update Reward"} />;
+    });
+  }
+
+  createBoxesForNewRewards() {
+    const project_id = this.props.params.id;
+    const emptyReward = { project_id, title: "", description: "",
+                          pledge_amount: "", max_backers: "",
+                          delivery_date: ""};
+
+    return [0, 1, 2].map(number => {
+      return <RewardBox key={number}
+                        reward={emptyReward}
+                        responsibility={"Create Reward"}/>;
+    });
+
   }
 
   render() {
 
-    const existingRewards = Object.values(this.state.rewards).map((reward, idx) => {
-      return <RewardBox key={idx}
-                        reward={reward}
-                        rewardNumber={idx + 1}
-                        responsibility={"Update Reward"} />;
-    });
-
-    const project_id = this.props.params.id;
-    const emptyReward = { project_id, title: "", description: "", pledge_amount: "", max_backers: "", delivery_date: ""};
-
-    const nextRewardNumber = existingRewards.length + 1;
-    const newRewardNumbers = [nextRewardNumber, nextRewardNumber + 1,nextRewardNumber + 2];
-    const newRewards = newRewardNumbers.map(number => {
-      return <RewardBox key={number}
-                        reward={emptyReward}
-                        rewardNumber={number}
-                        responsibility={"Create Reward"}/>;
-    });
-
+    const existingRewards = this.createBoxesForExistingRewards();
+    const newRewards      = this.createBoxesForNewRewards();
 
     return (
       <div>
@@ -49,43 +67,26 @@ class AddRewardForm extends React.Component {
 
           <div className="rewards-header">
             <h2>Set your rewards and shipping costs.</h2>
-            <p>Invite backers to be a part of the creative experience by offering rewards like a copy of what you’re making, a special experience, or a behind-the-scenes look into your process.</p>
+            <p>Invite backers to be a part of the creative experience
+               by offering rewards like a copy of what you’re making,
+               a special experience, or a behind-the-scenes look into
+               your process.</p>
           </div>
 
           <div className="rewards-form">
-
             <div className="rewards-main-content">
               <ul>
                 {existingRewards}
                 {newRewards}
               </ul>
-
             </div>
-
             <RewardsSidebar />
-
           </div>
-
+          
         </div>
-
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-
-  };
-};
-
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getRewardsForProject: (projectId) => {
-      return dispatch(getRewardsForProject(projectId));
-    }
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddRewardForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddRewardForm));
