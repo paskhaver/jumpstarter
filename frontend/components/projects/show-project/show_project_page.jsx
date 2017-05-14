@@ -83,11 +83,8 @@ class ProjectPage extends React.Component {
   }
 
   render() {
-    
-    // Load AJAX loader (cube transition) if fetching data from DB
-    if (this.state.loading) {
-      return <AJAXLoader />;
-    }
+
+    if (this.state.loading) { return <AJAXLoader />; }
 
     // editButton only appears if the project creator is the current user
     let editButton = "";

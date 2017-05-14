@@ -1,4 +1,5 @@
 import { RECEIVE_REWARDS, RECEIVE_REWARD, REMOVE_REWARD } from "./../actions/reward_actions";
+// import { RECEIVE_PLEDGE } from "./../actions/pledge_actions";
 import { merge } from "lodash";
 
 const RewardsReducer = (state = {}, action) => {

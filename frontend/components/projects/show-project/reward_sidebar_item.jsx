@@ -24,24 +24,27 @@ class RewardSidebarItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    const remaining_pledges = this.props.reward.max_backers - this.props.reward.pledge_count;
-    this.state = { remaining_pledges };
+  }
+
+  userIsLoggedOut() {
+    const { currentUser } = this.props;
+    if (!currentUser) {
+      this.props.clearErrors();
+      this.props.receiveErrors(["You must be a user to pledge to a project"]);
+      hashHistory.push("/signup");
+    }
+  }
+
+  noMorePledgesAllowed() {
+    const { max_backers, pledge_count } = this.props.reward;
+    const remainingBackers = max_backers - pledge_count;
+    return remainingBackers <= 0;
   }
 
   handleClick(event) {
     event.preventDefault();
-
-    if (!this.props.currentUser) {
-      this.props.clearErrors();
-      this.props.receiveErrors(["You must be a user to pledge to a project"]);
-      hashHistory.push("/signup");
-      return;
-    }
-
-    // Add alert / CSS to alert user that they can no longer pledge
-    if (this.state.remaining_pledges <= 0) {
-      this.props.receiveErrors(["That reward is exhausted."]);      return;
-    }
+    if (this.userIsLoggedOut()) { return; }
+    if (this.noMorePledgesAllowed()) { return; }
 
     const user_id = this.props.currentUser.id;
     const project_id = this.props.params.id;
@@ -49,14 +52,14 @@ class RewardSidebarItem extends React.Component {
     const pledge = { user_id, reward_id, project_id };
     createPledge(pledge);
 
-    const remaining_pledges = this.state.remaining_pledges - 1
-    this.setState({ remaining_pledges });
-
     pledge.amount = this.props.reward.pledge_amount;
     this.props.receivePledge(pledge);
   }
 
   render() {
+
+    const remaining_backers = this.props.reward.max_backers - this.props.reward.pledge_count;
+
     return (
       <li onClick={this.handleClick}
           className="reward-sidebar-list-item">
@@ -75,7 +78,7 @@ class RewardSidebarItem extends React.Component {
           </span>
 
           <span className="pledge-limit">
-            Limited ({this.state.remaining_pledges} left of {this.props.reward.max_backers})
+            Limited ({remaining_backers} of {this.props.reward.max_backers})
           </span>
 
 
