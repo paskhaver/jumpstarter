@@ -60,8 +60,8 @@ class BasicsForm extends React.Component {
 
           <div className="basics-form">
             <div className="basics-main-content">
-
               <div className="question-box">
+
                 <Question text={"Project title"} />
 
                 <div className="answer">
@@ -121,9 +121,9 @@ class BasicsForm extends React.Component {
                          onChange={this.handleEdit("end_date")}
                          value={end_date}>
                   </input>
-                  <p>
-                    Projects with shorter durations have higher success rates. You won’t be able to adjust your duration after you launch.
-                    </p>
+                  <p>Projects with shorter durations have higher success
+                     rates. You won’t be able to adjust your duration
+                     after you launch.</p>
                 </div>
               </div>
 
@@ -133,13 +133,23 @@ class BasicsForm extends React.Component {
                 <div className="answer">
                   <input type="text"
                          onChange={this.handleEdit("funding_goal")}
-                         value={funding_goal} >
+                         value={funding_goal}>
                   </input>
                   <p>
-                    Funding on Kickstarter is all-or-nothing. It’s okay to raise more than your goal, but if your goal isn’t met, no money will be collected. Your goal should reflect the minimum amount of funds you need to complete your project and send out rewards, and include a buffer for payments processing fees.</p>
+                    Funding on Jumpstarter is all-or-nothing. It’s okay
+                    to raise more than your goal, but if your goal isn’t
+                   met, no money will be collected. Your goal should
+                   reflect the minimum amount of funds you need to
+                   complete your project and send out rewards, and
+                   include a buffer for payments processing fees.
+                 </p>
 
                   <p>
-                    If your project is successfully funded, the following fees will be collected from your funding total: Kickstarter’s 5% fee, and payment processing fees (between 3% and 5%). If funding isn’t successful, there are no fees.
+                    If your project is successfully funded, the following
+                    fees will be collected from your funding total:
+                    Jumpstarter’s 5% fee, and payment processing fees
+                    (between 3% and 5%). If funding isn’t successful,
+                    there are no fees.
                   </p>
 
                 </div>

@@ -87,8 +87,6 @@
 
       .answer {
         width: 450px;
-        // background-color: yellow;
-
         display: flex;
         flex-direction: column;
 
@@ -97,16 +95,11 @@
         }
 
         input {
+          width: 420px;
           cursor: pointer;
           padding-left: 10px;
           margin-top: 10px;
           margin-right: 10px;
-          width: 450px;
-        }
-
-        input[type="file"] {
-          border: 1px dashed rgb(88, 107, 233);
-          height: 114px;
         }
 
         input[type="text"] {
@@ -130,6 +123,7 @@
         }
 
         textarea {
+          width: 420px;
           height: 70px;
           border-radius: 6px;
           border: 1px solid rgb(218, 215, 212);
@@ -138,9 +132,10 @@
         }
 
         select {
+          box-sizing: border-box;
+          width: 420px;
           height: 40px;
           margin-top: 10px;
-          // margin-right: 10px;
           background-color: #ffffff;
           font-size: 14px;
         }
