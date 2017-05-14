@@ -26,7 +26,11 @@ class Project < ApplicationRecord
   end
 
   def percent_funded
-    ((self.amount_raised.to_f / self.funding_goal) * 100).round(1)
+    if self.funding_goal.nil?
+      0
+    else
+      ((self.amount_raised.to_f / self.funding_goal) * 100).round(1)
+    end
   end
 
   def days_remaining
