@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const SearchResultItem = ({ project }) => {
 
-  // debugger;
+  // debugger
 
   return (
     <div className="search-result-item">
