@@ -20,26 +20,27 @@ class CreateProjectForm extends React.Component {
   }
 
   generateCategoriesList() {
-    const categories = ["Art", "Comics", "Crafts", "Dance", "Design", "Fashion",
-                        "Film & Video", "Food", "Games", "Journalism", "Music",
-                        "Photography", "Publishing", "Technology", "Theater"];
+    const categories = ["Art", "Comics", "Crafts", "Dance", "Design",
+    "Fashion", "Film & Video", "Food", "Games", "Journalism", "Music",
+    "Photography", "Publishing", "Technology", "Theater"];
 
     return categories.map(category => {
       return (
         <li key={category}
-                 onClick={ this.handleModalClick("category") }>
-                  {category}
-        </li>);
+            onClick={ this.handleModalClick("category") }>
+          {category}
+        </li>
+      );
     });
-
   }
 
   generateResidenciesList() {
 
-    const residencies = ["Australia", "Austria", "Belgium", "Canada", "Denmark",
-                         "France", "Germany", "Hong Kong", "Ireland", "Italy",
-                         "Luxembourg", "Mexico", "Netherlands", "New Zealand",
-                         "Norway", "Singapore", "Spain", "Sweden", "Switzerland", "United Kingdom", "United States"];
+    const residencies = ["Australia", "Austria", "Belgium", "Canada",
+    "Denmark", "France", "Germany", "Hong Kong", "Ireland", "Italy",
+    "Luxembourg", "Mexico", "Netherlands", "New Zealand", "Norway",
+    "Singapore", "Spain", "Sweden", "Switzerland", "United Kingdom",
+    "United States"];
 
     return residencies.map(residence => {
       return (
@@ -53,11 +54,15 @@ class CreateProjectForm extends React.Component {
 
   handleModalClick(field) {
      return (event) => {
-
-      let stateModal = (field === "residence") ? "residencyModalStatus" : "categoryModalStatus";
-      const nextDisplay = this.state[stateModal] === "none" ? "block" : "none";
-
       event.preventDefault();
+
+      let stateModal = (field === "residence") ?
+                        "residencyModalStatus" :
+                        "categoryModalStatus";
+
+      const nextDisplay = this.state[stateModal] === "none" ?
+                          "block" : "none";
+
       this.setState({
         [field]: event.target.textContent,
         [stateModal]: nextDisplay
@@ -68,7 +73,8 @@ class CreateProjectForm extends React.Component {
   handleSpanClick(field) {
     return (event) => {
       event.preventDefault();
-      const nextDisplay = this.state[field] === "none" ? "block" : "none";
+      const nextDisplay = this.state[field] === "none" ?
+                          "block" : "none";
 
       this.setState({
         [field]: nextDisplay
@@ -84,29 +90,20 @@ class CreateProjectForm extends React.Component {
   }
 
   checkForErrors() {
-
     this.props.clearErrors();
 
     const { category, title, residence } = this.state;
-    let hasErrors = false;
-    let errors = [];
+    let hasErrors = true, errors = [];
 
-    if (category === "Select a category") {
-      errors.push("Please select a valid category");
-      hasErrors = true;
-    }
+    if (category === "Select a category") { errors.push("Please select a valid category"); }
+    if (title === "") { errors.push("Please enter a valid title"); }
+    if (residence === "Select your country") { errors.push("Please select a valid country"); }
 
-    if (title === "") {
-      errors.push("Please enter a valid title");
-      hasErrors = true;
-    }
+    debugger
 
-    if (residence === "Select your country") {
-      errors.push("Please select a valid country");
-      hasErrors = true;
-    }
-
-    if (hasErrors) {
+    if (errors.length === 0) {
+      hasErrors = false;
+    } else {
       this.props.receiveErrors(errors);
     }
 
@@ -117,20 +114,17 @@ class CreateProjectForm extends React.Component {
     event.preventDefault();
     const errors = this.checkForErrors();
 
-    // If no errors exist on the front-end
+    // If no errors exist on the front-end and the user is logged in
     if (!errors) {
-
-      let currentUser = this.props.currentUser;
-      // If a user is logged in...
+      const { currentUser } = this.props;
       if (currentUser) {
-
-        const { category, title, residence } = this.state;
         const creator_id = currentUser.id;
+        const { category, title, residence } = this.state;
         const project = { category, title, residence, creator_id };
+
         this.props.createProject(project)
-                  .then(project => {
-                    const projectID = project.id;
-                    hashHistory.push(`/projects/${projectID}/edit/basics`);
+                  .then(newProject => {
+                    hashHistory.push(`/projects/${newProject.id}/edit/basics`);
                   });
 
       } else {
