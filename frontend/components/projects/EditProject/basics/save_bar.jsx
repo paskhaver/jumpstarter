@@ -3,15 +3,9 @@ import { connect } from "react-redux";
 import { updateProject } from "./../../../../actions/project_actions";
 import { hashHistory } from "react-router";
 
-const mapStateToProps = (state) => {
+const mapDispatchToProps = dispatch => {
   return {
-
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    updateProject: (project) => { return dispatch(updateProject(project)); }
+    updateProject: project => { return dispatch(updateProject(project)); }
   };
 };
 
@@ -26,8 +20,9 @@ class SaveBar extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const project = this.props.project;
+    const { project } = this.props;
     const id = project.id;
+    
     this.props.updateProject(project)
               .then(updatedProject => {
                 hashHistory.push(`/projects/${id}`);
@@ -35,11 +30,9 @@ class SaveBar extends React.Component {
   }
 
   render() {
-
     return (
       <div className="edit-project-page-save-bar">
         <div className="save-bar-inner-container">
-          <a>Discard changes</a>
           <button onClick={ this.handleSubmit }>Save</button>
         </div>
       </div>
@@ -47,4 +40,4 @@ class SaveBar extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SaveBar);
+export default connect(null, mapDispatchToProps)(SaveBar);

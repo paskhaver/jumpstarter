@@ -20,19 +20,6 @@ export const receiveProject = (project) => {
   };
 };
 
-// export const fetchProjects = () => (dispatch) => {
-//   return ProjectAPIUtil.fetchProjects()
-//                        .then(
-//                          projects => {
-//                            dispatch(receiveProjects(projects));
-//                            dispatch(clearErrors());
-//                          },
-//                          errors => {
-//                            dispatch(receiveErrors(errors));
-//                          }
-//                        );
-// };
-
 export const fetchProject = (projectId) => (dispatch) => {
   return ProjectAPIUtil.fetchProject(projectId)
                        .then(
@@ -65,6 +52,7 @@ export const createProject = (project) => (dispatch) => {
 };
 
 export const updateProject = (project) => (dispatch) => {
+  debugger
   return ProjectAPIUtil.updateProject(project)
                        .then(
                          updatedProject => {
@@ -76,16 +64,3 @@ export const updateProject = (project) => (dispatch) => {
                          }
                        );
 };
-
-// export const deleteProject = (projectId) => (dispatch) => {
-//   return ProjectAPIUtil.deleteProject(projectId)
-//                        .then(
-//                          deletedProject => {
-//                            dispatch(receiveProject(deletedProject));
-//                            dispatch(clearErrors());
-//                          },
-//                          errors => {
-//                            dispatch(receiveErrors(errors));
-//                          }
-//                        );
-// };

@@ -158,7 +158,7 @@ class BasicsForm extends React.Component {
 
         </div>
 
-      <SaveBar project={this.state} />
+      <SaveBar project={this.state.project} />
       </div>
     );
   }
