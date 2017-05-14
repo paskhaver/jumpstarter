@@ -1,51 +1,24 @@
 import React from "react";
-import { Link, withRouter } from "react-router";
+import { withRouter } from "react-router";
+import MenuListItem from "./menu-list-item";
 
-// withRouter grants access to this.props.params, which
-// contains information about the current route. We can
-// extract the project ID from the link for easy navigation.
+function Menu(props) {
 
-class Menu extends React.Component {
+  const projectId  = props.params.id;
+  const previewURL = `/projects/${projectId}`;
+  const basicsURL  = `${previewURL}/edit/basics`;
+  const rewardsURL = `${previewURL}/edit/rewards`;
 
-  constructor(props) {
-    super(props);
-  }
+  return (
+    <nav className="edit-project-page-menu">
+      <ul className="edit-project-page-menu-ul">
+        <MenuListItem url={basicsURL} text={"Basics"} />
+        <MenuListItem url={rewardsURL} text={"Rewards"} />
+        <MenuListItem url={previewURL} text={"View Projects"} />
+      </ul>
+    </nav>
+  );
 
-  render() {
-
-    const projectId  = this.props.params.id;
-    const basicsURL  = `/projects/${projectId}/edit/basics`;
-    const rewardsURL = `/projects/${projectId}/edit/rewards`;
-    const previewURL = `/projects/${projectId}`;
-
-    return (
-      <nav className="edit-project-page-menu">
-        <ul className="edit-project-page-menu-ul">
-
-          <li className="edit-project-page-menu-item">
-            <Link to={basicsURL}
-                  activeClassName={"edit-project-active-menu-item"}
-                  activeStyle={{color: "#2752ff"}}>
-                  Basics
-            </Link>
-          </li>
-
-          <li className="edit-project-page-menu-item">
-            <Link to={rewardsURL}
-                  activeClassName={"edit-project-active-menu-item"}
-                  activeStyle={{color: "#2752ff"}}>
-                  Rewards
-            </Link>
-          </li>
-
-          <li className="edit-project-page-menu-item">
-            <Link to={previewURL}>View Project</Link>
-          </li>
-
-        </ul>
-      </nav>
-    );
-  }
 }
 
 export default withRouter(Menu);

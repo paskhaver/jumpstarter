@@ -14,7 +14,7 @@ import LoginForm from "./components/users/login_form";
 import SignUpForm from "./components/users/sign_up_form";
 
 import CreateProjectPage from "./components/projects/create-project/create_project_page";
-import ShowProjectPage from "./components/projects/show-project/project_page.jsx";
+import ShowProjectPage from "./components/projects/show-project/show_project_page";
 import EditProjectPage from "./components/projects/edit-project/edit_project_page";
 
 import BasicsForm from "./components/projects/edit-project/basics/basics_form";
@@ -45,6 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const rootDOMElement = document.getElementById("root");
 
+  // <Route path="edit" component={EditProjectPage}>
+  //   <Route path="basics" component={BasicsForm} />
+  //   <Route path="rewards" component={RewardForm} />
+  // </Route>
+
   ReactDOM.render(
     <Provider store={store}>
       <Router history={hashHistory}>
@@ -62,11 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <Route path="start" component={CreateProjectPage} />
 
-          <Route path="projects/:id"  component={ShowProjectPage}>
-            <Route path="edit" component={EditProjectPage}>
-              <Route path="basics" component={BasicsForm} />
-              <Route path="rewards" component={RewardForm} />
-            </Route>
+          <Route path="projects/:id"  component={ShowProjectPage} />
+
+          <Route path="projects/:id/edit" component={EditProjectPage}>
+            <Route path="basics" component={BasicsForm} />
+            <Route path="rewards" component={RewardForm} />
           </Route>
 
         </Route>

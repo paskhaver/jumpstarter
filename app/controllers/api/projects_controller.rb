@@ -1,6 +1,5 @@
 class Api::ProjectsController < ApplicationController
 
-  # Validated
   def index
     @projects = Project.order("RAND()").first(6)
     render :index
@@ -15,7 +14,6 @@ class Api::ProjectsController < ApplicationController
     end
   end
 
-  # Validated
   def show
     @project = Project.includes(:creator, rewards: [:pledges])
                       .order("rewards.pledge_amount")
