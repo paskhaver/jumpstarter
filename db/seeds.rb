@@ -83,7 +83,7 @@ ActiveRecord::Base.transaction do
                   pledge_amount: rand(10..1000) / 10 * 10,
                   description: Faker::Commerce.product_name,
                   delivery_date: (random_project_end_date + rand(1...366).days),
-                  max_backers: rand(1..100) / 10 * 10
+                  max_backers: rand(20..100) / 10 * 10
                   )
   end
 
