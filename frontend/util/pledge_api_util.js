@@ -1,4 +1,4 @@
-export const createPledge = (pledge) => {
+export const createPledge = pledge => {
   const projectId = pledge.project_id;
   delete pledge.project_id;
 

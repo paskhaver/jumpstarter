@@ -1,10 +1,10 @@
 import { RECEIVE_REWARDS, RECEIVE_REWARD, REMOVE_REWARD } from "./../actions/reward_actions";
-// import { RECEIVE_PLEDGE } from "./../actions/pledge_actions";
-import { merge } from "lodash";
+import { RECEIVE_PLEDGE } from "./../actions/pledge_actions";
+import { merge, cloneDeep } from "lodash";
 
 const RewardsReducer = (state = {}, action) => {
   Object.freeze(state);
-  let newState, reward, selectedReward;
+  let newState, reward, reward_id, selectedReward;
 
   switch(action.type) {
 
@@ -21,6 +21,15 @@ const RewardsReducer = (state = {}, action) => {
       newState = merge({}, state);
       reward = action.reward;
       delete newState[reward.id];
+      return newState;
+
+    case RECEIVE_PLEDGE:
+      newState = cloneDeep(state);
+      reward_id = action.pledge.reward_id;
+      selectedReward = newState.find(rewardEl => {
+        return rewardEl.id === reward_id;
+      });
+      selectedReward.pledge_count += 1;
       return newState;
 
     default:
