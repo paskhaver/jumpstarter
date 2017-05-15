@@ -35,7 +35,6 @@ class ProjectCarousel extends React.Component {
       </Carousel>
     );
   }
-
 }
 
 export default ProjectCarousel;
