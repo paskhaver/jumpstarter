@@ -126,8 +126,6 @@ class SignUpForm extends React.Component {
     };
   }
 
-
-
   render() {
 
     const errorItems = this.props.errors.map((error, idx) => {
@@ -135,7 +133,6 @@ class SignUpForm extends React.Component {
     });
 
     return (
-
       <div>
 
       <div className="auth-grey-container">
