@@ -32,9 +32,19 @@ footer {
 
     li {
       list-style-type: none;
-      margin: 6px 0;
+      margin: 12px 0px;
       font-size: 14px;
       color: #E6E7E8;
+    }
+
+    a {
+      cursor: pointer;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #bdffa8;
     }
   }
 }
