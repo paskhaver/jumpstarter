@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter, Link } from "react-router";
+import { hashHistory, withRouter, Link } from "react-router";
 import { connect } from "react-redux";
 import { fetchCategoryProjects } from "./../../../actions/category_projects_actions";
 
@@ -41,8 +41,8 @@ class CategoryPage extends React.Component {
               });
   }
 
-  render() {
 
+  render() {
     const projectItems = this.props.projects.map((project, idx) => {
       return (
         <div className="category-project"
@@ -50,6 +50,7 @@ class CategoryPage extends React.Component {
           <Link to={`/projects/${project.id}`}>{project.title}</Link>
           <p className="byline-blurb">{project.creator}</p>
           <p className="byline-blurb">{project.blurb}</p>
+          <p className="percent-complete">Percent Complete</p>
           <progress value={project.percent_funded} max="100"></progress>
         </div>
       );

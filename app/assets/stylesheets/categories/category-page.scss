@@ -1,9 +1,8 @@
 .category-page {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   box-sizing: border-box;
   width: 1040px;
   margin: 20px auto;
-
-  // background-color: lightblue;
 
   display: flex;
   flex-direction: row;
@@ -13,17 +12,17 @@
   .category-project {
     box-sizing: border-box;
     border-radius: 6px;
-    border: 1px solid rgb(241, 238, 234);
-    // background-color: #ffffff;
+    border: 1px solid #2BDE73;
     width: 31%;
-    // height: 220px;
     margin: 18px 6px;
+    padding-top: 15px;
 
     a {
+
       box-sizing: border-box;
       padding-left: 10px;
       cursor: pointer;
-      font-size: 12px;
+      font-size: 16px;
       text-decoration: none;
       line-height: 15px;
       color: #020621;
@@ -31,24 +30,32 @@
     }
 
     .byline-blurb {
-      margin-top: 0px;
-      margin-left: 10px;
-      font-size: 12px;
+      margin: 10px 0px 0px 10px;
+      font-size: 14px;
+      line-height: 18px;
+      color: #3D3D66;
+    }
+
+    .percent-complete {
+      margin: 15px 0px 0px 10px;
+      font-size: 14px;
       line-height: 18px;
       color: #3D3D66;
     }
 
     progress {
-      margin-left: 10px;
+      margin: 0px 0px 10px 10px;
     }
 
     progress::-webkit-progress-value {
       background-color: black;
     }
 
+  }
 
-
-
+  .category-project:hover {
+    cursor: pointer;
+    background-color: #BDFFA8;
   }
 
 }
